@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Produtos</title>
+  </head>
+  <body>
+    <h1>Cadastro de Produtos em Estoque</h1>
+
+    <form class="cadastro-produto" method="post">
+      <p>Produto: <input type="text" class="nomeproduto" /></p>
+      <p>Preço (R$): <input type="text" class="precoproduto" /></p>
+      <p>Quantidade: <input type="text" class="qtdproduto" /></p>
+      <button>Cadastrar</button>
+    </form>
+
+    <h2>Produtos Cadastrados:</h2>
+    <div class="lista-produtos"></div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
