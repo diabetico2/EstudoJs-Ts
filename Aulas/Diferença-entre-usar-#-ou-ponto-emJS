@@ -1,0 +1,45 @@
+// =========================================================================
+// ? Diferença Fundamental: Seletores de ID (#) vs. Classe (.)
+// =========================================================================
+
+//--------------------------------
+// # ID (Identificador Único)
+//--------------------------------
+// * Símbolo: # (cerquilha / hashtag)
+// * Regra: Um ID deve ser **ÚNICO** em toda a página HTML. Não pode haver dois elementos com o mesmo ID.
+// * HTML: <div id="meu-id-unico"></div>
+// * CSS/JS: #meu-id-unico
+
+// ! QUANDO USAR UM ID (#):
+//   1. Para elementos principais e únicos da estrutura da página que só existem uma vez (ex: cabeçalho principal, rodapé, menu de navegação, um formulário específico).
+//   2. Quando você precisa que o JavaScript encontre *exatamente um elemento* para adicionar um comportamento específico, como no seu formulário de IMC. O formulário é único na página, então um ID faz todo o sentido.
+//   3. Para âncoras de links (ex: <a href="#secao-contato">Ir para Contato</a>).
+
+
+//--------------------------------
+// . CLASSE (Classificador / Grupo)
+//--------------------------------
+// * Símbolo: . (ponto)
+// * Regra: Uma classe pode ser usada em **VÁRIOS** elementos. Um mesmo elemento também pode ter **VÁRIAS** classes.
+// * HTML (um elemento):    <button class="btn-principal"></button>
+// * HTML (vários):         <p class="aviso"></p> <span class="aviso"></span>
+// * HTML (múltiplas classes): <button class="btn btn-principal btn-grande"></button>
+// * CSS/JS: .btn-principal
+
+// ! QUANDO USAR UMA CLASSE (.):
+//   1. Para estilizar componentes que se repetem: botões, cards, alertas, itens de uma lista, etc. Você cria um estilo para a classe ".botao" e todo elemento com essa classe ficará igual.
+//   2. Para agrupar elementos que terão o mesmo comportamento em JavaScript. Por exemplo, se você tivesse vários botões "excluir" em uma página, todos poderiam ter a classe ".btn-excluir".
+//   3. Quando você precisa aplicar múltiplos estilos a um mesmo elemento (ex: um botão que é azul E grande).
+
+
+// =========================================================================
+// RESUMO RÁPIDO:
+// =========================================================================
+// -> Use ID (#) quando o elemento for "O" único (O cabeçalho, O formulário de login).
+// -> Use CLASSE (.) quando o elemento for "UM" de vários (UM botão, UM card, UM item da lista).
+// =========================================================================
+
+// No seu código do IMC(Tarefa Aula 25, sessão 3), o erro aconteceu porque seu HTML usava 'id="formulario"' (um RG),
+// mas seu JavaScript procurava por '.formulario' (um uniforme).
+// Como nenhum elemento tinha aquele "uniforme", seu script não encontrou nada.
+// A correção foi fazer o JavaScript procurar pelo "RG" certo: '#formulario'.
