@@ -10,22 +10,29 @@ const containerLista = document.querySelector('.lista-compras');
 
 // * O loop já está pronto para você
 for (let i = 0; i < listaDeCompras.length; i++) {
-  // TODO: Complete a lógica aqui dentro
+    
+    // ? 1. Desestruture para pegar os DADOS
+    let {produto, qtd} = listaDeCompras[i]
 
-  // ? 1. Desestruture o objeto para pegar 'produto' e 'qtd'
-  //    (lembre-se: let { ... } = listaDeCompras[i])
+    // ? 2. Crie a TAG HTML que você quer.
+    //    (Para uma lista <ul>, qual tag você usa para cada item?)
+    //    * Dica: document.createElement('li');
+    let itemDaLista = document.createElement('li')
 
-  // ? 2. Crie o elemento de lista (a tag <li>)
-  //    (use document.createElement())
+    // ? 3. Crie o TEXTO que vai dentro do <li>.
+    //    (Use seus super-poderes de Template String!)
+    //    * Dica: `Produto: ${produto} (Quantidade: ${qtd})`
+    let textoDoItem = `Produto ${produto} (Quantidade ${qtd})`
+    
+    // ? 4. Crie o NÓ DE TEXTO
+    //    (Igualzinho ao main.js!)
+    //    * Dica: document.createTextNode(textoDoItem)
+    let noDeTexto = document.createTextNode(textoDoItem)
 
-  // ? 3. Crie o texto que vai dentro do <li>
-  //    (ex: "Arroz 5kg (1 unidade)")
-  //    (Dica: use template string para juntar o produto e a qtd!)
-  //    (use document.createTextNode())
-
-  // ? 4. Adicione o texto (passo 3) dentro do <li> (passo 2)
-  //    (use .appendChild())
-
-  // ? 5. Adicione o <li> (passo 2) dentro do container '.lista-compras'
-  //    (use containerLista.appendChild(...))
+    // ? 5. Coloque o TEXTO DENTRO da TAG <li>
+    //    * Dica: itemDaLista.appendChild(...)
+   itemDaLista.appendChild(noDeTexto)
+    // ? 6. Coloque a TAG <li> DENTRO do CONTAINER <ul>
+    //    * Dica: containerLista.appendChild(...)
+    containerLista.appendChild(itemDaLista)
 }

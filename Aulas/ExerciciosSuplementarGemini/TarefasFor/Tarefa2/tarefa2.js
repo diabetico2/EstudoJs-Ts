@@ -7,8 +7,7 @@ const usuarios = [
 const container = document.querySelector('.container');
 
 for (let i = 0; i < usuarios.length; i++) {
-  // ! BUG 1: A desestruturação está usando os nomes errados.
-  let { user, job } = usuarios[i];
+  let { nome, cargo } = usuarios[i];
 
   // * Criando os elementos
   let cardDiv = document.createElement('div');
@@ -22,13 +21,17 @@ for (let i = 0; i < usuarios.length; i++) {
   // ! BUG 2: O texto está sendo criado, mas não está sendo adicionado
   // !        dentro dos elementos <h3> e <p>. (Falta um appendChild aqui!)
 
-  // * Adicionando os elementos ao card
-  cardDiv.appendChild(nomeH3);
-  cardDiv.appendChild(cargoP);
+// * Adicionando os elementos ao card
+cardDiv.appendChild(nomeH3);
+cardDiv.appendChild(cargoP);
+cardDiv.appendChild(textoNome)
+cardDiv.appendChild(textoCargo)
 
-  // ! BUG 3: O 'cardDiv' está sendo criado, mas o que está sendo
-  // !        adicionado ao container? (Erro de lógica no appendChild)
-  container.appendChild(usuarios[i]);
+
+// ! BUG 3: ...
+
+document.textContent(`Usuario ${textoNome} cargo ${textoCargo}`) // ! Erro 3
+container.appendChild(cardDiv); // ! Erro 4
 
   // ! BUG 4: O card não tem a classe CSS.
   // (Dica: para adicionar uma classe, use elemento.classList.add('card'))
