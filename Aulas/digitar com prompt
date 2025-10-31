@@ -1,0 +1,5 @@
+// LINHA 1: Importa o módulo que você instalou
+import promptSync from 'prompt-sync';
+
+// LINHA 2: Executa o módulo e o atribui à palavra "prompt"
+const prompt = promptSync();
