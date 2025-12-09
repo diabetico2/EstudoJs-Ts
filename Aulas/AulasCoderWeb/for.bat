@@ -1,64 +1,66 @@
 @echo off
 chcp 65001 > nul
 echo ==================================================
-echo   TREINO NIVEL 2: ARRAYS E LOGICA
+echo   TREINO DE FATORIAL (MATEMATICA E LOGICA)
 echo ==================================================
 
-if not exist "Treino_Arrays_Nivel2" mkdir "Treino_Arrays_Nivel2"
-cd "Treino_Arrays_Nivel2"
+if not exist "Treino_Fatorial" mkdir "Treino_Fatorial"
+cd "Treino_Fatorial"
 
 if not exist "package.json" (
     echo { "type": "module" } > package.json
 )
 
-echo [1/3] Criando 1_caixa_mercado.js...
+echo [1/3] Criando 1_exemplo_fatorial.js (Entendendo a Logica)...
 (
-echo // EXERCICIO 1: O ACUMULADOR ^(QUASE PRONTO^)
-echo // Objetivo: Somar todos os valores do array 'precos' na variavel 'total'.
+echo // EXERCICIO 1: FATORIAL DE 5 ^(EXEMPLO PRONTO^)
+echo // Objetivo: Entender como o loop multiplica para tras.
 echo.
-echo const precos = [10.50, 20.00, 5.50, 100.00];
-echo let total = 0;
+echo const numero = 5;
+echo let resultado = 1; // ! IMPORTANTE: Comeca com 1, nao com 0!
 echo.
-echo for ^(let i = 0; i ^< precos.length; i++^) {
-echo     // TODO: Pegue o preco atual ^(precos[i]^) e adicione a variavel 'total'.
-echo     // Dica: total = total + ...  OU  total += ...
+echo // Vamos do 5 ate o 1, diminuindo ^(i--^)
+echo for ^(let i = numero; i ^> 1; i--^) {
+echo     console.log^(`Multiplicando ${resultado} * ${i}`^);
+echo     resultado = resultado * i;
 echo }
 echo.
-echo console.log^("O total da compra e: R$" + total^);
-) > 1_caixa_mercado.js
+echo console.log^(`O fatorial de ${numero} e: ${resultado}`^);
+) > 1_exemplo_fatorial.js
 
-echo [2/3] Criando 2_achar_maior.js...
+echo [2/3] Criando 2_erro_comum.js (Caca Bugs)...
 (
-echo // EXERCICIO 2: CACA BUGS ^(LOGICA INVERTIDA^)
-echo // Objetivo: Encontrar o MAIOR numero da lista.
-echo // Problema atual: Ele esta imprimindo o numero errado ou o menor.
+echo // EXERCICIO 2: O ERRO DO ZERO
+echo // Objetivo: Esse codigo deveria calcular o fatorial de 10.
+echo // MAS... ele esta imprimindo 0. Por que?
 echo.
-echo const numeros = [10, 50, 3, 99, 2];
-echo let maiorNumero = 0;
+echo const numero = 10;
 echo.
-echo for ^(let i = 0; i ^< numeros.length; i++^) {
-echo     // ! O BUG ESTA NESTE IF:
-echo     // Estamos querendo o MAIOR. Se o numero atual for ... que o maiorNumero, devemos trocar.
-echo     if ^(numeros[i] ^< maiorNumero^) { 
-echo         maiorNumero = numeros[i];
-echo     }
+echo // ! O BUG ESTA NA LINHA ABAIXO:
+echo let fatorial = 0; 
+echo.
+echo for ^(let i = numero; i ^> 1; i--^) {
+echo     fatorial = fatorial * i;
 echo }
 echo.
-echo console.log^("O maior numero e: " + maiorNumero^);
-) > 2_achar_maior.js
+echo console.log^(`Fatorial de 10 deveria ser 3 milhoes, mas deu: ${fatorial}`^);
+echo // DICA: Quanto e 0 vezes qualquer coisa?
+) > 2_erro_comum.js
 
-echo [3/3] Criando 3_correio.js...
+echo [3/3] Criando 3_solo_fatorial.js (Fazer sozinho)...
 (
-echo // EXERCICIO 3: SOLO ^(DO ZERO^)
-echo // Objetivo: Mandar um ola para cada pessoa da lista.
+echo // EXERCICIO 3: SOLO
+echo // Objetivo: Calcule o fatorial de 7.
+echo // Lembre-se: 7 * 6 * 5 * 4 * 3 * 2 * 1
 echo.
-echo const amigos = ["Ana", "Bia", "Carlos", "Daniel"];
+echo const numero = 7;
+echo let total = 1;
 echo.
-echo // TODO: Faca um loop que percorra a lista 'amigos'.
-echo // Em cada volta, imprima: "Ola [Nome], feliz aniversario!"
+echo // TODO: Crie o loop for aqui.
+echo // Pode fazer subindo ^(1 ate 7^) ou descendo ^(7 ate 1^), o resultado e o mesmo.
 echo.
-echo // SEU CODIGO AQUI:
-) > 3_correio.js
+echo // ESCREVA SEU CODIGO AQUI:
+) > 3_solo_fatorial.js
 
 echo.
 echo ==================================================
