@@ -1,0 +1,1 @@
+/* 15) Um homem decidiu ir a uma revenda comprar um carro. Ele deseja comprar um carro hatch, e a revenda possui, alem de carros hatch, sedans, motocicletas e caminhonetes. Utilizando uma estrutura switch, caso o comprador queira o hatch, retorne: 'Compra efetuada com sucesso'. Nas outras opcoes, retorne: 'Tem certeza que nao prefere este modelo?'. */ 

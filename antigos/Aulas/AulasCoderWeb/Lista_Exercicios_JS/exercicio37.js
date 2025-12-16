@@ -1,0 +1,1 @@
+/* 37) Escreva duas funcoes, uma para progressao aritmetica e uma para progressao geometrica que recebam como parametros um numero n (numero de termo), a1 (o primeiro termo) e r (a razao) e escreva os n termos, bem como a soma dos elementos. */ 

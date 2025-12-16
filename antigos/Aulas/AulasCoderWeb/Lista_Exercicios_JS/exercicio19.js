@@ -1,0 +1,1 @@
+/* 19) Implemente uma funcao que receba como parametros o codigo do item pedido, a quantidade e calcule o valor a ser pago por aquele lanche. Considere que a cada execucao somente sera calculado um item. Use o comando switch. */ 

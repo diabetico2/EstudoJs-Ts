@@ -1,0 +1,1 @@
+/* 35) Crie dois vetores chamados vetorPilha e vetorAdiciona. Inicialmente, o vetorPilha contera cinco elementos inteiros: [1, 2, 3, 4, 5]. Voce devera adicionar os valores contidos no vetorAdiciona [6, 7, 8, 9, 10] ao vetor pilha e mostra-los no console. */ 

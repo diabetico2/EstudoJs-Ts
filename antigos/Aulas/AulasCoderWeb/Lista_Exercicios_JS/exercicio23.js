@@ -1,0 +1,1 @@
+/* 23) Escreva um algoritmo que leia o codigo de um aluno e suas tres notas. Calcule a media ponderada do aluno, considerando que o peso para a maior nota seja 4 e para as duas restantes, 3. Mostre o codigo, notas, media e status (Aprovado/Reprovado). */ 

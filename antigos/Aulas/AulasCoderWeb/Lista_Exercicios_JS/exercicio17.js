@@ -1,0 +1,1 @@
+/* 17) Faca uma funcao que leia o plano de trabalho e o salario atual de um funcionario e calcula e imprime o seu novo salario. Use a estrutura switch e faca um caso default que indique que o plano e invalido. */ 

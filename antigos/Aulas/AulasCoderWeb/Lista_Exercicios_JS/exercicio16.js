@@ -1,0 +1,1 @@
+/* 16) Utilizando a estrutura do Switch faca um programa que simule uma calculadora basica. O programa recebe como parametros dois valores numericos e uma string referente a operacao e a realize com os valores numericos na ordem que foram inseridos. */ 

@@ -1,0 +1,1 @@
+/* 21) Criar um programa para identificar o valor a ser pago por um plano de saude dada a idade do conveniado considerando que todos pagam R$ 100 mais um adicional conforme a tabela descrita no enunciado. */ 

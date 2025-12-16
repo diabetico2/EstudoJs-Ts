@@ -1,0 +1,1 @@
+/* 38) Escreva uma funcao que receba dois parametros inicio e fim. Essa funcao deve imprimir todos os numeros impares que estao entre esses valores. Por padrao os valores devem ser 0 para inicio e 100 para fim. */ 

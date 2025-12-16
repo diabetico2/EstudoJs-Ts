@@ -1,0 +1,1 @@
+/* 13) Crie um programa que exibe se um dia e dia util, fim de semana ou dia invalido dado o numero referente ao dia. Considere que domingo e o dia 1 e sabado e o dia 7. Utilize a estrutura Switch. */ 

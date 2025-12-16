@@ -1,0 +1,1 @@
+/* 09) Construa uma funcao para um sistema de notas de uma instituicao que possui a seguinte politica de classificacao: Todo aluno recebe uma nota de 0 a 100. Alunos com nota abaixo de 40 sao reprovados. As notas possuem regra de arredondamento (verificar enunciado completo). */ 

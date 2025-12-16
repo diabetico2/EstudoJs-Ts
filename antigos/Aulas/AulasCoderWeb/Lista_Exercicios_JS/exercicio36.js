@@ -1,0 +1,1 @@
+/* 36) Crie duas funcoes que recebem dois parametros, um vetor com apenas valores numericos e um numero inteiro. Faca com que a primeira funcao retorne outro vetor que sera resultado da multiplicacao de cada elemento pelo numero passado como parametro. A segunda funcao fara o mesmo da primeira se e somente se o valor do elemento for maior que 5. */ 

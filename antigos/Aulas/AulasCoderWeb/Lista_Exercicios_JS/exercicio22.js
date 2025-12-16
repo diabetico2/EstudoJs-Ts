@@ -1,0 +1,1 @@
+/* 22) Criar uma funcao para calcular o valor a ser pago de anuidade de uma associacao. A funcao recebe como parametro um inteiro que representa o mes (1-12) que foi paga e o valor da anuidade. A anuidade deve ser paga no mes de janeiro. Por mes, e cobrado 5 por cento de juros (sob o regime de juros compostos). */ 

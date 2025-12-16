@@ -1,0 +1,1 @@
+/* 02) Os triangulos podem ser classificados em 3 tipos quanto ao tamanho de seus lados: Equilatero, Isosceles e Escaleno. Crie uma funcao que recebe os comprimentos dos tres lados de um triangulo e retorne sua classificacao quanto ao tamanho de seus lados. */ 
