@@ -1,0 +1,14 @@
+
+         h1 {
+        font-size: 20px;
+      }
+      .fundoVermelho {
+        background-color: red;
+      }
+      #textoPrincipal {
+        font-size: 40px;
+        font-weight: bold;
+        background-color: gray;
+        color: white;
+        padding: 10px;
+      }
