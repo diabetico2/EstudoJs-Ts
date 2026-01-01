@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exercício para Fazer - Consumo de Combustível</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .desafio-box {
+      background-color: #fff3e0;
+      border-left: 4px solid #ff9800;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    .desafio-box h3 {
+      margin-top: 0;
+      color: #e65100;
+    }
+    .dicas {
+      background-color: #f3e5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 40px;
+    }
+    .dicas h3 {
+      color: #6a1b9a;
+      margin-top: 0;
+    }
+    .dicas ul li {
+      margin-bottom: 8px;
+    }
+    code {
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="container">
+    <h1>🚀 Exercício para Fazer Sozinho - Consumo de Combustível</h1>
+    
+    <div class="desafio-box">
+      <h3>🎯 Seu Desafio:</h3>
+      <p>
+        Você precisa criar uma <strong>calculadora de consumo de combustível (km/l)</strong>.
+        <br><br>
+        <strong>Como funciona:</strong>
+      </p>
+      <ul>
+        <li>O usuário insere a distância que percorreu (em km)</li>
+        <li>O usuário insere quantos litros de combustível foram gastos</li>
+        <li>O programa calcula: <code>Consumo = Distância / Litros</code></li>
+        <li>O programa exibe o resultado na página</li>
+      </ul>
+    </div>
+
+    <form action="/" id="formulario-combustivel" method="POST">
+      <label for="distancia">Distância Percorrida (km)</label>
+      <input type="number" id="distancia" name="distancia" step="0.01" placeholder="Ex: 250">
+      
+      <label for="litros">Litros de Combustível Gastos (L)</label>
+      <input type="number" id="litros" name="litros" step="0.01" placeholder="Ex: 20">
+      
+      <button type="submit">Calcular Consumo</button>
+    </form>
+
+    <div id="resultado-combustivel"></div>
+
+    <div class="dicas">
+      <h3>💡 Dicas para você:</h3>
+      <p><strong>Antes de começar, leia o arquivo <code>exercicio_para_fazer.js</code></strong></p>
+      <p>Ele tem comentários com TODO mostrando exatamente o que você precisa fazer em cada parte!</p>
+      <ul>
+        <li>📍 Há 6 TODOs no arquivo indicando onde você deve colocar código</li>
+        <li>💬 Cada TODO tem uma dica explicando o que fazer</li>
+        <li>🔧 A função <code>mostrarResultado()</code> já está pronta para usar</li>
+        <li>🆘 Se tiver dúvida, consulte o <code>exercicio_guiado.js</code> para ver como fazer algo similar</li>
+      </ul>
+    </div>
+
+    <div style="background-color: #e8f5e9; padding: 15px; border-radius: 5px; margin-top: 20px;">
+      <h3>🏆 Checklist de Implementação:</h3>
+      <ul>
+        <li>☐ Selecionei o formulário com <code>querySelector()</code></li>
+        <li>☐ Adicionei <code>addEventListener('submit', ...)</code></li>
+        <li>☐ Usei <code>e.preventDefault()</code></li>
+        <li>☐ Capturei os valores dos inputs (distância e litros)</li>
+        <li>☐ Converti para números com <code>Number()</code></li>
+        <li>☐ Validei se os valores são maiores que 0</li>
+        <li>☐ Calculei o consumo: <code>consumo = distancia / litros</code></li>
+        <li>☐ Usei <code>toFixed(2)</code> para 2 casas decimais</li>
+        <li>☐ Criei uma mensagem legal com <code>template literal</code></li>
+        <li>☐ Chamei <code>mostrarResultado()</code> para exibir</li>
+      </ul>
+    </div>
+
+    <div style="background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin-top: 20px;">
+      <h3>⭐ Extra (Desafio Avançado - Opcional):</h3>
+      <p>Se você terminar e quiser um desafio:</p>
+      <ul>
+        <li>Mostre a distância e litros que foram digitados no resultado</li>
+        <li>Calcule quanto custaria percorrer 100km (peça o preço do litro de combustível)</li>
+        <li>Classifique o consumo: "Excelente" (>12), "Bom" (8-12), "Normal" (5-8), "Alto" (<5)</li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="./assets/js/exercicio_para_fazer.js"></script>
+</body>
+
+</html>
