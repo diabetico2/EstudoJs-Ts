@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exercício 3 - Conversor de Temperatura</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .desafio-box {
+      background-color: #fff3e0;
+      border-left: 4px solid #ff9800;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    .desafio-box h3 {
+      margin-top: 0;
+      color: #e65100;
+    }
+    .dicas {
+      background-color: #f3e5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 40px;
+    }
+    .dicas h3 {
+      color: #6a1b9a;
+      margin-top: 0;
+    }
+    code {
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="container">
+    <h1>🌡️ Exercício 3 - Conversor de Temperatura</h1>
+    
+    <div class="desafio-box">
+      <h3>🎯 Seu Desafio:</h3>
+      <p>
+        Criar um <strong>conversor de temperatura</strong> que transforma Celsius em Fahrenheit.
+        <br><br>
+        <strong>Como funciona:</strong>
+      </p>
+      <ul>
+        <li>O usuário insere uma temperatura em Celsius</li>
+        <li>O programa calcula a temperatura em Fahrenheit</li>
+        <li>Fórmula: <code>F = (C × 9/5) + 32</code></li>
+        <li>O programa exibe o resultado na página</li>
+      </ul>
+    </div>
+
+    <form action="/" id="formulario-temperatura" method="POST">
+      <label for="celsius">Temperatura em Celsius (°C)</label>
+      <input type="number" id="celsius" name="celsius" step="0.01" placeholder="Ex: 25">
+      
+      <button type="submit">Converter para Fahrenheit</button>
+    </form>
+
+    <div id="resultado-temperatura"></div>
+
+    <div class="dicas">
+      <h3>💡 Dicas para você:</h3>
+      <p><strong>Leia o arquivo <code>exercicio_3.js</code></strong></p>
+      <p>Ele tem comentários com TODO mostrando exatamente o que você precisa fazer!</p>
+      <ul>
+        <li>📍 Há 4 TODOs no arquivo indicando onde você deve colocar código</li>
+        <li>💬 Cada TODO tem uma dica explicando o que fazer</li>
+        <li>🔧 A função <code>mostrarResultado()</code> já está pronta para usar</li>
+        <li>🆘 Compare com os exercícios anteriores se tiver dúvida</li>
+      </ul>
+    </div>
+
+    <div style="background-color: #e8f5e9; padding: 15px; border-radius: 5px; margin-top: 20px;">
+      <h3>🏆 Checklist de Implementação:</h3>
+      <ul>
+        <li>☐ Selecionei o formulário com <code>querySelector()</code></li>
+        <li>☐ Adicionei <code>addEventListener('submit', ...)</code></li>
+        <li>☐ Usei <code>e.preventDefault()</code></li>
+        <li>☐ Capturei o valor do input (celsius)</li>
+        <li>☐ Converti para número com <code>Number()</code></li>
+        <li>☐ Validei se o valor é válido</li>
+        <li>☐ Calculei Fahrenheit: <code>(C × 9/5) + 32</code></li>
+        <li>☐ Usei <code>toFixed(2)</code> para 2 casas decimais</li>
+        <li>☐ Criei uma mensagem legal</li>
+        <li>☐ Chamei <code>mostrarResultado()</code> para exibir</li>
+      </ul>
+    </div>
+
+    <div style="background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin-top: 20px;">
+      <h3>⭐ Extra (Desafio Avançado - Opcional):</h3>
+      <p>Se você terminar e quiser um desafio maior:</p>
+      <ul>
+        <li>Faça o conversor funcionar nos DOIS sentidos (Celsius ↔ Fahrenheit)</li>
+        <li>Adicione também conversão para Kelvin (K = C + 273.15)</li>
+        <li>Classifique a temperatura: "Muito frio" (<0), "Frio" (0-15), "Morno" (15-25), "Quente" (25-35), "Muito quente" (>35)</li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="./assets/js/exercicio_3.js"></script>
+</body>
+
+</html>

@@ -1,37 +1,30 @@
-// ============================================================
-// EXERCÍCIO PARA VOCÊ FAZER SOZINHO: CONSUMO DE COMBUSTÍVEL
-// ============================================================
-// Objetivo: Criar uma calculadora que mostra quantos km/l o carro fez
-// Fórmula: Consumo (km/l) = Distância percorrida / Litros gastos
+const formularioCombustivel = document.querySelector('#formulario-combustivel');
 
-// 💡 DICA 1: Comece selecionando o formulário com querySelector
-// Procure por um id no HTML chamado 'formulario-combustivel'
-// Armazene isso em uma variável chamada 'formularioCombustivel'
+formularioCombustivel.addEventListener('submit', function(e){
+  e.preventDefault();
+  const inputdistancia = e.target.querySelector('#distancia');
+  const inputlitros = e.target.querySelector('#litros');
 
-// TODO: Código aqui - Selecione o formulário
+  const distanciaPercorrida = Number(inputdistancia.value);
+  const litrosGastos = Number(inputlitros.value);  
 
-// 💡 DICA 2: Adicione um evento 'submit' ao formulário
-// Use addEventListener, assim como no exercício anterior
-// A função dentro do addEventListener deve ter um parâmetro para o evento (ex: 'e' ou 'event')
+  if (distanciaPercorrida <= 0 || isNaN(distanciaPercorrida)){
+    mostrarResultado('Distância inválida', false);
+    return;
+  }
 
-// TODO: Código aqui - Adicione o addEventListener
+  if (litrosGastos <= 0 || isNaN(litrosGastos)){
+    mostrarResultado('Quantidade de litros inválida', false);
+    return;
+  }
 
-// 💡 DICA 3: Dentro da função do submit, faça isto:
-// - Use e.preventDefault() para evitar recarregar a página
-// - Capture os inputs com id='distancia' e id='litros'
-// - Converta os valores para números usando Number()
-// - Armazene em variáveis: distanciaPercorrida e litrosGastos
+  const consumo = distanciaPercorrida / litrosGastos;
+  const consumoFinal = consumo.toFixed(2);
+  const mensagemFinal = `Seu carro fez ${consumoFinal} km/l`;
 
-// TODO: Código aqui - Implemente as validações
+  mostrarResultado(mensagemFinal, true);
+});
 
-// 💡 DICA 4: Valide os dados
-// - Verifique se distanciaPercorrida é válida (maior que 0)
-// - Verifique se litrosGastos é válida (maior que 0)
-// - Se for inválido, chame a função mostrarResultado com a mensagem de erro
-
-// TODO: Código aqui - Calcule o consumo
-
-// 💡 DICA 5: Calcule o consumo
 // - Divida a distância pelos litros: consumo = distanciaPercorrida / litrosGastos
 // - Use toFixed(2) para arredondar em 2 casas decimais
 // - Crie uma mensagem como: 'Seu carro fez X km/l'
@@ -86,7 +79,7 @@ function mostrarResultado(mensagem, foiSucesso) {
 
 // ============================================================
 // 🎯 EXTRA (Desafio adicional - Opcional):
-// ============================================================
+// ============================================================}
 // Se você terminar e quiser um desafio:
 // - Mostre também qual foi a distância e litros digitados
 // - Calcule quanto custaria percorrer 100km (você pode pedir o preço do litro)
