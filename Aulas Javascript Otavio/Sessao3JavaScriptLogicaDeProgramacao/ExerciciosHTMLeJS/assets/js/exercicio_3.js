@@ -1,26 +1,24 @@
 const formularioTemperatura = document.querySelector("#formulario-temperatura");
 
 formularioTemperatura.addEventListener("submit", function (e) {
+
   e.preventDefault();
   const inputCelcius = e.target.querySelector("#celsius");
   const celsius = Number(inputCelcius.value);
 
-  if (!celsius) {
-    mostrarMensagem(`Por favor, insira um valor válido!`, false);
-    return;
-  }
-  const contaFahr = (celsius * 9) / 5 + 32;
+if(!celsius){
+  mostrarMensagem(`Por favor, insira um valor válido!`, false);
+  return;
+}
+const contaFahr = (celsius * 9/5) + 32
 
-  const resultado = contaFahr.toFixed(2);
-  mostrarResultado(
-    `o ${celsius} convertido para Fahrenheit é: ${resultado}`,
-    true
-  );
+const resultado = contaFahr.toFixed(2)
+const mensagemFinal = (`o ${celsius} convertido para Fahrenheit é: ${resultado}`)
 
-  mensagemFinal(mostrarResultado, true);
+mostrarMensagem(mensagemFinal, true);
 });
 
-function mostrarResultado(mensagem, foiSucesso) {
+function mostrarMensagem(mensagem, foiSucesso) {
   const containerResultado = document.querySelector("#resultado-temperatura");
   containerResultado.innerHTML = "";
   const paragrafo = document.createElement("p");
