@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tamagotchi Final</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #f0f0f0; }
+        #menu-inicial, #tela-jogo { background: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
+        button:hover { background-color: #e0e0e0; }
+        img { width: 150px; border-radius: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div id="menu-inicial">
+        <h1>🐶 Adote um Bichinho</h1>
+        <input type="text" id="input-nome" placeholder="Dê um nome para ele..." style="padding: 10px; font-size: 16px;">
+        <br><br>
+        <button id="btn-start" style="background-color: #4CAF50; color: white; border: none;">Começar Jogo!</button>
+    </div>
+
+    <div id="tela-jogo" style="display: none;">
+        <h1>👾 <span id="titulo-nome">Meu Bicho</span></h1>
+        
+        <img id="foto-bicho" src="https://media.giphy.com/media/QvBoMEcQhDQXK/giphy.gif">
+
+        <div style="margin: 20px; font-size: 20px;">
+            <p>Nome: <strong id="bicho-nome">...</strong></p>
+            <p>🍖 Fome: <span id="bicho-fome">0</span>%</p>
+            <p>😊 Felicidade: <span id="bicho-felicidade">0</span>%</p>
+        </div>
+
+        <button id="btn-alimentar">Dar Comida 🍖</button>
+        <button id="btn-brincar">Brincar ⚽</button>
+    </div>
+
+    <script>
+        // Seleção de Elementos
+        const menu = document.querySelector('#menu-inicial');
+        const jogo = document.querySelector('#tela-jogo');
+        const inputNome = document.querySelector('#input-nome');
+        const btnStart = document.querySelector('#btn-start');
+        
+        const fomeAnimal = document.querySelector("#bicho-fome");
+        const nomeAnimal = document.querySelector("#bicho-nome");
+        const tituloNome = document.querySelector("#titulo-nome");
+        const felicidaAnimal = document.querySelector("#bicho-felicidade");
+        const btnComer = document.querySelector("#btn-alimentar");
+        const btnBrincar = document.querySelector("#btn-brincar");
+        const foto = document.querySelector("#foto-bicho");
+
+        // Objeto Principal
+        let bicho = {
+            nome: "",
+            fome: 0,
+            felicidade: 100 // Começa feliz no nosso jogo final
+        };
+
+        // --- LÓGICA DO MENU ---
+        btnStart.addEventListener('click', function() {
+            if(inputNome.value === "") {
+                alert("O bichinho precisa de um nome!");
+                return;
+            }
+            // Configurações Iniciais
+            bicho.nome = inputNome.value;
+            bicho.fome = 50;       // Começa com meia fome
+            bicho.felicidade = 50; // Começa meio feliz
+            
+            // Atualiza Interface
+            nomeAnimal.innerText = bicho.nome;
+            tituloNome.innerText = bicho.nome;
+            
+            // Troca de Tela
+            menu.style.display = "none";
+            jogo.style.display = "block";
+            
+            // Atualiza tudo pela primeira vez
+            atualizarInterface();
+            
+            // Inicia o Relógio da Vida (Interval)
+            iniciarCicloDeVida();
+        });
+
+        // --- BOTÕES DE AÇÃO ---
+        btnComer.addEventListener("click", function () {
+            if (bicho.fome > 0) {
+                bicho.fome -= 10;
+                if(bicho.fome < 0) bicho.fome = 0; // Trava no 0
+                atualizarInterface();
+            } else {
+                alert("Ele vai explodir de tanto comer!");
+            }
+        });
+
+        btnBrincar.addEventListener("click", function () {
+            if (bicho.felicidade < 100) {
+                bicho.felicidade += 10;
+                if(bicho.felicidade > 100) bicho.felicidade = 100; // Trava no 100
+                atualizarInterface();
+            } else {
+                alert("Ele já está radiante de alegria!");
+            }
+        });
+
+        // --- FUNÇÃO CENTRAL (O CÉREBRO) ---
+        function atualizarInterface() {
+            // Atualiza Textos
+            fomeAnimal.innerText = bicho.fome;
+            felicidaAnimal.innerText = bicho.felicidade;
+
+            // Atualiza Imagens
+            if (bicho.felicidade >= 80) {
+                foto.src = "https://media.istockphoto.com/id/1041987488/pt/foto/cute-dog-put-his-face-on-his-knees-to-the-man-and-smiling-from-the-hands-scratching-her-ear.jpg?s=612x612&w=0&k=20&c=wukm2w7ns6lPJpX-DW3jIeWzuFNO7ZfDVrhyXCBNJIw=";
+            } else if (bicho.fome > 70) {
+                foto.src = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQsiOeMBPlowvc1LYED96hrvGez9nZ9-9EOq1KTuZ-uetRAEpAK";
+            } else {
+                foto.src = "https://img.freepik.com/fotos-gratis/retrato-de-solo-adoravel-cachorro-beagle_53876-64817.jpg?semt=ais_hybrid&w=740&q=80";
+            }
+
+            // Atualiza Cores (CSS)
+            fomeAnimal.style.color = bicho.fome > 70 ? "red" : "black";
+            felicidaAnimal.style.color = bicho.felicidade < 30 ? "red" : "black";
+        }
+
+        // --- O TEMPO PASSA ---
+        function iniciarCicloDeVida() {
+            setInterval(function () {
+                // Fome aumenta
+                if (bicho.fome < 100) {
+                    bicho.fome++;
+                }
+                // Felicidade cai
+                if (bicho.felicidade > 0) {
+                    bicho.felicidade--;
+                }
+                atualizarInterface();
+            }, 1000); // A cada 1 segundo
+        }
+    </script>
+</body>
+</html>

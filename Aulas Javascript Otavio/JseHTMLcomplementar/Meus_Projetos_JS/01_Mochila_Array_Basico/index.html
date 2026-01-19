@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mochila Básica - Array</title>
+    <style> body { font-family: sans-serif; text-align: center; padding: 20px; } button { padding: 10px; margin: 5px; cursor: pointer; } </style>
+</head>
+<body>
+    <h1>🎒 Mochila RPG (Básico)</h1>
+    <input type="text" id="input-item" placeholder="Nome do item...">
+    <br><br>
+    <button id="btn-pegar">Pegar Item (Push)</button>
+    <button id="btn-descartar">Descartar Último (Pop)</button>
+    
+    <h3>Itens na Mochila (<span id="contador">0</span>/5):</h3>
+    <div id="lista-mochila" style="border: 1px solid #ccc; padding: 10px; min-height: 30px;"></div>
+
+    <script>
+        const inputItem = document.querySelector("#input-item");
+        const btnPegar = document.querySelector("#btn-pegar");
+        const btnDescartar = document.querySelector("#btn-descartar");
+        const listaMochila = document.querySelector("#lista-mochila");
+        const contador = document.querySelector("#contador");
+
+        let mochila = [];
+
+        btnPegar.addEventListener("click", function () {
+            if (inputItem.value == "") {
+                alert("Digite o item!");
+            } else if (mochila.length < 5) {
+                mochila.push(inputItem.value);
+                atualizarTela();
+                inputItem.value = "";
+            } else {
+                alert("Mochila cheia!");
+            }
+        });
+
+        btnDescartar.addEventListener("click", function () {
+            if (mochila.length > 0) {
+                mochila.pop();
+                atualizarTela();
+            } else {
+                alert("Mochila já está vazia!");
+            }
+        });
+
+        function atualizarTela() {
+            listaMochila.innerText = mochila.join(" | ");
+            contador.innerText = mochila.length;
+        }
+    </script>
+</body>
+</html>

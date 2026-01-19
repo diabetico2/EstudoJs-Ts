@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mochila Avançada - Splice</title>
+    <style> body { font-family: sans-serif; text-align: center; padding: 20px; } button { padding: 10px; margin: 5px; cursor: pointer; } .box { border: 1px solid #333; padding: 15px; margin: 10px auto; width: 300px; border-radius: 8px; } </style>
+</head>
+<body>
+    <h1>⚔️ Inventário Avançado</h1>
+    
+    <div class="box">
+        <h3>Adicionar</h3>
+        <input type="text" id="input-item" placeholder="Novo item...">
+        <button id="btn-pegar">Pegar</button>
+    </div>
+
+    <div class="box">
+        <h3>Gerenciar (Buscar/Remover)</h3>
+        <input type="text" id="input-busca" placeholder="Nome do item...">
+        <br>
+        <button id="btn-buscar">🔍 Verificar se tenho</button>
+        <button id="btn-usar">🗑️ Usar/Remover (Splice)</button>
+    </div>
+    
+    <h3>Conteúdo: <span id="contador">0</span>/5</h3>
+    <p id="lista-mochila" style="font-weight: bold; color: blue;">Vazio</p>
+
+    <script>
+        const inputItem = document.querySelector("#input-item");
+        const listaMochila = document.querySelector("#lista-mochila");
+        const contador = document.querySelector("#contador");
+        const buscar = document.querySelector("#input-busca");
+        
+        let mochila = [];
+
+        // Adicionar
+        document.querySelector("#btn-pegar").addEventListener("click", function () {
+            if (inputItem.value && mochila.length < 5) {
+                mochila.push(inputItem.value.toLowerCase());
+                atualizarTela();
+                inputItem.value = "";
+            } else {
+                alert(inputItem.value ? "Mochila cheia!" : "Digite algo!");
+            }
+        });
+
+        // Buscar
+        document.querySelector("#btn-buscar").addEventListener("click", function () {
+            if (mochila.includes(buscar.value.toLowerCase())) {
+                alert(`Sim! Você tem: ${buscar.value}`);
+            } else {
+                alert(`Não encontrei: ${buscar.value}`);
+            }
+        });
+
+        // Remover Específico (Splice)
+        document.querySelector("#btn-usar").addEventListener("click", function () {
+            const termo = buscar.value.toLowerCase();
+            const indice = mochila.indexOf(termo);
+            
+            if (indice > -1) {
+                mochila.splice(indice, 1); // Remove 1 item naquela posição
+                atualizarTela();
+                alert(`Você usou: ${termo}`);
+                buscar.value = "";
+            } else {
+                alert("Item não encontrado para usar.");
+            }
+        });
+
+        function atualizarTela() {
+            listaMochila.innerText = mochila.length > 0 ? mochila.join(" | ") : "Vazio";
+            contador.innerText = mochila.length;
+        }
+    </script>
+</body>
+</html>
