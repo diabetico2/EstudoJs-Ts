@@ -1,11 +1,11 @@
 ===========================================================
-GUIÃO: DOMINANDO ARROW FUNCTIONS (=>)
+GUIÃO: DOMINANDO ARROW FUNCTIONS (=>) E QUANDO USAR
 ===========================================================
 
 1. O QUE SÃO?
 -----------------------------------------------------------
 É uma forma mais curta e moderna de escrever funções.
-Ela é muito usada em React e em métodos de array (map, filter).
+Ela é padrão em projetos modernos (React, Node.js, Vue).
 
 2. SINTAXE: ANTES vs DEPOIS
 -----------------------------------------------------------
@@ -39,7 +39,7 @@ Certo:  const somar = (a, b) => { return a + b }
 - 0 Parâmetros: Parênteses obrigatórios.
   const darOi = () => "Oi";
 
-- 1 Parâmetro: Parênteses opcionais (mas pode usar se quiser).
+- 1 Parâmetro: Parênteses opcionais.
   const dobro = n => n * 2; 
 
 - 2+ Parâmetros: Parênteses obrigatórios.
@@ -47,28 +47,46 @@ Certo:  const somar = (a, b) => { return a + b }
 
 5. O "IF/ELSE" CURTO (Operador Ternário)
 -----------------------------------------------------------
-Arrow functions amam o "Operador Ternário". Ele substitui
-o if/else comum para caber em uma linha.
-
+Substitui blocos if/else simples.
 Estrutura: (CONDIÇÃO) ? (VALOR SE VERDADEIRO) : (VALOR SE FALSO)
 
-Exemplo Clássico:
-const verificarIdade = (idade) => idade >= 18 ? "Maior de idade" : "Menor de idade";
-
-Exemplo no seu exercício (Paisagem):
-// A comparação (l > a) já retorna true ou false, mas se fosse retornar texto:
-const modoTela = (l, a) => l > a ? "Paisagem" : "Retrato";
+Exemplo:
+const verificarIdade = idade => idade >= 18 ? "Maior" : "Menor";
 
 6. QUANDO NÃO USAR O MODO CURTO
 -----------------------------------------------------------
 Se sua função precisa fazer várias coisas antes de retornar 
-(calcular variáveis, logar no console, criar loops), 
-você PRECISA abrir chaves { } e usar o "return" no final.
+(calcular, logar, loops), use chaves { } e "return".
 
 const media = (n1, n2) => {
-    const resultado = (n1 + n2) / 2;
-    console.log("Calculando..."); // Várias linhas = use chaves
-    return resultado;
+    console.log("Calculando..."); 
+    return (n1 + n2) / 2;
 }
+
+7. QUANDO USAR ARROW FUNCTION vs FUNCTION NORMAL?
+-----------------------------------------------------------
+A dúvida de 1 milhão de dólares. Siga esta regra:
+
+A) USE ARROW FUNCTION (=>) PARA 95% DOS CASOS:
+   - Callbacks (.map, .filter, .forEach).
+   - Componentes React.
+   - Funções utilitárias simples.
+   - Motivo: Código mais limpo e resolve problemas de escopo em classes.
+
+B) USE FUNCTION NORMAL (function) QUANDO:
+   - Precisa usar o `this` (ex: Métodos dentro de Objetos).
+     Arrow functions não têm o próprio `this`, elas pegam de fora.
+   - Precisa de "Hoisting" (Chamar a função antes de declarar no código).
+
+   EXEMPLO DO PERIGO DO 'THIS':
+   
+   const pessoa = {
+       nome: "Luiz",
+       // ERRADO (Arrow não vê o 'this.nome')
+       falarErro: () => console.log(this.nome), 
+       
+       // CERTO (Function Normal vê o 'this.nome')
+       falarCerto: function() { console.log(this.nome) } 
+   }
 
 ===========================================================
