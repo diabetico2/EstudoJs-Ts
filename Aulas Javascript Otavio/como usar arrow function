@@ -1,0 +1,74 @@
+===========================================================
+GUIÃO: DOMINANDO ARROW FUNCTIONS (=>)
+===========================================================
+
+1. O QUE SÃO?
+-----------------------------------------------------------
+É uma forma mais curta e moderna de escrever funções.
+Ela é muito usada em React e em métodos de array (map, filter).
+
+2. SINTAXE: ANTES vs DEPOIS
+-----------------------------------------------------------
+
+>> Função Tradicional:
+function somar(a, b) {
+    return a + b;
+}
+
+>> Arrow Function (Modo Longo):
+const somar = (a, b) => {
+    return a + b;
+}
+
+3. O SUPERPODER: RETURN IMPLÍCITO (Uma linha)
+-----------------------------------------------------------
+Se a sua função tem apenas UMA linha de código, você pode:
+1. Tirar as chaves { }
+2. Tirar a palavra "return"
+*O retorno acontece automaticamente!*
+
+Exemplo:
+const somar = (a, b) => a + b;
+
+ATENÇÃO: Se você colocar chaves { }, o return NÃO é automático.
+Errado: const somar = (a, b) => { a + b }  // Retorna undefined
+Certo:  const somar = (a, b) => { return a + b }
+
+4. PARÂMETROS (Os parênteses)
+-----------------------------------------------------------
+- 0 Parâmetros: Parênteses obrigatórios.
+  const darOi = () => "Oi";
+
+- 1 Parâmetro: Parênteses opcionais (mas pode usar se quiser).
+  const dobro = n => n * 2; 
+
+- 2+ Parâmetros: Parênteses obrigatórios.
+  const soma = (a, b) => a + b;
+
+5. O "IF/ELSE" CURTO (Operador Ternário)
+-----------------------------------------------------------
+Arrow functions amam o "Operador Ternário". Ele substitui
+o if/else comum para caber em uma linha.
+
+Estrutura: (CONDIÇÃO) ? (VALOR SE VERDADEIRO) : (VALOR SE FALSO)
+
+Exemplo Clássico:
+const verificarIdade = (idade) => idade >= 18 ? "Maior de idade" : "Menor de idade";
+
+Exemplo no seu exercício (Paisagem):
+// A comparação (l > a) já retorna true ou false, mas se fosse retornar texto:
+const modoTela = (l, a) => l > a ? "Paisagem" : "Retrato";
+
+6. QUANDO NÃO USAR O MODO CURTO
+-----------------------------------------------------------
+Se sua função precisa fazer várias coisas antes de retornar 
+(calcular variáveis, logar no console, criar loops), 
+você PRECISA abrir chaves { } e usar o "return" no final.
+
+const media = (n1, n2) => {
+    const resultado = (n1 + n2) / 2;
+    console.log("Calculando..."); // Várias linhas = use chaves
+    return resultado;
+}
+
+===========================================================
