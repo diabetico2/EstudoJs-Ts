@@ -22,9 +22,9 @@ let segundos = 0; // Guarda a contagem atual
 let timer
 
 iniciar.addEventListener('click', function(){
-   clearInterval()
+   clearInterval(timer)
    timer = setInterval(function(){
      segundos ++
-     relogio.innerHTML = segundos
+     relogio.innerHTML = formataTempo(segundos)
    }, 1000)
 })
