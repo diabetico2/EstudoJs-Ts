@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho de Compras</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; display: flex; justify-content: center; padding-top: 50px; }
+        .caixa { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; }
+        input { padding: 10px; width: 65%; border: 1px solid #ddd; border-radius: 4px; }
+        button#adicionar { padding: 10px; width: 25%; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        ul { list-style: none; padding: 0; margin-top: 20px; }
+        li { background: #fff; border-bottom: 1px solid #eee; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .btn-remove { background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 10px;}
+    </style>
+</head>
+<body>
+
+    <div class="caixa">
+        <h2>🛒 Mercado</h2>
+        <input type="text" class="input-produto" placeholder="Ex: Leite, Pão...">
+        <button id="adicionar">+</button>
+
+        <ul class="lista-compras">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
