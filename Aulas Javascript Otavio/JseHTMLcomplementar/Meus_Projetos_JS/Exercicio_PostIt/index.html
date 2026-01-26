@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quadro de Avisos</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; background: #333; color: white; display: flex; flex-direction: column; align-items: center; padding-top: 30px; }
+        .controles { margin-bottom: 20px; }
+        input { padding: 10px; border-radius: 5px; border: none; }
+        button#btn-add { padding: 10px 20px; background: #ffeb3b; color: black; border: none; cursor: pointer; font-weight: bold; border-radius: 5px; }
+        .quadro { width: 80%; min-height: 400px; background-color: #555; border: 10px solid #795548; display: flex; flex-wrap: wrap; padding: 20px; gap: 15px; border-radius: 10px; align-content: flex-start; }
+        
+        /* ESTILO DO POST-IT */
+        .nota { width: 150px; height: 150px; background-color: #ffeb3b; color: black; padding: 10px; position: relative; box-shadow: 2px 2px 5px rgba(0,0,0,0.3); transform: rotate(-2deg); }
+        .nota:nth-child(even) { transform: rotate(2deg); background-color: #81d4fa; }
+        .nota p { font-size: 18px; margin-top: 20px; word-wrap: break-word; }
+        .btn-lixo { position: absolute; top: 5px; right: 5px; background: red; color: white; border: none; border-radius: 50%; width: 25px; height: 25px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>📌 Quadro de Avisos</h1>
+    <div class="controles">
+        <input type="text" id="texto-nota" placeholder="Escreva um aviso...">
+        <button id="btn-add">Colar Aviso</button>
+    </div>
+    <div class="quadro"></div>
+    <script src="script.js"></script>
+</body>
+</html>

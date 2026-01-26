@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Pizzaria Dev</title> 
+    <style> 
+        body { font-family: sans-serif; background: #fff3e0; display: flex; flex-direction: column; align-items: center; padding-top: 50px; } 
+        h1 { color: #e65100; } 
+        .caixa { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 350px; text-align: center; } 
+        input { padding: 10px; width: 60%; border: 1px solid #ffcc80; border-radius: 5px; outline: none; } 
+        button#btn-pedir { padding: 10px 15px; background: #ef6c00; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; } 
+        ul { list-style: none; padding: 0; margin-top: 20px; text-align: left; } 
+        li.pizza-item { background: #fff8e1; border: 1px solid #ffe0b2; padding: 10px; margin-bottom: 8px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; } 
+        .btn-comer { background: #4caf50; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; } 
+        .btn-comer:hover { background: #388e3c; } 
+    </style> 
+</head> 
+<body> 
+    <div class="caixa"> 
+        <h1>🍕 Pizzaria JS</h1> 
+        <input type="text" id="input-sabor" placeholder="Sabor da pizza..."> 
+        <button id="btn-pedir">Assar</button> 
+        <ul class="lista-pizzas"></ul> 
+    </div> 
+    <script src="script.js"></script> 
+</body> 
+</html> 
