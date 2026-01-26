@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Inventário RPG</title> 
+    <style> 
+        body { font-family: 'Courier New', Courier, monospace; background: #202020; color: #d4af37; display: flex; flex-direction: column; align-items: center; padding-top: 50px; } 
+        h1 { text-transform: uppercase; border-bottom: 2px solid #d4af37; padding-bottom: 10px; } 
+        .painel { background: #333; padding: 20px; border: 4px ridge #6d4c41; width: 400px; text-align: center; } 
+        input { background: #111; border: 1px solid #d4af37; color: white; padding: 10px; width: 60%; } 
+        button#btn-guardar { background: #5d4037; color: #fff; border: 1px solid #d4af37; padding: 10px; cursor: pointer; font-weight: bold; } 
+        ul { list-style: none; padding: 0; margin-top: 20px; border-top: 1px solid #555; } 
+        li.slot { background: #2a2a2a; border-bottom: 1px solid #444; padding: 15px; display: flex; justify-content: space-between; align-items: center; } 
+        li.slot span { font-size: 18px; } 
+        .btn-drop { background: #c62828; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; } 
+    </style> 
+</head> 
+<body> 
+    <div class="painel"> 
+        <h1>🎒 Mochila</h1> 
+        <input type="text" id="input-item" placeholder="Novo item..."> 
+        <button id="btn-guardar">Guardar</button> 
+        <ul class="inventario"></ul> 
+    </div> 
+    <script src="script.js"></script> 
+</body> 
+</html> 
