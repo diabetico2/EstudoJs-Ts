@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>O Oráculo</title> 
+    <style> 
+        body { font-family: 'Courier New', monospace; background: #2c3e50; color: #ecf0f1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; } 
+        .game-box { background: #34495e; padding: 40px; border-radius: 10px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid #f1c40f; } 
+        h1 { color: #f1c40f; margin-bottom: 20px; } 
+        input { padding: 15px; font-size: 20px; width: 100px; text-align: center; border-radius: 5px; border: none; margin-right: 10px; } 
+        button { padding: 15px 30px; font-size: 18px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; } 
+        button:hover { background: #c0392b; } 
+        .resultado { margin-top: 30px; font-size: 24px; font-weight: bold; min-height: 30px; } 
+        .tentativas { margin-top: 15px; font-size: 14px; color: #95a5a6; } 
+        .acertou { color: #2ecc71; } 
+    </style> 
+</head> 
+<body> 
+    <div class="game-box"> 
+        <h1>🔮 O Oráculo</h1> 
+        <div> 
+            <input type="number" id="input-chute" placeholder="0"> 
+            <button id="btn-chutar">Chutar!</button> 
+        </div> 
+        <div class="resultado"></div> 
+        <div class="tentativas">Tentativas: 0</div> 
+    </div> 
+    <script src="script.js"></script> 
+</body> 
+</html> 
