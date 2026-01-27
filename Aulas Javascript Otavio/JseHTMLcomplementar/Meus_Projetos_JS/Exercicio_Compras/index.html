@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Lista de Compras</title> 
+    <style> 
+        body { font-family: 'Verdana', sans-serif; background: #fdf2e9; display: flex; flex-direction: column; align-items: center; padding-top: 50px; } 
+        .container { background: white; padding: 25px; border-radius: 15px; width: 350px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); } 
+        h2 { color: #d35400; text-align: center; margin-top: 0; } 
+        .inputs { display: flex; gap: 5px; margin-bottom: 15px; } 
+        input#input-produto { flex: 2; padding: 10px; border: 1px solid #ddd; border-radius: 5px; } 
+        input#input-qtd { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; } 
+        button#btn-add { width: 100%; padding: 10px; background: #e67e22; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; } 
+        button#btn-add:hover { background: #d35400; } 
+        ul { list-style: none; padding: 0; margin-top: 20px; } 
+        li { background: #fff3e0; border-bottom: 1px solid #ffe0b2; padding: 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; border-radius: 5px; animation: slideUp 0.3s; } 
+        li strong { color: #333; } 
+        li span { color: #7f8c8d; font-size: 0.9em; } 
+        .btn-delete { background: #ff7675; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; } 
+        @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } 
+    </style> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h2>🛒 Minha Lista</h2> 
+        <div class="inputs"> 
+            <input type="text" id="input-produto" placeholder="Ex: Leite"> 
+            <input type="number" id="input-qtd" placeholder="Qtd"> 
+        </div> 
+        <button id="btn-add">Adicionar Item</button> 
+        <ul class="lista-compras"></ul> 
+    </div> 
+    <script src="script.js"></script> 
+</body> 
+</html> 
