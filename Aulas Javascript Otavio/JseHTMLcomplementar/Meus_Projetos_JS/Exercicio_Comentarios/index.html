@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Sistema de Comentários</title> 
+    <style> 
+        body { font-family: 'Helvetica Neue', sans-serif; background: #eef2f3; display: flex; flex-direction: column; align-items: center; padding-top: 40px; } 
+        .post-area { background: white; padding: 25px; border-radius: 8px; width: 400px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); } 
+        h2 { color: #2c3e50; text-align: center; margin-top: 0; } 
+        input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; } 
+        textarea { height: 80px; resize: none; } 
+        button#btn-postar { width: 100%; padding: 10px; background: #3498db; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.3s; } 
+        button#btn-postar:hover { background: #2980b9; } 
+        ul { list-style: none; padding: 0; margin-top: 20px; width: 400px; } 
+        li { background: white; border-left: 5px solid #3498db; padding: 15px; margin-bottom: 10px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: relative; animation: fadeIn 0.4s; } 
+        li h3 { margin: 0 0 5px 0; font-size: 16px; color: #333; } 
+        li p { margin: 0; color: #666; font-size: 14px; word-wrap: break-word; } 
+        .btn-delete { position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #e74c3c; cursor: pointer; font-weight: bold; font-size: 14px; } 
+        .btn-delete:hover { color: #c0392b; text-decoration: underline; } 
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } } 
+    </style> 
+</head> 
+<body> 
+    <div class="post-area"> 
+        <h2>💬 Deixe seu comentário</h2> 
+        <input type="text" id="input-nome" placeholder="Seu Nome"> 
+        <textarea id="input-msg" placeholder="Sua mensagem..."></textarea> 
+        <button id="btn-postar">Postar Comentário</button> 
+    </div> 
+    <ul id="feed-comentarios"></ul> 
+    <script src="script.js"></script> 
+</body> 
+</html> 
