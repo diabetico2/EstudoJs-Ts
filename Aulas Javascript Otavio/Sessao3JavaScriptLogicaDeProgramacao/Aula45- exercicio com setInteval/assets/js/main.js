@@ -22,13 +22,14 @@ let segundos = 0; // Guarda a contagem atual
 let timer;
 
 document.addEventListener("click", function (e) {
-  zs
+  const el = e.target
   if (el.classList.contains("zerar")) {
     relogio.style.color = "black";
     setTimeout(function () {
       clearInterval(timer);
     });
     segundos = 0
+    relogio.innerHTML = formataTempo(segundos);
   }
   if (el.classList.contains("pausar")) {
     clearInterval(timer);
