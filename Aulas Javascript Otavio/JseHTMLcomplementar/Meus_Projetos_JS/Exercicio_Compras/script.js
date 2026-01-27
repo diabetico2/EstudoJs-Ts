@@ -35,16 +35,16 @@ function criarBotaoApagar(){
 }
 
 function montarLista(nomeProduto, qtdProduto){
-    const div = document.createElement('div')
+    const ul = document.createElement('ul')
     const h3 = criaProduto(nomeProduto)
     const p = criaQuant(qtdProduto)
     const apagar = criarBotaoApagar()
     
-    div.appendChild(h3)
-    div.appendChild(p)
-    div.appendChild(apagar)
+    ul.appendChild(h3)
+    ul.appendChild(p)
+    ul.appendChild(apagar)
  limpar()
- return div
+ return ul
 }
 
 btnAdicionar.addEventListener('click',function(){
