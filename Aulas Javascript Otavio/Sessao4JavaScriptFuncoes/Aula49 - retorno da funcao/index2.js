@@ -1,13 +1,12 @@
 // 1. A função externa recebe a primeira parte da frase.
 function falafrase(começo) {
-  
   // 2. A função interna é criada para receber o resto da frase depois.
   function falaResto(resto) {
     // Ela tem acesso ao 'começo' (que foi guardado antes)
     // e ao 'resto' (que chegou agora).
     return começo + " " + resto; // (Coloquei um espaço aqui para ficar bonito!)
   }
-  
+
   // 3. A função externa entrega (retorna) a função interna pronta para uso.
   return falaResto;
 }
