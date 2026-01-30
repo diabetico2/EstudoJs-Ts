@@ -1,7 +1,8 @@
 const nome = 'Luiz'
 
 function falaNome(){
-    console.log(nome)
+    const nome = 'sergio'
+    console.log(nome)// ele sempre pega o primeiro de cima, mass nunca nada abaixo dele
 }
 
 function usaFalaNome(){
