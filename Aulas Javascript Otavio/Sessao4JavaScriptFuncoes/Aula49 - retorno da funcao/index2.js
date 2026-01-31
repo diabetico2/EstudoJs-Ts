@@ -13,11 +13,23 @@ function falafrase(começo) {
 
 // 4. Configuração: Guardamos "ola" na memória.
 // A variável 'fala' agora é o robô configurado para dizer "ola" no início.
-const fala = falafrase("ola");
+const fala = falafrase("ola"); // AQUI: Estamos criando a variável (dando um nome para o robô)
 
 // 5. Execução: Usamos o robô 'fala' pela primeira vez.
+// AQUI: Estamos usando a variável (mandando o robô trabalhar)
 const resto = fala("mundo");
 console.log(resto); // Resultado: "ola mundo"
+
+// A Melhor Analogia: O Carimbo
+// Pense que a variável fala é um Carimbo onde está gravado fixo a palavra "ola".
+
+// Você pega um papel onde está escrito "mundo".
+
+// Bate o carimbo: Fica "ola mundo".
+
+// Você joga esse papel fora e pega outro onde está escrito "!!".
+
+// Bate o mesmo carimbo: Fica "ola !!".
 
 
 // --- PARTE NOVA (REUTILIZAÇÃO) ---

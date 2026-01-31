@@ -4,6 +4,9 @@ function criaPessoa(nome, sobrenome, a, p) {
   return {
     nome,
     sobrenome,
+    nomeCompleto(){
+      return `${nome} ${sobrenome}`
+    },
     fala: function (assunto) {
       return `${this.nome} está ${assunto}`;
     },
@@ -18,7 +21,4 @@ function criaPessoa(nome, sobrenome, a, p) {
 }
 
 const p1 = criaPessoa("allan", "jose", 1.8, 90);
-console.log(p1.nome)
-console.log(p1.sobrenome)
-console.log(p1.imc);
-
+console.log(p1.nomeCompleto())
