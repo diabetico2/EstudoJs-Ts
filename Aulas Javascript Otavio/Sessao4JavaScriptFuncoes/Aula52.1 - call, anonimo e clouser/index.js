@@ -1,11 +1,9 @@
 function criarContador(n) {
-
-    
-    // Retornamos uma Função Anônima
-    return function() {
-        n = n + 1;
-        console.log("Número atual: " + n);
-    };
+  // Retornamos uma Função Anônima
+  return function () {
+    n = n + 1;
+    console.log("Número atual: " + n);
+  };
 }
 
 // 1. O "meuContador" recebe a função anônima com a "mochila" (Closure)
@@ -16,4 +14,4 @@ const outroContador = criarContador(2);
 meuContador(); // O que imprime aqui?
 meuContador(); // E aqui?
 meuContador(); // E aqui?
-outroContador()//1
+outroContador(); //1
