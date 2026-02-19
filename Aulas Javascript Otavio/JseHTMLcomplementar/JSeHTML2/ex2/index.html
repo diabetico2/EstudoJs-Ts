@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Caixa Registradora</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 300px; background: #f4f4f4; padding: 20px; border-radius: 8px; }
+        input, button { padding: 8px; margin-top: 5px; width: 100%; box-sizing: border-box;}
+        button { cursor: pointer; background: #28a745; color: white; border: none; font-weight: bold;}
+        ul { padding-left: 20px; }
+        .total { font-size: 20px; color: #d9534f; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Minha Lista de Compras 🛒</h2>
+    <input type="text" id="nome-produto" placeholder="Nome (ex: Teclado)">
+    <input type="number" id="preco-produto" placeholder="Preço (ex: 150)">
+    <button id="btn-adicionar">Adicionar</button>
+    <hr>
+    <button id="btn-filtrar-caros">Ver apenas itens caros (> 100)</button>
+    <button id="btn-mostrar-todos">Mostrar Tudo</button>
+
+    <ul id="lista-exibicao"></ul>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
