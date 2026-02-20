@@ -20,8 +20,8 @@ adicionar.addEventListener("click", function (e) {
 
     return acumulador;
   });
-  total.innerHTML = valorTotal;
-  li.innerText = precoFormatado;
+  total.innerHTML = valorTotal; // somar tudo
+  li.innerText = precoFormatado; // mostrar os numeros 
   lista.appendChild(li);
   inputPreco.value = "";
   inputPreco.focus;
