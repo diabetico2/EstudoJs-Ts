@@ -17,3 +17,7 @@ function Pessoa(nome,sobrenome){ // constructor
 }
 const p2 = new Pessoa('jose', 'allan',)
 console.log(p2)
+
+const p3 = {
+}
+p3.nome = 'Luiz'
