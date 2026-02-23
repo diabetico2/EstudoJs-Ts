@@ -1,1 +1,0 @@
-/* 08) Dada uma lista string = 'pontuacao1 pontuacao2 pontuacao3...', escreva uma funcao que ao recebe-la ira comparar os valores um a um e ira retornar um vetor com o numero de vezes que ele bateu seu recorde de maior numero de pontos e quando fez seu pior jogo. */ 

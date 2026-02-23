@@ -1,1 +1,0 @@
-/* 34) Construa uma funcao que recebera duas Strings de tamanhos variados e que retornara True ou False caso todos os caracteres (independentemente de ser maiusculo ou minusculo) estejam contidos em ambas palavras. */ 

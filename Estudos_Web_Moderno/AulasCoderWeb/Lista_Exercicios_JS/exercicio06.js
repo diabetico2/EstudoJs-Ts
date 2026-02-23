@@ -1,1 +1,0 @@
-/* 06) Elabore duas funcoes que recebem tres parametros: capital inicial, taxa de juros e tempo de aplicacao. A primeira funcao retornara o montante da aplicacao financeira sob o regime de juros simples e a segunda retornara o valor da aplicacao sob o regime de juros compostos. */ 

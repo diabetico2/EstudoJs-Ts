@@ -1,1 +1,0 @@
-/* 39) Crie uma funcao que receba dois vetores de igual tamanho e troque seus elementos de modo que o primeiro elemento do vetorA passe a ser o primeiro elemento do vetorB e vice versa e assim sucessivamente. Faca a troca sem utilizar uma variavel auxiliar. */ 
