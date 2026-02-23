@@ -1,9 +1,15 @@
-function splitIntoFirstAndLastName(name) {
-  return name.split(' ');
+function myFunction(a, b) {
+  const c = Number(a + b);
+  if (c == a || c == b) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-const name = 'Ryan McDermott';
-const newName = splitIntoFirstAndLastName(name);
-
-console.log(name); // 'Ryan McDermott';
-console.log(newName); // ['Ryan', 'McDermott'];
+console.log(myFunction(2, 3));
+// expected: false
+console.log(myFunction(1, "1"));
+// expected: false
+console.log(myFunction("10", "10"));
+// expected: true

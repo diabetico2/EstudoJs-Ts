@@ -1,23 +1,13 @@
-function criaPessoa(nome,sobrenome){// factory
-    return{
-        nome,
-        sobrenome,
-        get nomeCompleto(){
-            return `${this.nome} ${this.sobrenome}: factory`
-        }
-    }
+// Factory functions / Constructor functions / Classes
+function Pessoa(nome, sobrenome) {
+  this.nome = nome;
+  this.sobrenome = sobrenome;
+
+  Object.freeze(this); // trava o objeto, impedindo de alterar
 }
 
-const p1 = criaPessoa('allan', 'jose')
-console.log(p1.nomeCompleto)
+const p1 = new Pessoa('Luiz', 'Miranda');
+const p2 = new Pessoa('Maria', 'Miranda');
 
-function Pessoa(nome,sobrenome){ // constructor
-    this.nome = nome,
-    this.sobrenome = sobrenome
-}
-const p2 = new Pessoa('jose', 'allan',)
-console.log(p2)
-
-const p3 = {
-}
-p3.nome = 'Luiz'
+console.log(p1);
+console.log(p2);

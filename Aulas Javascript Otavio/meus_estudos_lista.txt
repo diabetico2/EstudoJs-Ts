@@ -1,0 +1,441 @@
+Listagem de caminhos de pasta
+O número de série do volume é 8C67-FDCF
+C:.
+¦   a.bat
+¦   meus_estudos_lista.txt
+¦   testes.js
+¦   
++---JseHTMLcomplementar
+¦   +---assets
+¦   ¦   +---css
+¦   ¦   ¦       style.css
+¦   ¦   ¦       
+¦   ¦   +---js
+¦   ¦           main.js
+¦   ¦           
+¦   +---ExerciciosHTMLeJS
+¦   ¦   ¦   exercicio_3.html
+¦   ¦   ¦   exercicio_guiado.html
+¦   ¦   ¦   exercicio_para_fazer.html
+¦   ¦   ¦   index.html
+¦   ¦   ¦   README.md
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               exercicio_3.js
+¦   ¦               exercicio_guiado.js
+¦   ¦               exercicio_para_fazer.js
+¦   ¦               main.js
+¦   ¦               
+¦   +---JsComplementar2
+¦   ¦   +---Acumuladores
+¦   ¦   ¦       index.js
+¦   ¦   ¦       
+¦   ¦   +---Constructor vs fabrica
+¦   ¦   ¦       index.js
+¦   ¦   ¦       
+¦   ¦   +---Construtor
+¦   ¦   ¦       index.js
+¦   ¦   ¦       index2.js
+¦   ¦   ¦       index3.js
+¦   ¦   ¦       
+¦   ¦   +---fabrica
+¦   ¦   ¦       index.js
+¦   ¦   ¦       index2.js
+¦   ¦   ¦       index3.js
+¦   ¦   ¦       
+¦   ¦   +---Geradora
+¦   ¦   ¦       index.js
+¦   ¦   ¦       
+¦   ¦   +---ifElse
+¦   ¦   ¦       index1.js
+¦   ¦   ¦       
+¦   ¦   +---loops
+¦   ¦           index.js
+¦   ¦           
+¦   +---JSeHTML2
+¦   ¦   +---ex1
+¦   ¦   ¦       index.html
+¦   ¦   ¦       script.js
+¦   ¦   ¦       
+¦   ¦   +---ex2
+¦   ¦   ¦       index.html
+¦   ¦   ¦       script.js
+¦   ¦   ¦       
+¦   ¦   +---ex3
+¦   ¦           index.html
+¦   ¦           script.js
+¦   ¦           
+¦   +---Meus_Projetos_JS
+¦       ¦   i.bat
+¦       ¦   
+¦       +---01_Mochila_Array_Basico
+¦       ¦       index.html
+¦       ¦       
+¦       +---02_Mochila_Busca_e_Splice
+¦       ¦       index.html
+¦       ¦       
+¦       +---03_Tamagotchi_Objetos_Final
+¦       ¦       index.html
+¦       ¦       
+¦       +---4_carrinho
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---arrowfunction
+¦       ¦       ex1.js
+¦       ¦       ex2.js
+¦       ¦       ex3.js
+¦       ¦       ex4.js
+¦       ¦       
+¦       +---Exercicio_Comentarios
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_Compras
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_Guilda
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_Jardim
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_Oraculo
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_Pizzaria
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_PostIt
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_RedeSocial
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Exercicio_RPG
+¦       ¦       index.html
+¦       ¦       script.js
+¦       ¦       
+¦       +---Js
+¦           ¦   ex1.js
+¦           ¦   ex3.js
+¦           ¦   ex4.js
+¦           ¦   
+¦           +---ex2
+¦                   ex2.html
+¦                   ex2.js
+¦                   
++---modelo
+¦   ¦   index.html
+¦   ¦   
+¦   +---assets
+¦       +---css
+¦       ¦       style.css
+¦       ¦       
+¦       +---js
+¦               main.js
+¦               
++---Sessao2JavaScriptBasico
+¦   +---Aula10-Operadores aritméticos e conversão
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula11-Entrada com prompt e alert
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---js
+¦   ¦           script.js
+¦   ¦           
+¦   +---Aula12-Troca de valores entre variáveis
+¦   ¦       solucao1.js
+¦   ¦       solucao2.js
+¦   ¦       
+¦   +---Aula13-Métodos de String
+¦   ¦   ¦   aula13.js
+¦   ¦   ¦   perguntas.html
+¦   ¦   ¦   
+¦   ¦   +---ex
+¦   ¦           index.html
+¦   ¦           
+¦   +---Aula14-Métodos de Number
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula15-Métodos de Math
+¦   ¦   ¦   Index.js
+¦   ¦   ¦   
+¦   ¦   +---ex
+¦   ¦       ¦   index.html
+¦   ¦       ¦   
+¦   ¦       +---js
+¦   ¦               index.js
+¦   ¦               
+¦   +---Aula16-Manipulação de Arrays
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula17-Arrow Functions
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula18-Objetos e this
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula19-Tipos primitivos vs referência
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula5-Console e alert
+¦   ¦       index (1).js
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula6-Declaração de variáveis
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula8-Variáveis e tipos de dados
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula9-Tipos de dados
+¦   ¦       index.js
+¦   ¦       
+¦   +---ExercicioAula19
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---js
+¦   ¦           index.js
+¦   ¦           
+¦   +---ExercicioAula19-2
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---js
+¦   ¦           index.js
+¦   ¦           
+¦   +---ExercicioNumber
+¦       ¦   index.html
+¦       ¦   
+¦       +---js
+¦               index.js
+¦               
++---Sessao3JavaScriptLogicaDeProgramacao
+¦   +---aula21-Operadores de comparação
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula22-Operadores lógicos
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula23-Operadores lógicos AND e OR
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula24-Condicional IF-ELSE
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula25-Condicional com múltiplas condições
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula26-Calculadora IMC (Projeto)
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               main.js
+¦   ¦               
+¦   +---aula27-Operador ternário
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula28-Objeto Date
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula29-Switch case
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula30-Exibir data formatada (Projeto)
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               main.js
+¦   ¦               
+¦   +---aula31-Desestruturação de Arrays
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula32-Atribuição via desestruturação (Objetos)
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula33-For-Clássico-Estrutura de repetição
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula34-Exercícios com for
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               main.js
+¦   ¦               
+¦   +---Aula35-For in - Estrutura de repetição
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula36-for of - Estrutura de repetição
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula37-exercicio com Nodelist
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               main.js
+¦   ¦               
+¦   +---aula38-white e do while
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula39 - break and continue
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula41 - exercicio de logica
+¦   ¦       ex1.js
+¦   ¦       ex2.js
+¦   ¦       ex3.js
+¦   ¦       
+¦   +---Aula42 - try, catch, trow
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula43 - try, catch, finally
+¦   ¦       index.js
+¦   ¦       
+¦   +---aula44- setInterval
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula45- exercicio com setInteval
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               main.js
+¦   ¦               
+¦   +---Aula46 - lista de exercicio
+¦       ¦   index.html
+¦       ¦   
+¦       +---assets
+¦           +---css
+¦           ¦       style.css
+¦           ¦       
+¦           +---js
+¦                   main.js
+¦                   mainProfessor.js
+¦                   
++---Sessao4JavaScriptFuncoes
+¦   +---Aula47 - varias maneiras de declarar funcao
+¦   ¦       index.js
+¦   ¦       resumo.md
+¦   ¦       
+¦   +---Aula48 - parametros da funcao
+¦   ¦       index.js
+¦   ¦       resumo.md
+¦   ¦       
+¦   +---Aula49 - retorno da funcao
+¦   ¦       index.html
+¦   ¦       index.js
+¦   ¦       index2.js
+¦   ¦       resumo.md
+¦   ¦       
+¦   +---Aula50 - Escopo Lexico
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula51 - Clousers
+¦   ¦       index.html
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula52 - funcao de callback
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula52.1 - call, anonimo e clouser
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula53 - funcoes imediatas
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula54 - funcao Fabrica
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula55 - Exercicio Factory
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               main.js
+¦   ¦               
+¦   +---Aula56 - Funcao construtora
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula57 - Exercicio construction
+¦   ¦   ¦   index.html
+¦   ¦   ¦   
+¦   ¦   +---assets
+¦   ¦       +---css
+¦   ¦       ¦       style.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦               main.js
+¦   ¦               mainProfessor.js
+¦   ¦               
+¦   +---Aula58 - funcoes Recursivas
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula59 - funcoes geradoras
+¦           index.js
+¦           
++---Sessão5 Arrays
+¦   +---Aula59 - revisão do basico
+¦   ¦       index.js
+¦   ¦       index2.js
+¦   ¦       
+¦   +---Aula60 - metodo splice
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula61 - concatenando de arrays
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula62 - Filter array
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula63 - map
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula64 - reduce
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula65 - Filter + Map + Reduce
+¦   ¦       index.js
+¦   ¦       
+¦   +---Aula66 - forEach
+¦           index.js
+¦           
++---Sessão6 - JS objetos e prototype(avançado)
+    +---Aula67 - revisando objetos
+    ¦       index.js
+    ¦       index2.js
+    ¦       
+    +---Aula68 - Object.defineProprey
