@@ -4,7 +4,7 @@
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const numerosFiltrados = numeros.filter((valor) => valor > 10);
-// console.log(numerosFiltrados);
+ console.log(numerosFiltrados);
 
 //retorne as pessoas que tem o nome com 5 letras ou mais
 //retorne as pessoas com mais de 50 anos
