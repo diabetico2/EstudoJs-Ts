@@ -1,6 +1,7 @@
 import os
 import fitz  # Biblioteca PyMuPDF para ler o PDF
-import google.generativeai as genai
+from google import genai  # IMPORTANTE: Esta é a biblioteca nova!
+import time  #
 from dotenv import load_dotenv
 
 # Carrega as configurações do arquivo .env
@@ -12,8 +13,8 @@ CHAVE_API = os.getenv("GEMINI_API_KEY")
 if not CHAVE_API:
     raise ValueError("Chave da API não encontrada! Verifique seu arquivo .env")
 
-genai.configure(api_key=CHAVE_API)
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Novo jeito de inicializar a conexão com o Gemini
+client = genai.Client(api_key=CHAVE_API)
 
 def traduzir_pdf(caminho_pdf, caminho_saida):
     print("Abrindo o PDF...")
@@ -46,9 +47,16 @@ def traduzir_pdf(caminho_pdf, caminho_saida):
         """
 
         try:
-            resposta = model.generate_content(prompt)
+            resposta = client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=prompt
+            )
             texto_final += f"\n\n================ PÁGINA {num_pagina + 1} ================\n\n"
             texto_final += resposta.text
+            
+            print("Esperando 5 segundos para não estourar o limite da API...")
+            time.sleep(5)  # <-- NOVO: Pausa de 5 segundos
+
         except Exception as e:
             print(f"Erro na página {num_pagina + 1}: {e}")
 
@@ -57,8 +65,8 @@ def traduzir_pdf(caminho_pdf, caminho_saida):
         arquivo.write(texto_final)
     print(f"\nSucesso! Tradução salva em: {caminho_saida}")
 
-# Execute o script aqui (Veja que não tem mais espaço em branco antes!)
+# Execute o script aqui
 if __name__ == "__main__":
-    # Substitua pelo nome exato do seu PDF que está na pasta
+    # NÃO ESQUEÇA: Substitua pelo nome exato do seu PDF que está na pasta
     nome_do_pdf = "Elden Ring PlayerBook.pdf" 
     traduzir_pdf(nome_do_pdf, "traducao_elden_ring.txt")
