@@ -1,38 +1,35 @@
 import os
-import fitz  # Biblioteca PyMuPDF para ler o PDF
-from google import genai  # IMPORTANTE: Esta é a biblioteca nova!
-import time  #
+import fitz  
+import time  
+from google import genai
+from google.genai import errors # NOVO: Importando os erros para o script saber quando insistir
 from dotenv import load_dotenv
 
-# Carrega as configurações do arquivo .env
 load_dotenv()
 
-# 1. Configuração da API usando a chave escondida
 CHAVE_API = os.getenv("GEMINI_API_KEY")
-
 if not CHAVE_API:
     raise ValueError("Chave da API não encontrada! Verifique seu arquivo .env")
 
-# Novo jeito de inicializar a conexão com o Gemini
 client = genai.Client(api_key=CHAVE_API)
 
 def traduzir_pdf(caminho_pdf, caminho_saida):
-    print("Abrindo o PDF...")
+    print(f"Abrindo o arquivo: {caminho_pdf}")
     doc = fitz.open(caminho_pdf)
     texto_final = ""
 
-    # 2. Lendo e traduzindo página por página
     for num_pagina in range(len(doc)):
-        print(f"Lendo e traduzindo página {num_pagina + 1} de {len(doc)}...")
+        numero_real_pagina = num_pagina + 1
+        print(f"\nLendo e traduzindo página {numero_real_pagina} de {len(doc)}...")
+        
         pagina = doc.load_page(num_pagina)
         texto_original = pagina.get_text()
 
-        # Pula páginas vazias (só com imagens, por exemplo)
         if not texto_original.strip():
-            print(f"Página {num_pagina + 1} vazia ou só com imagens. Pulando.")
+            print(f"Página {numero_real_pagina} vazia ou só com imagens. Pulando.")
+            texto_final += f"\n\n================ PÁGINA {numero_real_pagina} (Vazia/Imagens) ================\n\n"
             continue
 
-        # 3. O Prompt focado em RPG
         prompt = f"""
         Você é um tradutor especialista em RPG de mesa e Elden Ring.
         Traduza o texto abaixo do inglês para o português do Brasil.
@@ -46,27 +43,44 @@ def traduzir_pdf(caminho_pdf, caminho_saida):
         {texto_original}
         """
 
-        try:
-            resposta = client.models.generate_content(
-                model='gemini-2.5-flash',
-                contents=prompt
-            )
-            texto_final += f"\n\n================ PÁGINA {num_pagina + 1} ================\n\n"
-            texto_final += resposta.text
-            
-            print("Esperando 5 segundos para não estourar o limite da API...")
-            time.sleep(5)  # <-- NOVO: Pausa de 5 segundos
+        # NOVO: O script vai tentar até 5 vezes traduzir a mesma página antes de desistir
+        tentativas = 0
+        max_tentativas = 5
+        sucesso = False
 
-        except Exception as e:
-            print(f"Erro na página {num_pagina + 1}: {e}")
+        while tentativas < max_tentativas and not sucesso:
+            try:
+                resposta = client.models.generate_content(
+                    model='gemini-2.5-flash',
+                    contents=prompt
+                )
+                
+                texto_final += f"\n\n================ PÁGINA {numero_real_pagina} ================\n\n"
+                texto_final += resposta.text
+                
+                print(f"Página {numero_real_pagina} traduzida com sucesso! Esperando 8 segundos (por segurança)...")
+                time.sleep(8) # Aumentei um pouquinho a pausa normal
+                sucesso = True # Se chegou aqui, deu certo e sai do loop while
 
-    # 4. Salvando o resultado
+            except errors.APIError as e:
+                tentativas += 1
+                print(f"Ops, limite atingido ou servidor ocupado (Tentativa {tentativas}/{max_tentativas}).")
+                if tentativas < max_tentativas:
+                    print("Esperando 60 segundos antes de tentar de novo...")
+                    time.sleep(60) # Se der erro, espera um bom tempo antes de tentar a mesma página
+                else:
+                    print(f"Desisti da página {numero_real_pagina} após {max_tentativas} tentativas. Erro: {e}")
+                    texto_final += f"\n\n================ ERRO NA PÁGINA {numero_real_pagina} ================\n\n"
+            except Exception as e:
+                # Se for um erro diferente, não insiste e pula a página
+                print(f"Erro inesperado na página {numero_real_pagina}: {e}")
+                texto_final += f"\n\n================ ERRO NA PÁGINA {numero_real_pagina} ================\n\n"
+                sucesso = True # Finge que deu certo só pra sair do while
+
     with open(caminho_saida, "w", encoding="utf-8") as arquivo:
         arquivo.write(texto_final)
-    print(f"\nSucesso! Tradução salva em: {caminho_saida}")
+    print(f"\nSucesso absoluto! A tradução completa foi salva em: {caminho_saida}")
 
-# Execute o script aqui
 if __name__ == "__main__":
-    # NÃO ESQUEÇA: Substitua pelo nome exato do seu PDF que está na pasta
     nome_do_pdf = "Elden Ring PlayerBook.pdf" 
     traduzir_pdf(nome_do_pdf, "traducao_elden_ring.txt")
