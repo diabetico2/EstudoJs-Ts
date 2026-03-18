@@ -5,10 +5,10 @@ const carrinho = [
     {"Nome": "caneta", "preco": 7.45}
 ]
 
-//retornar com map apenas os preços
+// 1. Defina a função que extrai o preço
+const apenasPreco = produto => produto.preco
 
-const result = carrinho.map(function (itens){
-    return itens.preco
-})
+// 2. Use o map direto no carrinho (sem o JSON.parse)
+const resultado = carrinho.map(apenasPreco)
 
-console.log(result)
+console.log(resultado) // [3.45, 2.45, 11.45, 7.45]
