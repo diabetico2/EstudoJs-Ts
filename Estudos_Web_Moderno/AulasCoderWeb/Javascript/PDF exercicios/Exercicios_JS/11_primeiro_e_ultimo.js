@@ -6,4 +6,4 @@ const elemento = function(...valores) {
     return [primeiro, ultimo]
 }
 
-console.log(elemento(1, 2, 3, 4, 5)) // [1, 5]
+console.log(elemento(1, 2, 3, 4, 5,9)) // [1, 5]
