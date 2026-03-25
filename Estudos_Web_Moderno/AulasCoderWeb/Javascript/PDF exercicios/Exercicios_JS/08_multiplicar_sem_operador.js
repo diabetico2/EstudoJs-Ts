@@ -1,6 +1,6 @@
 // Exercicio extraido do PDF de Fundamentos de Programacao
 const multi = function (v1, v2) {
-  let con = 0;
+  let con = 1;
   let resul = 0;
   while (con < v2) {
     resul = v1 += v2;
