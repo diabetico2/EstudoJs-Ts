@@ -1,8 +1,0 @@
-# Ignorar variáveis de ambiente
-.env
-
-# Ignorar o PDF original e o txt gerado (opcional, mas recomendado se o PDF for muito grande)
-
-# Ignorar arquivos temporários do Python
-__pycache__/
-*.pyc
