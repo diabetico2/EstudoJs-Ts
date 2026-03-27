@@ -1,0 +1,238 @@
+// ==============================================================================
+// 📗 MEU MEGA GUIA DE REFERÊNCIA JAVASCRIPT
+// Organizado por categorias para uso diário. Use o recolhimento do VS Code.
+// ==============================================================================
+
+// ==============================================================================
+// #region CATEGORIA 1: FUNDAMENTOS BÁSICOS E PEGADINHAS CLÁSSICAS
+// Fonte: Discussão em chat e revisões gerais.
+// ==============================================================================
+
+// --- 1.1 Atribuição vs Comparação ---
+// O erro mais comum de iniciantes!
+let valor = 10;
+if (valor = 20) { /* ISSO SEMPRE SERÁ TRUE E VAI MUDAR 'valor' PARA 20! Não use '=' aqui. */ }
+if (valor === 20) { /* O JEITO CERTO: Compara valor e tipo. */ }
+
+// --- 1.2 O Perigo do 'undefined' e o 'return' ---
+// Map, Filter e Reduce dependem do que você retorna. Se esquecer o 'return' dentro de chaves {}, o resultado vira 'undefined' e quebra o próximo método.
+const listaQuebrada = [1, 2].map(n => { n * 2 }); // Retorna [undefined, undefined]
+const listaCerta = [1, 2].map(n => { return n * 2 }); // Retorna [2, 4]
+
+// --- 1.3 Contexto Léxico (Escopo) ---
+// O JS procura variáveis de dentro para fora.
+const global = 'sou global';
+function minhaFuncao() {
+    const local = 'sou local';
+    // Consegue ver 'global' e 'local'
+    console.log(global, local);
+}
+//console.log(local); // ERRO! Não consegue ver 'local' aqui fora.
+
+// --- 1.4 JSON vs Objeto JS ---
+const objJS = { nome: "Allan", idade: 25 }; // Objeto real, tem métodos
+const jsonStr = JSON.stringify(objJS); // Transforma em String: '{"nome":"Allan","idade":25}'
+const objDeVolta = JSON.parse(jsonStr); // Transforma String de volta em Objeto real
+
+// #endregion
+
+
+// ==============================================================================
+// #region CATEGORIA 2: ESTRUTURAS DE CONTROLE (Loops e Condições)
+// Fonte: image_3.png (Aulas 77-87)
+// ==============================================================================
+
+// --- 2.1 Condicionais (if/else, switch) ---
+if (nota >= 7) {
+    // Aprovado
+} else if (nota >= 5) {
+    // Recuperação
+} else {
+    // Reprovado
+}
+
+// Switch: Bom para muitas opções fixas
+const opcao = 'A';
+switch (opcao) {
+    case 'A': console.log("Opção A"); break; // 'break' é obrigatório!
+    case 'B': console.log("Opção B"); break;
+    default: console.log("Opção Inválida");
+}
+
+// --- 2.2 Loops Tradicionais (while, do-while, for) ---
+// While: Use quando não sabe quantas vezes vai rodar
+let c = 0;
+while (c < 5) {
+    console.log(c);
+    c++;
+}
+
+// For: Use quando sabe o limite exato
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// --- 2.3 Loops Modernos (for-in, for-of) ---
+const frutas = ['Maçã', 'Uva'];
+const pessoa = { nome: 'Allan', idade: 25 };
+
+for (let indice in frutas) { console.log(indice); } // 'for-in' pega ÍNDICES/CHAVES (0, 1)
+for (let fruta of frutas) { console.log(fruta); } // 'for-of' pega VALORES (Maçã, Uva) - Ótimo para Arrays
+
+for (let chave in pessoa) { console.log(chave, pessoa[chave]); } // 'for-in' pega chaves de OBJETOS (nome, idade)
+
+// --- 2.4 Controle de Loops (break, continue) ---
+for (let i = 0; i < 10; i++) {
+    if (i === 5) continue; // Pula o resto desta iteração (pula o 5)
+    if (i === 8) break;    // Para o loop inteiro imediatamente (para antes do 8)
+    console.log(i); // Imprime 0,1,2,3,4,6,7
+}
+
+// #endregion
+
+
+// ==============================================================================
+// #region CATEGORIA 3: FUNÇÕES PROFUNDAS (Callbacks, Arrow, 'this')
+// Fonte: image_2.png e discussões em chat
+// ==============================================================================
+
+// --- 3.1 Formas de Declaração ---
+function tradicional() { return 'sou tradicional'; } // Sofre Hoisting (pode ser usada antes de declarar)
+const expression = function() { return 'sou expressão'; }; // Não sofre hoisting
+
+// --- 3.2 Arrow Function (Sintaxe Moderna) ---
+// Quando usar: Para códigos curtos e para travar o valor do 'this'.
+const arrow = (a, b) => a + b; // Retorno implícito (sem chaves)
+const arrowLonga = (a, b) => {
+    // Com chaves, precisa do return!
+    return a + b;
+};
+
+// --- 3.3 O Mistério do 'this' e '.bind()' ---
+// O 'this' muda dependendo de QUEM chama a função.
+const carro = {
+    velocidade: 90,
+    getVelocidade: function() { return this.velocidade; }
+};
+const velocidadeSolta = carro.getVelocidade;
+// console.log(velocidadeSolta()); // undefined! 'this' agora é o contexto global (window/node)
+
+// .bind(): "Cola" um 'this' específico na função para sempre
+const velocidadeColada = carro.getVelocidade.bind(carro);
+console.log(velocidadeColada()); // 90. Bind travou o 'this' no objeto 'carro'.
+
+// --- 3.4 Callbacks ---
+// Passar uma função como argumento para outra função. Essencial para Map/Filter/Reduce.
+const somar = (a, b) => a + b;
+const calcular = (x, y, funcaoCallback) => funcaoCallback(x, y);
+console.log(calcular(10, 5, somar)); // 15
+
+// --- 3.5 Parâmetros Padrão e Variáveis (Rest) ---
+const saudacao = (nome = 'Visitante') => `Olá ${nome}`; // Default
+
+// Rest Parameter (...): Pega muitos argumentos soltos e junta num Array
+const somarTudo = (...numeros) => numeros.reduce((t, n) => t + n, 0);
+console.log(somarTudo(1, 2, 3, 4, 5)); // 15
+
+// --- 3.6 Closures e IIFE ---
+// IIFE (Immediately Invoked Function Expression): Roda imediatamente e cria escopo privado
+(function() {
+    const segredo = "ninguém vê";
+})();
+// console.log(segredo); // Erro de acesso
+
+// Closure: A função "lembra" do escopo onde foi criada
+function criaContador() {
+    let count = 0;
+    return function() { return count++; }; // Lembra de 'count'
+}
+const contador = criaContador();
+// contador(); // 0, contador(); // 1...
+
+// #endregion
+
+
+// ==============================================================================
+// #region CATEGORIA 4: MANIPULAÇÃO DE ARRAYS MODERNOS (A Trindade + Destructuring)
+// Fonte: Todo o nosso treinamento prático no chat.
+// ==============================================================================
+
+const dadosBrutos = [
+    { id: 1, item: "PC", preco: 3000, qtd: 2 },
+    { id: 2, item: "Mouse", preco: 100, qtd: 0 },
+    { id: 3, item: "Monitor", preco: 1500, qtd: 1 },
+];
+
+// --- 4.1 O Pipeline Perfeito (Encadeamento) ---
+// Objetivo: Saber o valor total de estoque de produtos disponíveis, com 10% de desconto.
+const faturamentoTotal = dadosBrutos
+    // 1. FILTER + Destructuring de Objeto: Só deixa passar quem tem qtd > 0
+    .filter(({ qtd }) => qtd > 0)
+    
+    // 2. MAP + Destructuring de Objeto: Cria uma nova lista apenas com os valores totais já com desconto
+    .map(({ preco, qtd }) => preco * qtd * 0.9)
+    
+    // 3. REDUCE: Soma tudo em um único número final
+    .reduce((acumulador, precoComDesconto) => acumulador + precoComDesconto, 0);
+
+console.log(`Faturamento: R$ ${faturamentoTotal}`); // R$ 6210 (5400 + 0 + 1350)
+
+// --- 4.2 Destructuring Cheat Sheet ---
+const arrEx = ["Allan", 25, "SP"];
+const objEx = { nome: "Bia", idade: 22 };
+
+// Em Array, a ordem importa:
+const [nomeArr, idadeArr] = arrEx; // nomeArr="Allan", idadeArr=25
+
+// Em Objeto, o nome da chave importa:
+const { nome, idade } = objEx; // nome="Bia", idade=22
+
+// #endregion
+
+
+// ==============================================================================
+// #region CATEGORIA 5: OBJETOS E ORIENTAÇÃO A OBJETOS (OO)
+// Fonte: image_1.png e discussões em chat
+// ==============================================================================
+
+// --- 5.1 Object.entries() - O Portal Objeto -> Array ---
+// Transforma objeto "duro" em uma lista de pares [chave, valor]. Essencial para processar objetos com Map.
+const notas = { Allan: 10, Bia: 8 };
+const listaNotas = Object.entries(notas); // [ ["Allan", 10], ["Bia", 8] ]
+listaNotas.map(([aluno, nota]) => `O aluno ${aluno} tirou ${nota}`);
+
+// Outras funções de Objeto: keys (pega as chaves), values (pega os valores), assign (copia objetos).
+
+// --- 5.2 Getters e Setters (Acessadores) ---
+// Permite controlar o acesso a uma propriedade como se fosse uma função.
+const objGetSet = {
+    _valor: 0, // Convenção para propriedade "privada"
+    get valor() { return this._valor; },
+    set valor(novo) { if(novo > 0) this._valor = novo; } // Filtra o que entra
+};
+objGetSet.valor = 10; // Chama o setter automaticamente
+console.log(objGetSet.valor); // Chama o getter automaticamente (imprime 10)
+
+// --- 5.3 Classes e Herança (Sintaxe OO) ---
+class Animal {
+    constructor(nome) { this.nome = nome; }
+    falar() { return `${this.nome} faz barulho.`; }
+}
+
+class Cachorro extends Animal { // Herança
+    falar() { // Polimorfismo: reescreve o método do pai
+        // super.falar() // Opcional: Chama o método do pai antes
+        return `${this.nome} latiu.`; 
+    }
+}
+const bob = new Cachorro("Bob");
+console.log(bob.falar()); // "Bob latiu."
+
+// --- 5.4 Evitando Modificações ---
+const objTravado = { a: 1 };
+Object.freeze(objTravado); // Trava completamente: não adiciona, não remove, não edita.
+// Object.seal(objTravado); // Seal: impede adicionar/remover, mas permite editar valores existentes.
+objTravado.a = 2; // Ignorado
+console.log(objTravado.a); // Imprime 1
+
+// #endregion
