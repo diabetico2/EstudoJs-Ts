@@ -1,15 +1,25 @@
-// O node faz cache do objeto importado, se o objeto já tiver sido criado, ele retorna sempre a mesma instância
-const contadorA = require('./instanciaUnica');
-const contadorB = require('./instanciaUnica');
+// instanciaUnica.js exporta um OBJETO já pronto.
+// O Node faz cache de módulos: na primeira vez que você dá require, ele executa o arquivo.
+// Nas vezes seguintes, ele entrega a mesma referência que está na memória.
+const contadora = require("./instanciaUnica");
+const contadorb = require("./instanciaUnica"); 
 
-// Como exportamos com uma factory, cria-se uma nova instancia sempre que importamos
-const contadorC = require('./instanciaNova')(); // Devemos invocar a função factory, por isso os parênteses
-const contadorD = require('./instanciaNova')();
+// instanciaNova.js exporta uma FUNÇÃO (Factory).
+// O require traz a função, mas os parênteses () no final a executam IMEDIATAMENTE.
+// Como chamamos a função duas vezes separadas, criamos dois objetos novos na memória.
+const contadorc = require("./instanciaNova")(); 
+const contadord = require("./instanciaNova")();
 
-contadorA.inc(); // Incrementando no contadorA
-contadorA.inc();
-console.log(contadorA.valor, contadorB.valor); // contadorB foi alterado devido ao cache (mesma instância)
+// --- TESTE A e B ---
+contadora.inc(); // valor vira 2
+contadora.inc(); // valor vira 3
+// Como 'contadora' e 'contadorb' apontam para o MESMO objeto no cache do Node,
+// o que você faz em um, o outro "sente" na hora.
+console.log("contador a: ", contadora.valor, "contador b: ", contadorb.valor);
 
-contadorC.inc(); // Incrementando no contadorC
-contadorC.inc();
-console.log(contadorC.valor, contadorD.valor); // contadorD não foi alterado pois foi criada uma nova instância pela factory
+// --- TESTE C e D ---
+contadorc.inc(); // valor vira 2 (apenas no objeto C)
+contadorc.inc(); // valor vira 3 (apenas no objeto C)
+// Como 'contadorc' e 'contadord' são instâncias diferentes criadas pela Factory,
+// elas são independentes. Alterar o C não afeta o D.
+console.log("contador c: ", contadorc.valor, "contador d: ", contadord.valor);
