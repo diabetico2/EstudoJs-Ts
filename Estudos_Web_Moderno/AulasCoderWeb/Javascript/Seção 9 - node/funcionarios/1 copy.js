@@ -3,11 +3,6 @@
 const url = "http://files.cod3r.com.br/curso-js/funcionarios.json";
 const axios = require("axios");
 
-
-
-
-
-
 axios.get(url).then((response) => {
   // ele pega os dados da URL json ( get ) e dai realiza uma ação (then)
   const funcionarios = response.data; // o funcionarios recebe toda as infos de response
