@@ -1,25 +1,21 @@
-// Temporizar tarefas
-const schedule = require('node-schedule');
+const schedule = require("node-schedule");
 
-// Criando tarefas
-const tarefa1 = schedule.scheduleJob('*/5 * 22 * * 0', function() {
-    console.log('Executando tarefa 1!', new Date().getSeconds());
+// Trocamos o '14' por '*' para rodar em qualquer hora
+// Formato: (segundo, minuto, hora, dia do mês, mês, dia da semana)
+const tarefa1 = schedule.scheduleJob("*/5 * * * * 3", function(){
+    console.log('Executando tarefa 1', new Date().getSeconds())
 });
 
-setTimeout(function() {
-    tarefa1.cancel();
-    console.log('Cancelamento tarefa 1!');
-}, 20000);
+setTimeout(function(){
+    tarefa1.cancel()
+    console.log('Cancelando tarefa 1')
+}, 20000) // 20 segundos corrigidos
 
-// setImmediate
-// setInterval
+const regra = new schedule.RecurrenceRule()
+regra.dayOfWeek = [new schedule.Range(1,5)]
+regra.hour = 15 // Ajustado para 15h (seu horário atual)
+regra.second = 3 // Vai rodar no segundo 3 de cada minuto das 15h
 
-// Criando regras
-const regra = new schedule.RecurrenceRule();
-regra.dayOfWeek = [new schedule.Range(1, 5)];
-regra.hour = 12;
-regra.second = 30;
-
-const tarefa2 = schedule.scheduleJob(regra, function() {
-    console.log('Executando tarefa 2!', new Date().getSeconds());
-});
+const tarefa2 = schedule.scheduleJob(regra, function(){
+    console.log('Executando tarefa 2', new Date().getSeconds())
+})

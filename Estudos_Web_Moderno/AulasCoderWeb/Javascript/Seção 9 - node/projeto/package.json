@@ -2,7 +2,7 @@
   "name": "projeto",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "src/servidor.js",
   "scripts": {
     "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,11 +10,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "1.18.2",
     "express": "4.16.2"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "1.14.11"
   }
 }
