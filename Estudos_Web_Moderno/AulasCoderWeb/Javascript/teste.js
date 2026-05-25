@@ -1,9 +1,19 @@
-const produto = { nome: 'Teclado', preco: 200 };
+const carrinho = [
+    { nome: "Cabo USB", preco: 20 },
+    { nome: "Teclado Mecânico", preco: 150 },
+    { nome: "Mouse Gamer", preco: 80 },
+    { nome: "Monitor 4K", preco: 1200 }
+];
+const info = p => p.preco
+const caro = p => p.preco > 100
+const nome = n => n.nome
+const valor = function(acumulador, atual){
+    return acumulador + atual
+}
 
-Object.entries(produto).forEach(([chave, valor]) => {
-    console.log(`${chave}: ${valor}`);
-});
-
-// Saída:
-// nome: Teclado
-// preco: 200
+const resul = carrinho.filter(caro)
+console.log(resul)
+const resul2 = carrinho.map(nome)
+console.log(resul2)
+const resul3 = carrinho.map(info).reduce(valor)
+console.log(resul3)
