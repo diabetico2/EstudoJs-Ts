@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicios HTML</title>
+  </head>
+  <body>
+    <header>Exercicios HTML</header>
+    <nav>
+      <a href="exercicios/teste.html">exercicio 00 - teste</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+      <br />
+      Curso de web Moderno
+    </footer>
+ <script>
+      // Seleciona todos os links da página
+      document.querySelectorAll("a").forEach((link) => {
+        // Pega a seção onde o conteúdo será exibido
+        const conteudo = document.getElementById("conteudo");
+
+        // Define o que vai acontecer quando o usuário clicar no link
+        link.onclick = function (e) {
+          // Impede o comportamento padrão do link
+          // Ou seja, impede que o navegador abra outra página
+          e.preventDefault();
+
+          // Busca o arquivo indicado no href do link
+          fetch(link.href)
+
+            // Converte a resposta do arquivo para texto
+            .then((resp) => resp.text())
+
+            // Coloca o conteúdo HTML carregado dentro da section "conteudo"
+            .then((html) => (conteudo.innerHTML = html));
+        };
+      });
+    </script>
+  </body>
+</html>
