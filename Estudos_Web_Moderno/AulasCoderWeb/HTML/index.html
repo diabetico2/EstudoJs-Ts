@@ -1,43 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercicios HTML</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercícios HTML</title>
     <style>
-      #conteudo {
-        padding: 30px 0px;
-      }
+        #conteudo {
+            padding: 30px 0px;
+        }
     </style>
-  </head>
-  <body>
-    <header>Exercicios HTML</header>
+</head>
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
     <nav>
-      <a href="exercicios/texto1.html">exercicio 01 - tag</a>
-    </nav>
+        <a href wm-nav="exercicios/texto1.html">01 - Texto 1</a> |
+        <a href wm-nav="exercicios/texto2.html">02 - Texto 2</a> |
+        <a href wm-nav="exercicios/lista.html">03 - Listas</a> |    </nav>
     <section id="conteudo"></section>
-    <footer>Curso de web Moderno</footer>
+    <footer>
+        Curso de Web Moderno
+    </footer>
     <script>
-      // Seleciona todos os links da página
-      document.querySelectorAll("a").forEach((link) => {
-        // Pega a seção onde o conteúdo será exibido
-        const conteudo = document.getElementById("conteudo");
-
-        // Define o que vai acontecer quando o usuário clicar no link
-        link.onclick = function (e) {
-          // Impede o comportamento padrão do link
-          // Ou seja, impede que o navegador abra outra página
-          e.preventDefault();
-
-          // Busca o arquivo indicado no href do link
-          fetch(link.href)
-            // Converte a resposta do arquivo para texto
-            .then((resp) => resp.text())
-
-            // Coloca o conteúdo HTML carregado dentro da section "conteudo"
-            .then((html) => (conteudo.innerHTML = html));
-        };
-      });
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+            
+            link.onclick = function(e) {
+                e.preventDefault()
+                fetch(link.getAttribute('wm-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
     </script>
-  </body>
+</body>
 </html>
