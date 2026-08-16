@@ -1,0 +1,15 @@
+<span onclick="mostrarEsconder(this)">Clique aqui</span>
+
+<p>Texto secreto!</p>
+
+<script>
+    function mostrarEsconder(elemento) {
+        const paragrafo = elemento.nextElementSibling
+
+        if (paragrafo.style.display == 'none') {
+            paragrafo.style.display = 'block';
+        } else {
+            paragrafo.style.display = 'none';
+        }
+    }
+</script>
