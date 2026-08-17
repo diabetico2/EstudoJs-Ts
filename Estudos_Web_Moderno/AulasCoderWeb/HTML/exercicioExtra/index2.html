@@ -1,0 +1,19 @@
+<span onclick="mostrarEsconder(this)">Frutas</span>
+
+<ul>
+  <li>Maçã</li>
+  <li>Banana</li>
+  <li>Uva</li>
+</ul>
+
+<script>
+  function mostrarEsconder(elemento) {
+ const lista = elemento.nextElementSibling
+
+ if (lista.style.display == 'none'){
+     lista.style.display = 'block'
+ } else {
+  lista.style.display = 'none'
+ }
+}
+</script>

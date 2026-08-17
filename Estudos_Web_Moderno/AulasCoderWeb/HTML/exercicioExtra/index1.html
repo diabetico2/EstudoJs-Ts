@@ -3,13 +3,12 @@
 <p>Texto secreto!</p>
 
 <script>
-    function mostrarEsconder(elemento) {
-        const paragrafo = elemento.nextElementSibling
-
-        if (paragrafo.style.display == 'none') {
-            paragrafo.style.display = 'block';
-        } else {
-            paragrafo.style.display = 'none';
-        }
+  function mostrarEsconder(elemento) {
+    const status = elemento.nextElementSibling;
+    if (status.style.display == "none") {
+      status.style.display = "block";
+    } else {
+      status.style.display = "none";
     }
+  }
 </script>

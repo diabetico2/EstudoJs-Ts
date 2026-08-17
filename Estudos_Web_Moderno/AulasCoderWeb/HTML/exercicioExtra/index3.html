@@ -1,0 +1,23 @@
+<span onclick="mostrarEsconder(this)">Frutas</span>
+<ul>
+  <li>Maçã</li>
+  <li>Banana</li>
+</ul>
+
+<span onclick="mostrarEsconder(this)">Cores</span>
+<ul>
+  <li>Azul</li>
+  <li>Vermelho</li>
+</ul>
+
+<script>
+  function mostrarEsconder(elemento) {
+    const lista = elemento.nextElementSibling;
+
+    if (lista.style.display === "none") {
+      lista.style.display = "block";
+    } else {
+      lista.style.display = "none";
+    }
+  }
+</script>
