@@ -1,15 +1,45 @@
+<h2>Projeto</h2>
+
 <ul>
-  <li>Backend
-  <ul>
-    <li>app.js</li>
-    <li>server.js</li>
-  </ul>
+  <li>
+    <span onclick="metodoEsconder(this)">Backend</span>
+    <ul>
+      <li>
+        <span onclick="metodoEsconder(this)">app</span>
+        <ul>
+          <li>produto.js</li>
+          <li>usuario.js</li>
+        </ul>
+      </li>
+
+      <li>
+        <span onclick="metodoEsconder(this)">config</span>
+        <ul>
+          <li>banco.js</li>
+          <li>rotas.js</li>
+        </ul>
+      </li>
+    </ul>
   </li>
 
-  <li>Frontend
-  <ul>
-    <li>index.html</li>
-    <li>style.css</li>
-  </ul>
+  <li>
+    <span onclick="metodoEsconder(this)">Frontend</span>
+    <ul>
+      <li>
+        <span onclick="metodoEsconder(this)">public</span>
+        <ul>
+          <li>app.js</li>
+          <li>style.css</li>
+        </ul>
+      </li>
+    </ul>
   </li>
 </ul>
+<script>
+  function metodoEsconder(elemento) {
+    const regra = elemento.nextElementSibling;
+    regra.style.display == "none"
+      ? regra.style.display = "block"
+      : (regra.style.display = "none");
+  }
+</script>

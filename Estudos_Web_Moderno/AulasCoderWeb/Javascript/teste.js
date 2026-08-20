@@ -4,19 +4,7 @@ const carrinho = [
     { nome: "Mouse Gamer", preco: 80 },
     { nome: "Monitor 4K", preco: 1200 }
 ];
-const info = p => p.preco
-const caro = p => p.preco > 100
-const nome = n => n.nome
-const valor = function(acumulador, atual){
-    return acumulador + atual
-}
 
-const resul = carrinho.filter(caro)
-console.log(resul)
-const resul2 = carrinho.map(nome)
-console.log(resul2)
-const resul3 = carrinho.map(info).reduce(valor) // com map, melhor
-// const resul3 = carrinho.reduce(function(acumulador, atual){
-//     return acumulador + atual.preco
-// }, 0) // sem map
-console.log(resul3)
+for (const nome of carrinho) {
+    console.log(nome)
+}
