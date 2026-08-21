@@ -1,15 +1,10 @@
-const produtos = [
-  { nome: "Mouse", preco: 80 },
-  { nome: "Teclado", preco: 150 },
-  { nome: "Cabo USB", preco: 20 },
-  { nome: "Monitor", preco: 1200 },
-];
+const nomes = ["Ana", "Carlos", "João", "Alexandre", "Bia"];
 
-function filtrarPorPreco(produtos, limite) {
-  const mapeamento = (vari) => vari.nome;
-  const filtrar = (vari) => vari.preco <= limite;
-
-  const resul = produtos.filter(filtrar).map(mapeamento);
+function nomesGrandes(nomes, tamanho) {
+  const filtrar = (nome) => nome.length >= tamanho;
+  const mapearUpper = (nome) => nome.toUpperCase()
+  const resul = nomes.filter(filtrar).map(mapearUpper);
   return resul;
 }
-console.log(filtrarPorPreco(produtos, 100))
+console.log(nomesGrandes(nomes, 5));
+
