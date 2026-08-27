@@ -1,10 +1,21 @@
-const nomes = ["Ana", "Carlos", "João", "Alexandre", "Bia"];
+const alunos = [
+  { nome: "Ana", nota: 8 },
+  { nome: "Carlos", nota: 5 },
+  { nome: "João", nota: 7 },
+  { nome: "Maria", nota: 9 },
+  { nome: "Pedro", nota: 4 },
+];
+function melhorAprovado(alunos) {
+  const maior = vari => vari.nota >= 7;
+  const soAprovado = alunos.filter(maior);
 
-function nomesGrandes(nomes, tamanho) {
-  const filtrar = (nome) => nome.length >= tamanho;
-  const mapearUpper = (nome) => nome.toUpperCase()
-  const resul = nomes.filter(filtrar).map(mapearUpper);
-  return resul;
+  let melhorAluno = soAprovado
+
+  for (const aluno of soAprovado) {
+    if (aluno.nota > melhorAluno.nota) {
+      melhorAluno = aluno
+    }
+  }
+
+  return melhorAluno;
 }
-console.log(nomesGrandes(nomes, 5));
-
