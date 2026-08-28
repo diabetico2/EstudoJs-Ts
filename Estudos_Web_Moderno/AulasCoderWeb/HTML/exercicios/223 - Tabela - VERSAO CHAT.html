@@ -3,100 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabela</title>
+    <title>Tabela com Rowspan</title>
+
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 5px;
+      }
+    </style>
   </head>
 
   <body>
-    <!-- table = tabela inteira -->
+    <!-- Tabela com rowspan -->
     <table>
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Produto</th>
+        </tr>
+      </thead>
 
-      <!-- tr = linha da tabela -->
-      <tr>
+      <tbody>
+        <tr>
+          <td rowspan="2">Hardware</td>
+          <td>Mouse</td>
+        </tr>
 
-        <!-- th = célula de cabeçalho -->
-        <th>Nome</th>
-        <th>Idade</th>
+        <tr>
+          <td>Teclado</td>
+        </tr>
 
-      </tr>
+        <tr>
+          <td>Software</td>
+          <td>Windows</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <tr>
+    <!-- Tabela com tfoot e colspan -->
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
 
-        <!-- td = célula normal com dados -->
-        <td>Allan</td>
-        <td>20</td>
+      <tbody>
+        <tr>
+          <td>Mouse</td>
+          <td>3</td>
+          <td>55</td>
+        </tr>
 
-      </tr>
+        <tr>
+          <td>Teclado</td>
+          <td>3</td>
+          <td>55</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="2">Total</td>
+          <td>200</td>
+        </tr>
+      </tfoot>
     </table>
   </body>
 </html>
-
-<!-- Tarefa: -->
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-
-  <body>
-    <!-- tabela inteira -->
-    <table>
-
-      <!-- linha do cabeçalho -->
-      <tr>
-        <th>Produto</th>
-        <th>Preço</th>
-      </tr>
-
-      <!-- linha de dados -->
-      <tr>
-        <td>Mouse</td>
-        <td>80</td>
-      </tr>
-
-      <!-- outra linha de dados -->
-      <tr>
-        <td>Teclado</td>
-        <td>90</td>
-      </tr>
-
-    </table>
-  </body>
-</html>
-
-<!-- Tarefa 2: -->
-
-<!-- table = tabela inteira -->
-<table>
-
-  <!-- thead = agrupa o cabeçalho da tabela -->
-  <thead>
-
-    <!-- tr = linha -->
-    <tr>
-
-      <!-- th = célula de título -->
-      <th>Produto</th>
-      <th>Preço</th>
-
-    </tr>
-  </thead>
-
-  <!-- tbody = agrupa os dados da tabela -->
-  <tbody>
-
-    <tr>
-      <!-- td = célula normal -->
-      <td>Mouse</td>
-      <td>50</td>
-    </tr>
-
-    <tr>
-      <td>Teclado</td>
-      <td>50</td>
-    </tr>
-
-  </tbody>
-</table>
