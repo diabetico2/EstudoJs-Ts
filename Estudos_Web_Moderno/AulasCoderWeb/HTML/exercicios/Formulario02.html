@@ -1,0 +1,32 @@
+<form action="">
+  <textarea name="bio" cols="30" rows="10"></textarea>
+
+  <input type="radio" name="tipo" value="admin" /> Admin
+  <input type="radio" name="tipo" value="regular" /> regular
+  <input type="radio" name="tipo" value="professor" /> professor
+
+  <input type="checkbox" name="ativo" /> Ativo
+  <select name="estado" id="">
+    <option value="pr">Parana</option>
+    <option value="sp">São Paulo</option>
+    <option value="pr">Santa Catarina</option>
+  </select>
+
+  <select name="interesses" multiple size="5">
+    <option value="js">javascript</option>
+    <option value="java">java</option>
+    <option value="py">python</option>
+  </select>
+</form>
+<style>
+  input,
+  textarea,
+  select {
+    display: block;
+    margin-bottom: 10px;
+    input[type="radio"],
+    input[type="checkbox"] {
+      display: inline;
+    }
+  }
+</style>

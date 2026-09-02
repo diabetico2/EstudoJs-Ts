@@ -1,21 +1,9 @@
-const alunos = [
-  { nome: "Ana", nota: 8 },
-  { nome: "Carlos", nota: 5 },
-  { nome: "João", nota: 7 },
-  { nome: "Maria", nota: 9 },
-  { nome: "Pedro", nota: 4 },
-];
-function melhorAprovado(alunos) {
-  const maior = vari => vari.nota >= 7;
-  const soAprovado = alunos.filter(maior);
+function terminar(callback) {
+  console.log("Terminei!")
 
-  let melhorAluno = soAprovado
-
-  for (const aluno of soAprovado) {
-    if (aluno.nota > melhorAluno.nota) {
-      melhorAluno = aluno
-    }
-  }
-
-  return melhorAluno;
+  callback()
 }
+
+terminar(() => {
+  console.log("Agora faça outra coisa")
+})

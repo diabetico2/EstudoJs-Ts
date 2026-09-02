@@ -1,3 +1,24 @@
+# COLA DE PROGRAMAÇÃO — JavaScript, Node, ESNext e HTML
+
+> Atualizada até **HTML — Formulário #03** do Curso Web Moderno (Cod3r).
+> Feita para consulta rápida. Use **Ctrl + F** e pesquise o nome exato do recurso.
+
+## 🔎 ÍNDICE RÁPIDO PARA CTRL + F
+
+### JavaScript
+`if` · `else if` · `switch` · `ternário` · `for` · `for...of` · `for...in` · `forEach` · `while` · `do...while` · `break` · `continue` · `return` · `arrow function` · `callback` · `closure` · `this` · `bind` · `call` · `apply` · `factory` · `constructor` · `class` · `extends` · `super` · `getter` · `setter` · `destructuring` · `rest` · `spread` · `length` · `push` · `pop` · `shift` · `unshift` · `slice` · `splice` · `map()` · `filter()` · `reduce()` · `concat()` · `flatMap()` · `find()` · `some()` · `every()` · `Promise` · `async` · `await` · `try` · `catch` · `throw` · `Set` · `fetch` · `template string` · `Math` · `null` · `undefined` · `hoisting`
+
+### Node / ESNext
+`require` · `module.exports` · `exports` · `package.json` · `fs.readFile` · `fs.writeFile` · `global` · `middleware` · `process.stdin` · `process.stdout` · `Map` · `Set` · `Tagged Template` · `Promise` · `async/await`
+
+### DOM / HTML + JS
+`querySelector` · `querySelectorAll` · `getElementById` · `onclick` · `preventDefault` · `nextElementSibling` · `style.display` · `innerHTML` · `textContent` · `getAttribute` · `wm-folder` · `wm-nav`
+
+### HTML
+`h1` · `p` · `br` · `hr` · `strong` · `em` · `blockquote` · `q` · `abbr` · `cite` · `dfn` · `address` · `del` · `ins` · `s` · `ul` · `ol` · `li` · `dl` · `dt` · `dd` · `a href` · `mailto` · `target="_blank"` · `table` · `caption` · `thead` · `tbody` · `tfoot` · `tr` · `th` · `td` · `colspan` · `rowspan` · `form` · `action` · `method` · `GET` · `POST` · `input` · `name` · `value` · `placeholder` · `password` · `hidden` · `radio` · `checkbox` · `textarea` · `select` · `option` · `multiple` · `formaction`
+
+---
+
 # ANOTAÇÕES DE JAVASCRIPT
 
 ## 1. Comparações
@@ -1985,9 +2006,332 @@ TypeError: Assignment to constant variable
 
 ---
 
-# ANOTAÇÕES DE HTML
 
-## 1. Estrutura básica
+# COMPLEMENTOS IMPORTANTES PARA CTRL + F
+
+## `else if`
+
+Use quando existem mais de dois caminhos:
+
+```javascript
+if (nota >= 7) {
+  console.log("Aprovado")
+} else if (nota >= 5) {
+  console.log("Recuperação")
+} else {
+  console.log("Reprovado")
+}
+```
+
+---
+
+## Operadores lógicos — `&&`, `||`, `!`
+
+```javascript
+idade >= 18 && temCarteira   // E: os dois precisam ser true
+idade >= 18 || autorizado    // OU: pelo menos um precisa ser true
+!ativo                       // NÃO: inverte true/false
+```
+
+Resumo:
+
+```text
+&& → E
+|| → OU
+!  → NÃO
+```
+
+---
+
+## Operadores aritméticos — `%`, `**`, `++`, `--`
+
+```javascript
+10 % 2   // resto da divisão → 0
+2 ** 3   // potência → 8
+contador++
+contador--
+```
+
+Muito útil para par/ímpar:
+
+```javascript
+numero % 2 === 0
+```
+
+---
+
+## Template String — crase e `${}`
+
+Use crase para inserir valores dentro de texto:
+
+```javascript
+const nome = "Ana"
+const idade = 20
+
+console.log(`Nome: ${nome}, idade: ${idade}`)
+```
+
+```text
+`texto ${variavel}`
+```
+
+---
+
+## `Math`
+
+Alguns recursos úteis:
+
+```javascript
+Math.PI
+Math.round(4.6) // 5
+Math.floor(4.9) // 4
+Math.ceil(4.1)  // 5
+Math.max(2, 8, 4) // 8
+Math.min(2, 8, 4) // 2
+Math.random()     // número entre 0 e 1
+```
+
+---
+
+## `null` x `undefined`
+
+```text
+undefined → existe uma variável/propriedade, mas ainda não recebeu valor
+null      → valor vazio colocado intencionalmente
+```
+
+```javascript
+let nome              // undefined
+const usuario = null  // vazio intencional
+```
+
+---
+
+## Hoisting
+
+O JavaScript eleva algumas declarações para o início do escopo durante a interpretação.
+
+Com `var`, a declaração é elevada, mas o valor não:
+
+```javascript
+console.log(nome) // undefined
+var nome = "Ana"
+```
+
+Não use hoisting como técnica. É mais importante saber que ele existe para entender comportamentos estranhos.
+
+---
+
+## `throw`
+
+Use para lançar um erro manualmente:
+
+```javascript
+function dividir(a, b) {
+  if (b === 0) {
+    throw new Error("Não pode dividir por zero")
+  }
+
+  return a / b
+}
+```
+
+Normalmente aparece com `try/catch`.
+
+---
+
+# NODE — COMPLEMENTOS
+
+## `require()`
+
+Importa um módulo no padrão CommonJS:
+
+```javascript
+const modulo = require('./modulo')
+```
+
+Para módulos instalados:
+
+```javascript
+const _ = require('lodash')
+```
+
+---
+
+## `module.exports` e `exports`
+
+Exportar algo de um arquivo:
+
+```javascript
+const soma = (a, b) => a + b
+
+module.exports = { soma }
+```
+
+Importar em outro:
+
+```javascript
+const calculadora = require('./calculadora')
+console.log(calculadora.soma(2, 3))
+```
+
+Também pode aparecer:
+
+```javascript
+exports.nome = 'valor'
+```
+
+---
+
+## `fs.readFile` / `fs.readFileSync`
+
+`fs` é o módulo de arquivos do Node.
+
+```javascript
+const fs = require('fs')
+
+const texto = fs.readFileSync('arquivo.txt', 'utf8')
+console.log(texto)
+```
+
+Assíncrono:
+
+```javascript
+fs.readFile('arquivo.txt', 'utf8', (erro, dados) => {
+  if (erro) return console.log(erro)
+  console.log(dados)
+})
+```
+
+---
+
+## `fs.writeFile` / `fs.writeFileSync`
+
+Escrever arquivo:
+
+```javascript
+const fs = require('fs')
+
+fs.writeFileSync('saida.txt', 'Olá')
+```
+
+Com JSON:
+
+```javascript
+fs.writeFileSync('dados.json', JSON.stringify(objeto))
+```
+
+---
+
+## `global` no Node
+
+`global` é o objeto global do Node, parecido com o `window` do navegador.
+
+```javascript
+global.minhaApp = {
+  nome: 'Sistema'
+}
+```
+
+Evite colocar tudo no `global`; use módulos sempre que possível.
+
+---
+
+## Middleware
+
+Middleware é uma função que fica no caminho de uma requisição e pode processá-la antes da próxima etapa.
+
+Formato comum:
+
+```javascript
+const middleware = (req, res, next) => {
+  // faz alguma coisa
+  next()
+}
+```
+
+```text
+requisição → middleware → middleware → resposta
+```
+
+`next()` manda seguir para a próxima função.
+
+---
+
+## `process.stdin` / `process.stdout`
+
+Entrada e saída pelo terminal:
+
+```javascript
+process.stdout.write('Digite algo: ')
+
+process.stdin.on('data', dado => {
+  console.log(dado.toString())
+})
+```
+
+```text
+stdin  → entrada
+stdout → saída
+```
+
+---
+
+# ESNEXT — COMPLEMENTOS
+
+## `Map` (estrutura) — NÃO confundir com `.map()` de Array
+
+`Map` guarda pares chave/valor.
+
+```javascript
+const tecnologias = new Map()
+
+tecnologias.set('js', 'JavaScript')
+tecnologias.set('py', 'Python')
+
+console.log(tecnologias.get('js'))
+console.log(tecnologias.has('py'))
+```
+
+Principais:
+
+```javascript
+map.set(chave, valor)
+map.get(chave)
+map.has(chave)
+map.delete(chave)
+map.size
+```
+
+```text
+Array.map() → transforma um array
+new Map()   → estrutura de chave/valor
+```
+
+---
+
+## Tagged Template
+
+É uma função que recebe as partes de uma Template String antes de gerar o texto final.
+
+```javascript
+function tag(partes, ...valores) {
+  console.log(partes)
+  console.log(valores)
+}
+
+const nome = 'Ana'
+tag`Olá ${nome}!`
+```
+
+Use quando quiser controlar/formatar valores de uma template string.
+
+---
+
+
+# ANOTAÇÕES DE HTML — ATUALIZADO ATÉ FORMULÁRIO #03
+
+## Estrutura básica — `<!doctype html>`, `<html>`, `<head>`, `<body>`
 
 ```html
 <!doctype html>
@@ -2004,8 +2348,6 @@ TypeError: Assignment to constant variable
 </html>
 ```
 
-Resumo:
-
 ```text
 <!doctype html> → informa HTML5
 <html>          → documento inteiro
@@ -2014,60 +2356,109 @@ Resumo:
 <body>          → conteúdo visível
 ```
 
+Comentário HTML:
+
+```html
+<!-- comentário -->
+```
+
 ---
 
-## 2. Texto
+## Cabeçalhos — `<h1>` até `<h6>`
+
+```html
+<h1>Título principal</h1>
+<h2>Subtítulo</h2>
+<h3>Nível 3</h3>
+```
+
+`h1` é o nível mais importante e `h6` o menos importante.
+
+---
+
+## Texto — `<p>`, `<b>`, `<i>`, `<strong>`, `<em>`
 
 ```html
 <p>Parágrafo</p>
-<br />
-<hr />
+<b>Negrito visual</b>
+<i>Itálico visual</i>
 <strong>Texto importante</strong>
 <em>Texto com ênfase</em>
 ```
 
-Outras tags já vistas:
+```text
+b/ i       → efeito visual
+strong/em  → possuem significado semântico
+```
+
+---
+
+## Quebra de linha — `<br>` e `<hr>`
 
 ```html
-<b>Negrito visual</b>
-<blockquote>Citação longa</blockquote>
-<q>Citação curta</q>
-<abbr title="HyperText Markup Language">HTML</abbr>
-<cite>Nome de uma obra</cite>
+Texto 1<br />Texto 2
+<hr />
+```
+
+```text
+<br> → quebra de linha
+<hr> → separação temática/linha horizontal
+```
+
+---
+
+## Sobrescrito e subscrito — `<sup>` / `<sub>`
+
+```html
+2<sup>2</sup>
+H<sub>2</sub>O
+```
+
+---
+
+## Citações — `<blockquote>` / `<q>`
+
+Citação longa:
+
+```html
+<blockquote cite="https://exemplo.com">
+  <p>Texto citado...</p>
+</blockquote>
+```
+
+Citação curta:
+
+```html
+<q>Texto citado</q>
+```
+
+---
+
+## Outras tags de texto — `<abbr>`, `<cite>`, `<dfn>`, `<address>`, `<del>`, `<ins>`, `<s>`
+
+```html
+<abbr title="Professor">Prof</abbr>
+<cite>Título da obra</cite>
 <dfn>Termo sendo definido</dfn>
+<address>Rua Exemplo, 123</address>
+<del>texto removido</del>
+<ins>texto inserido</ins>
+<s>preço antigo</s>
 ```
 
-Comentário HTML:
-
-```html
-<!-- Isso não aparece na página -->
-```
-
----
-
-## 3. Links
-
-```html
-<a href="pagina.html">Abrir página</a>
-```
-
-Abrir em outra aba:
-
-```html
-<a href="https://exemplo.com" target="_blank">Abrir site</a>
-```
-
-Ir para um elemento da própria página:
-
-```html
-<a href="#contato">Ir para contato</a>
-
-<h2 id="contato">Contato</h2>
+```text
+abbr    → abreviação com explicação
+cite    → título/nome de obra
+DFN     → termo sendo definido
+address → informação de contato/endereço
+DEL     → conteúdo removido
+INS     → conteúdo inserido
+S       → conteúdo que não é mais válido (ex.: preço antigo)
 ```
 
 ---
 
-## 4. Listas
+## Listas — `<ul>`, `<ol>`, `<li>`
 
 Lista não ordenada:
 
@@ -2087,27 +2478,42 @@ Lista ordenada:
 </ol>
 ```
 
-Resumo:
-
 ```text
-<ul> → lista sem numeração
-<ol> → lista numerada
-<li> → item da lista
+ul → sem numeração
+ol → numerada
+li → item
 ```
 
 ---
 
-## 5. Listas aninhadas ⭐
+## Lista de definição — `<dl>`, `<dt>`, `<dd>`
 
-Se uma lista pertence a um item, a lista interna fica **dentro do `<li>`**, antes do `</li>`.
+```html
+<dl>
+  <dt>SaaS</dt>
+  <dd>Software como Serviço</dd>
 
-Correto:
+  <dt>IaaS</dt>
+  <dd>Infraestrutura como Serviço</dd>
+</dl>
+```
+
+```text
+dl → lista de definições
+DT → termo
+DD → descrição/definição
+```
+
+---
+
+## Listas aninhadas
+
+Se uma lista pertence a um item, a lista interna fica **dentro do `<li>`**, antes de fechar `</li>`.
 
 ```html
 <ul>
   <li>
     Backend
-
     <ul>
       <li>app.js</li>
       <li>server.js</li>
@@ -2116,92 +2522,124 @@ Correto:
 </ul>
 ```
 
-Evite:
-
-```html
-<li>Backend</li>
-<ul>
-  ...
-</ul>
-```
-
 Regra:
 
 ```text
-Se algo pertence ao <li>, fica antes do </li>.
+Se pertence ao <li>, fica antes do </li>.
 ```
 
 ---
 
-## 6. `<span>`
+## `<span>`
 
-`span` envolve uma pequena parte do conteúdo para facilitar CSS ou JavaScript.
+Serve para envolver uma pequena parte do conteúdo e facilitar CSS/JavaScript.
 
 ```html
 <span>Backend</span>
 ```
 
-Com clique direto no HTML:
+Com evento:
 
 ```html
 <span onclick="mostrarEsconder(this)">Backend</span>
 ```
 
-Nesse caso:
-
-```text
-this → o próprio elemento clicado
-```
+`this` representa o elemento que foi clicado.
 
 ---
 
-## 7. `id`, `class` e atributos personalizados
-
-### `id`
-
-Identifica um elemento específico.
+## `id`, `class` e atributo personalizado
 
 ```html
 <div id="conteudo"></div>
-```
-
-### `class`
-
-Pode ser usada em vários elementos.
-
-```html
 <ul class="tree"></ul>
-```
-
-### Atributo personalizado usado no curso
-
-```html
 <span wm-folder>Backend</span>
 ```
 
-Selecionando no JavaScript:
-
-```javascript
-document.querySelectorAll("[wm-folder]")
+```text
+id    → normalmente identifica um elemento específico
+class → pode ser usada por vários elementos
+wm-*  → atributo personalizado usado nos exercícios do curso
 ```
 
-Com valor:
-
-```html
-<a wm-nav="home.html">Home</a>
-```
-
-Pegar o valor:
+Selecionar atributo personalizado:
 
 ```javascript
-link.getAttribute("wm-nav")
+document.querySelectorAll('[wm-folder]')
 ```
 
 ---
 
-## 8. Tabelas ⭐⭐⭐
+# LINKS E URL
 
-Estrutura básica:
+## Link — `<a href>`
+
+```html
+<a href="pagina.html">Abrir página</a>
+```
+
+---
+
+## URL absoluta
+
+```html
+<a href="https://www.google.com.br">Google</a>
+```
+
+Abrir em outra aba:
+
+```html
+<a href="https://www.google.com.br" target="_blank">Google</a>
+```
+
+---
+
+## URL relativa — `pagina.html`, `/pagina.html`, `../pagina.html`
+
+```html
+<a href="index.html">Mesmo diretório</a>
+<a href="/index.html">A partir da raiz do servidor</a>
+<a href="../index.html">Volta uma pasta</a>
+```
+
+---
+
+## E-mail — `mailto:`
+
+```html
+<a href="mailto:email@empresa.com.br">Enviar e-mail</a>
+```
+
+---
+
+## Âncora na mesma página — `#id`
+
+```html
+<h1 id="topo">Topo</h1>
+<a href="#topo">Voltar para o topo</a>
+```
+
+---
+
+## Parâmetros de URL — `?`, `=`, `&`
+
+```text
+produto.html?id=10&categoria=hardware
+```
+
+```text
+? → começa os parâmetros
+= → separa nome e valor
+& → separa parâmetros diferentes
+```
+
+Evite colocar informações sensíveis em URL, principalmente senha.
+
+---
+
+# TABELAS
+
+## Tabela — `<table>`, `<tr>`, `<th>`, `<td>`
 
 ```html
 <table>
@@ -2217,20 +2655,29 @@ Estrutura básica:
 </table>
 ```
 
-Resumo:
-
 ```text
-<table> → tabela inteira
-<tr>    → linha
-<th>    → célula de cabeçalho
-<td>    → célula normal
+table → tabela inteira
+tr    → linha
+th    → célula de cabeçalho
+td    → célula de dados
 ```
 
 ---
 
-## 9. `<thead>` e `<tbody>`
+## Título da tabela — `<caption>`
 
-Eles **organizam** a tabela; não criam linhas ou células sozinhos.
+```html
+<table>
+  <caption>Produtos</caption>
+  ...
+</table>
+```
+
+`caption` é o título/legenda da tabela.
+
+---
+
+## `<thead>`, `<tbody>`, `<tfoot>`
 
 ```html
 <table>
@@ -2247,51 +2694,47 @@ Eles **organizam** a tabela; não criam linhas ou células sozinhos.
       <td>80</td>
     </tr>
   </tbody>
+
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>80</td>
+    </tr>
+  </tfoot>
 </table>
 ```
 
-Resumo:
-
 ```text
-thead → agrupa o cabeçalho
-tbody → agrupa os dados
-tr    → cria linha
-th/td → criam células
+thead → cabeçalho
+tbody → dados principais
+tfoot → rodapé/total
 ```
 
 ---
 
-## 10. `colspan` ⭐
+## `colspan`
 
-Faz uma célula ocupar mais de uma **coluna**.
+Faz uma célula ocupar várias **colunas**:
 
 ```html
-<tr>
-  <th colspan="2">Produtos</th>
-</tr>
-
-<tr>
-  <th>Nome</th>
-  <th>Preço</th>
-</tr>
+<td colspan="3">Total</td>
 ```
 
 ```text
-colspan="2" → ocupa 2 colunas
+colspan="3" → ocupa 3 colunas
 ```
 
 ---
 
-## 11. `rowspan` ⭐
+## `rowspan`
 
-Faz uma célula ocupar mais de uma **linha**.
+Faz uma célula ocupar várias **linhas**:
 
 ```html
 <tr>
   <td rowspan="2">Hardware</td>
   <td>Mouse</td>
 </tr>
-
 <tr>
   <td>Teclado</td>
 </tr>
@@ -2301,26 +2744,385 @@ Faz uma célula ocupar mais de uma **linha**.
 rowspan="2" → ocupa 2 linhas
 ```
 
-Quando a célula usa `rowspan="2"`, você não repete essa mesma célula na linha seguinte.
-
 ---
 
-## 12. Resumo rápido de tabela
+## CSS útil para enxergar tabela
 
-```text
-table   → tabela
-tr      → linha
-th      → célula de cabeçalho
-td      → célula de dados
-thead   → grupo do cabeçalho
-tbody   → grupo dos dados
-colspan → ocupa várias colunas
-rowspan → ocupa várias linhas
+```css
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
 ```
 
 ---
 
-# 60. Página de erros comuns ⭐⭐⭐
+# FORMULÁRIOS
+
+## `<form>`
+
+Agrupa campos que serão enviados.
+
+```html
+<form action="/usuarios" method="post">
+  ...
+</form>
+```
+
+```text
+action → destino
+method → método de envio
+```
+
+---
+
+## `GET` x `POST`
+
+```html
+<form method="get">
+```
+
+`GET` envia os dados pela URL:
+
+```text
+?nome=Ana&idade=20
+```
+
+```html
+<form method="post">
+```
+
+`POST` envia os dados no corpo da requisição.
+
+```text
+GET  → dados aparecem na URL
+POST → dados vão no corpo da requisição
+```
+
+`POST` sozinho não significa que os dados estão criptografados; em aplicações reais a conexão deve usar HTTPS.
+
+---
+
+## `<input>`
+
+Campo de entrada:
+
+```html
+<input type="text" name="nome" placeholder="Nome" />
+```
+
+---
+
+## `name`
+
+É o nome usado para identificar o dado enviado.
+
+```html
+<input type="text" name="nome" />
+```
+
+Se o usuário digitar `Ana`:
+
+```text
+nome=Ana
+```
+
+---
+
+## `value`
+
+É o valor associado ao campo/opção.
+
+```html
+<input type="radio" name="tipo" value="admin" /> Admin
+```
+
+Ao selecionar:
+
+```text
+tipo=admin
+```
+
+---
+
+## `placeholder`
+
+Dica visual dentro do campo:
+
+```html
+<input type="text" placeholder="Digite seu nome" />
+```
+
+Não confundir com `id`.
+
+---
+
+## `input type="text"`
+
+```html
+<input type="text" name="nome" placeholder="Nome" />
+```
+
+Texto de uma linha.
+
+---
+
+## `input type="email"`
+
+```html
+<input type="email" name="email" placeholder="E-mail" />
+```
+
+O navegador faz uma validação básica de formato de e-mail.
+
+---
+
+## `input type="number"`
+
+```html
+<input type="number" name="preco" placeholder="Preço" />
+```
+
+Campo numérico.
+
+---
+
+## `input type="password"`
+
+```html
+<input type="password" name="senha" />
+```
+
+Esconde os caracteres visualmente, mas isso **não criptografa** a senha.
+
+---
+
+## `input type="hidden"`
+
+Campo enviado sem aparecer na tela:
+
+```html
+<input type="hidden" name="id" value="3" />
+```
+
+Útil para IDs e outras informações que o usuário não precisa digitar.
+
+---
+
+## `<textarea>`
+
+Campo para textos maiores:
+
+```html
+<textarea name="bio" cols="30" rows="10"></textarea>
+```
+
+```text
+cols → largura aproximada
+rows → linhas visíveis
+```
+
+---
+
+## `input type="radio"`
+
+Escolha **uma opção** de um grupo.
+
+```html
+<input type="radio" name="tipo" value="admin" /> Admin
+<input type="radio" name="tipo" value="regular" /> Regular
+<input type="radio" name="tipo" value="professor" /> Professor
+```
+
+Regra principal:
+
+```text
+Mesmo name + values diferentes → fazem parte do mesmo grupo.
+```
+
+---
+
+## `input type="checkbox"`
+
+Opção de marcar/desmarcar:
+
+```html
+<input type="checkbox" name="ativo" /> Ativo
+```
+
+```text
+radio    → escolhe uma opção do grupo
+checkbox → marca/desmarca uma opção
+```
+
+---
+
+## `<select>` e `<option>`
+
+```html
+<select name="estado">
+  <option value="pr">Paraná</option>
+  <option value="sp">São Paulo</option>
+</select>
+```
+
+```text
+select → caixa/lista de seleção
+option → cada opção
+value  → dado enviado
+```
+
+---
+
+## `multiple` e `size`
+
+Permite selecionar várias opções:
+
+```html
+<select name="interesses" multiple size="5">
+  <option value="js">JavaScript</option>
+  <option value="java">Java</option>
+  <option value="python">Python</option>
+</select>
+```
+
+```text
+multiple → permite várias escolhas
+size     → quantas opções ficam visíveis
+```
+
+---
+
+## Botão de envio — `<button type="submit">`
+
+```html
+<button type="submit">Enviar</button>
+```
+
+Dentro de um formulário, o botão envia os campos.
+
+---
+
+## `formaction`
+
+Permite que **cada botão** defina um destino diferente.
+
+```html
+<form method="post">
+  <input type="hidden" name="id" value="3" />
+
+  <button formaction="http://localhost:3003/usuarios">Incluir</button>
+  <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
+</form>
+```
+
+```text
+form action → destino padrão do formulário
+formaction  → destino específico daquele botão
+```
+
+---
+
+## CSS usado no formulário do curso — `input[type="radio"]`
+
+```css
+input,
+textarea,
+select {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline;
+}
+```
+
+O seletor:
+
+```css
+input[type="radio"]
+```
+
+seleciona apenas inputs cujo atributo `type` seja `radio`.
+
+---
+
+## Formulário #03 — o que é a pasta `form/`
+
+A terceira etapa não precisa de outro HTML separado. O exercício usa o mesmo `form.html` e adiciona uma pequena aplicação Node/Express para **receber de verdade os dados enviados pelo POST**.
+
+Estrutura:
+
+```text
+form/
+├── form.html       → formulário
+├── server.js       → recebe os POSTs
+├── package.json    → dependências/scripts
+└── package-lock.json
+```
+
+No `form.html`:
+
+```text
+Incluir → POST /usuarios
+Alterar → POST /usuarios/3
+```
+
+No `server.js`, o servidor recebe esses caminhos. Para a parte de HTML, o importante é entender `method="POST"`, `hidden`, `name`, `value` e `formaction`.
+
+---
+
+# HTML — RESUMO CTRL + F
+
+```text
+p          → parágrafo
+br         → quebra de linha
+hr         → separação temática
+strong     → importância
+em         → ênfase
+sup/sub    → sobrescrito/subscrito
+ul/ol/li   → listas
+dl/dt/dd   → lista de definição
+a href     → link
+mailto     → link para e-mail
+#id        → âncora interna
+span       → pequeno trecho manipulável
+caption    → título da tabela
+thead      → cabeçalho da tabela
+tbody      → corpo da tabela
+tfoot      → rodapé da tabela
+tr         → linha
+th         → célula de cabeçalho
+td         → célula de dados
+colspan    → ocupa colunas
+rowspan    → ocupa linhas
+form       → formulário
+action     → destino padrão
+method     → GET/POST
+name       → nome do dado
+value      → valor enviado
+placeholder→ dica visual
+hidden     → campo invisível enviado
+radio      → uma escolha por grupo
+checkbox   → marcar/desmarcar
+textarea   → texto grande
+select     → lista de opções
+option     → opção
+multiple   → várias escolhas
+formaction → destino específico do botão
+```
+
+---
+
+# ERROS COMUNS / LEMBRETES
+
 
 Eu criaria um arquivo separado chamado algo como:
 
