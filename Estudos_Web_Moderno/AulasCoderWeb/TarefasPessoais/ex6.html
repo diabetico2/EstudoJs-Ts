@@ -1,0 +1,17 @@
+<video id="meuVideo" src="video.mp4"></video>
+
+<button wm-play>Play</button>
+<button wm-pause>Pause</button>
+
+<script>
+    const botaoPlay = document.querySelector('[wm-play]')
+    const botaoPause = document.querySelector('[wm-pause]')
+    const video = document.getElementById("meuVideo")
+
+botaoPlay.onclick = function(){
+    video.play()
+}
+botaoPause.onclick = function(){
+    video.pause()
+}
+</script>

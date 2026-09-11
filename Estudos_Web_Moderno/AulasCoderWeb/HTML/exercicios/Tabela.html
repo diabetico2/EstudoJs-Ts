@@ -1,82 +1,54 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabela com Rowspan</title>
+<table>
+  <caption>
+    Produtos
+  </caption>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ipad</td>
+      <td>3289,00</td>
+      <td>5</td>
+      <td>16445,00</td>
+    </tr>
+    <tr>
+      <td>Sansung</td>
+      <td>2649,00</td>
+      <td>8</td>
+      <td>21192,00</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total</td>
+      <td>676767,00</td>
+    </tr>
+  </tfoot>
+</table>
 
-    <style>
-      table,
-      th,
-      td {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-
-      th,
-      td {
-        padding: 5px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- Tabela com rowspan -->
-    <table>
-      <thead>
-        <tr>
-          <th>Categoria</th>
-          <th>Produto</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td rowspan="2">Hardware</td>
-          <td>Mouse</td>
-        </tr>
-
-        <tr>
-          <td>Teclado</td>
-        </tr>
-
-        <tr>
-          <td>Software</td>
-          <td>Windows</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Tabela com tfoot e colspan -->
-    <table>
-      <thead>
-        <tr>
-          <th>Produto</th>
-          <th>Quantidade</th>
-          <th>Preço</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>Mouse</td>
-          <td>3</td>
-          <td>55</td>
-        </tr>
-
-        <tr>
-          <td>Teclado</td>
-          <td>3</td>
-          <td>55</td>
-        </tr>
-      </tbody>
-
-      <tfoot>
-        <tr>
-          <td colspan="2">Total</td>
-          <td>200</td>
-        </tr>
-      </tfoot>
-    </table>
-  </body>
-</html>
+<style>
+  table {
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    padding: 10px;
+  }
+  thead tr {
+    border-bottom: solid 3px #444;
+  }
+  tbody tr:hover {
+    background-color: #dedede;
+  }
+  tfoot {
+    background-color: #444;
+    color: white;
+    font-weight: bold;
+  }
+</style>
