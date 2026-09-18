@@ -1,9 +1,57 @@
-<h1>Formulario</h1>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+  </head>
+  <body>
+    <h1>Formulario</h1>
 
-<form action="http://localhost:3003/usuarios" method="post">
-<input type="text" name="nome" id="">
-<button>Incluir</button>
-    
-</form>
+    <form method="post">
+      <input type="hidden" name="id" value="3" />
+      <input type="text" name="nome" id="" />
+      <input type="password" name="senha" id="" />
+      <textarea name="bio" cols="30" rows="10"></textarea>
 
-a.
+      <div>
+        <input type="radio" name="tipo" value="adm" />Admin
+        <input type="radio" name="tipo" value="reg" />Regular
+        <input type="radio" name="tipo" value="prof" />Professor
+      </div>
+
+      <div><input type="checkbox" name="ativo" id="" />Ativo</div>
+
+      <select name="Estado" id="">
+        <option value="ac">Acre</option>
+        <option value="ba">Bahia</option>
+        <option value="Pa">Pará</option>
+      </select>
+
+      <select name="interesses" multiple size="5">
+        <option value="js">Javascript</option>
+        <option value="java">java</option>
+        <option value="python">python</option>
+        <option value="rust">rust</option>
+        <option value="react">react</option>
+      </select>
+
+      <button formaction="http://localhost:3003/usuarios">Incluir</button>
+      <button formaction="http://localhost:3003/usuarios/3">alterar</button>
+    </form>
+
+    <style>
+      input,
+      textarea,
+      select {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        display: inline;
+      }
+    </style>
+  </body>
+</html>

@@ -6,7 +6,15 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/usuarios', (req, resp)=>{
     console.log(req.body)
-    resp.send('Parabens')
+    resp.send('Parabens, usu incluido')
 })
 
-app.listen(3003)
+app.post('/usuarios/:id', (req, resp)=>{
+    console.log(req.body)
+    console.log(req.params.id)
+    resp.send('Parabens, usu alterado')
+})
+
+app.listen(3003, () => {
+    console.log('servidor ligado a porta 3003')
+})
