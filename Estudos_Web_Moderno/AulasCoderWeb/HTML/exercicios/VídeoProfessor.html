@@ -47,20 +47,21 @@
 </style>
 
 <script>
-  const id = "meuVideo";
-  const video = document.getElementById(id);
-  video.oncontextmenu = () => false;
+  function configurarVideo(id) {
+    const video = document.getElementById(id);
+    video.oncontextmenu = () => false;
 
-  document.querySelector(`[wm-play=${id}]`).onclick = (e) => video.play();
-  document.querySelector(`[wm-pause=${id}]`).onclick = (e) => video.pause();
-  const barra = document.querySelector(`[wm-progresso="${id}"] > div`);
+    document.querySelector(`[wm-play=${id}]`).onclick = (e) => video.play();
+    document.querySelector(`[wm-pause=${id}]`).onclick = (e) => video.pause();
 
-  video.ontimeupdate = () => {
-    const percentual = (video.currentTime / video.duration) * 100;
+    setInterval(() => {
+      const percentual = (video.currentTime / video.duration) * 100;
 
-    barra.style.width = `${percentual}%`;
-    barra.style.color = "black";
-    barra.style.textAlign = "left";
-    barra.innerHTML = `${Math.round(percentual)}%`;
-  };
+      const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`);
+
+      valorDiv.style.width = `${percentual}%`;
+      valorDiv.innerHTML = `${percentual.toFixed(1)}%`;
+    }, 500);
+  }
+  configurarVideo("meuVideo");
 </script>

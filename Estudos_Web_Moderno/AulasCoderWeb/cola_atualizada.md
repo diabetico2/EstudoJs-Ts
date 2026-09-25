@@ -3,9 +3,16 @@
 > Atualizada até **HTML — Formulário #03** do Curso Web Moderno (Cod3r).
 > Feita para consulta rápida. Use **Ctrl + F** e pesquise o nome exato do recurso.
 
+## COMO USAR ESTA COLA
+
+- Procure primeiro pelo tema: JavaScript, HTML, DOM, Node, Express ou CSS.
+- Use os blocos curtos para revisão rápida antes de praticar.
+- Quando algo virar dúvida, pesquise por termos específicos como `reduce`, `for...of`, `fetch`, `Promise`, `constructor` ou `formaction`.
+- Para memorizar, foque nos conceitos com estrela: ⭐
+
 ## 🔎 ÍNDICE RÁPIDO PARA CTRL + F
 
-### JavaScript
+### JavaScript essencial
 `if` · `else if` · `switch` · `ternário` · `for` · `for...of` · `for...in` · `forEach` · `while` · `do...while` · `break` · `continue` · `return` · `arrow function` · `callback` · `closure` · `this` · `bind` · `call` · `apply` · `factory` · `constructor` · `class` · `extends` · `super` · `getter` · `setter` · `destructuring` · `rest` · `spread` · `length` · `push` · `pop` · `shift` · `unshift` · `slice` · `splice` · `map()` · `filter()` · `reduce()` · `concat()` · `flatMap()` · `find()` · `some()` · `every()` · `Promise` · `async` · `await` · `try` · `catch` · `throw` · `Set` · `fetch` · `template string` · `Math` · `null` · `undefined` · `hoisting`
 
 ### Node / ESNext
@@ -16,6 +23,30 @@
 
 ### HTML
 `h1` · `p` · `br` · `hr` · `strong` · `em` · `blockquote` · `q` · `abbr` · `cite` · `dfn` · `address` · `del` · `ins` · `s` · `ul` · `ol` · `li` · `dl` · `dt` · `dd` · `a href` · `mailto` · `target="_blank"` · `table` · `caption` · `thead` · `tbody` · `tfoot` · `tr` · `th` · `td` · `colspan` · `rowspan` · `form` · `action` · `method` · `GET` · `POST` · `input` · `name` · `value` · `placeholder` · `password` · `hidden` · `radio` · `checkbox` · `textarea` · `select` · `option` · `multiple` · `formaction`
+
+### JavaScript / DOM / Interações
+`Array.from()` · `indexOf()` · `setTimeout()` · `setInterval()` · `window.innerWidth` · `clientWidth` · `style.left` · `style.width` · `oncontextmenu` · `ontimeupdate` · `currentTime` · `duration` · `play()` · `pause()` · `Math.round()` · `Math.floor()` · `toFixed()`
+
+### HTML + mídia / CSS
+`img` · `src` · `alt` · `title` · `width` · `height` · `picture` · `source` · `srcset` · `media` · `video` · `controls` · `controlsList` · `wm-slider` · `wm-play` · `wm-pause` · `wm-progresso` · `background-image` · `background-position` · `background-repeat` · `background-size` · `position: absolute`
+
+### Express / servidor
+`express` · `app` · `app.use` · `express.urlencoded` · `express.json` · `app.get` · `app.post` · `req` · `res` · `req.body` · `req.params` · `res.send` · `app.listen`
+
+## RESUMO EM 1 MINUTO
+
+- `for...of` → percorre valores de arrays
+- `for...in` → percorre propriedades/chaves
+- `map()` → transforma
+- `filter()` → seleciona
+- `reduce()` → acumula
+- `Promise` → representa operação assíncrona
+- `async/await` → forma mais legível de trabalhar com Promise
+- `querySelector()` → seleciona um elemento
+- `querySelectorAll()` → seleciona vários
+- `fetch()` → busca dados
+- `app.get()` / `app.post()` → rotas do servidor
+- `req.body` → dados enviados no formulário
 
 ---
 
@@ -3200,3 +3231,1206 @@ display = "block" → mostra
 ```
 
 Esse formato no PC provavelmente vai ser até melhor que o caderno, porque você consegue usar **Ctrl + F** e procurar rapidamente coisas como `reduce`, `for of`, `Promise`, `constructor`, etc.
+---
+
+# HTML — IMAGENS
+
+## `<img>` — imagem
+
+Estrutura:
+
+```html
+<img
+  src="imagem.jpg"
+  alt="Descrição da imagem"
+  width="500"
+  height="300"
+  title="Texto ao passar o mouse"
+/>
+```
+
+```text
+src    → caminho/endereço da imagem
+alt    → descrição alternativa/acessibilidade
+width  → largura
+height → altura
+title  → texto ao passar o mouse
+```
+
+Exemplo com URL:
+
+```html
+<img
+  src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+  alt="Muro da Cidade"
+  width="513"
+  height="342"
+/>
+```
+
+---
+
+## `<picture>` / `<source>` / `srcset` / `media`
+
+Permite usar imagens diferentes dependendo do tamanho da tela.
+
+```html
+<picture>
+  <source
+    media="(min-width: 700px)"
+    srcset="imagem-grande.jpg"
+  />
+
+  <img
+    src="imagem-pequena.jpg"
+    alt="Exemplo"
+  />
+</picture>
+```
+
+```text
+picture → agrupa alternativas de imagem
+source  → define uma alternativa
+media   → condição
+srcset  → imagem usada naquela condição
+img     → fallback / imagem padrão
+```
+
+Exemplo:
+
+```text
+tela >= 700px → imagem grande
+tela < 700px  → imagem padrão
+```
+
+---
+
+# CSS — IMAGEM DE FUNDO
+
+## `background-image`
+
+```css
+.fundo {
+  width: 500px;
+  height: 300px;
+
+  background-image: url("imagem.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+```
+
+```text
+background-image    → imagem de fundo
+background-position → posição da imagem
+background-repeat   → repetição
+background-size     → tamanho
+```
+
+Exemplo:
+
+```css
+background-size: 200%;
+```
+
+aumenta a imagem de fundo.
+
+⚠️ Medidas normalmente precisam de unidade:
+
+```css
+width: 500;    /* ERRADO */
+width: 500px;  /* CERTO */
+```
+
+---
+
+# SLIDER — JAVASCRIPT + DOM
+
+## `wm-slider`
+
+Nos exercícios:
+
+```html
+<div wm-slider>
+  <p>Slide 1</p>
+  <p>Slide 2</p>
+</div>
+```
+
+Selecionar:
+
+```javascript
+const elementos =
+  document.querySelectorAll("[wm-slider] > p")
+```
+
+---
+
+## `querySelectorAll()` + `Array.from()`
+
+`querySelectorAll()` devolve vários elementos.
+
+```javascript
+const elementos =
+  document.querySelectorAll("[wm-slider] > p")
+```
+
+Transformar em Array:
+
+```javascript
+const slides = Array.from(elementos)
+```
+
+```text
+querySelectorAll → NodeList
+Array.from       → Array
+```
+
+---
+
+## `style.left`
+
+Move horizontalmente um elemento posicionado.
+
+```javascript
+slide.style.left = "500px"
+```
+
+Normalmente usado com:
+
+```css
+position: absolute;
+```
+
+---
+
+## `window.innerWidth`
+
+Largura atual da janela do navegador.
+
+```javascript
+const inicio = window.innerWidth
+```
+
+Pode servir para começar o slide fora da tela, pela direita.
+
+---
+
+## `clientWidth`
+
+Largura do elemento.
+
+```javascript
+const largura = slide.clientWidth
+```
+
+Para fazer o slide sair completamente pela esquerda:
+
+```javascript
+const fim = -slide.clientWidth
+```
+
+Exemplo:
+
+```text
+slide tem 513px
+
+fim = -513
+```
+
+---
+
+## Função `mover()`
+
+Exemplo usado no slider:
+
+```javascript
+function mover(elem, inicio, fim, passo, callback) {
+  const novoInicio = inicio - passo
+
+  if (novoInicio >= fim) {
+    elem.style.left = novoInicio + "px"
+
+    setTimeout(() => {
+      mover(elem, novoInicio, fim, passo, callback)
+    }, 7)
+  } else {
+    callback()
+  }
+}
+```
+
+### Lógica
+
+```text
+inicio
+↓
+subtrai passo
+↓
+ainda não chegou no fim?
+↓
+SIM → move e chama mover() novamente
+NÃO → callback()
+```
+
+---
+
+## `passo`
+
+Determina quantos pixels o elemento anda por execução.
+
+```javascript
+passo = 5
+```
+
+```text
+passo pequeno → movimento mais suave
+passo grande  → movimento maior por atualização
+```
+
+---
+
+## `setTimeout()`
+
+No slider:
+
+```javascript
+setTimeout(() => {
+  mover(...)
+}, 7)
+```
+
+Significa:
+
+> espera alguns milissegundos e executa novamente.
+
+O tempo e o passo influenciam a velocidade.
+
+---
+
+## Callback no slider
+
+```javascript
+mover(slide, inicio, fim, 5, () => {
+  console.log("Terminou")
+})
+```
+
+A função:
+
+```javascript
+() => {
+  console.log("Terminou")
+}
+```
+
+é passada como callback.
+
+Dentro de `mover`:
+
+```javascript
+callback()
+```
+
+executa essa função quando o movimento terminar.
+
+### Resumo
+
+```text
+callback  → função guardada
+callback() → executa a função
+```
+
+---
+
+## Recursão no slider
+
+A função chama ela mesma:
+
+```javascript
+mover(elem, novoInicio, fim, passo, callback)
+```
+
+Isso é recursão.
+
+É necessário existir uma condição de parada:
+
+```javascript
+if (novoInicio >= fim)
+```
+
+Sem condição de parada, a função continuaria indefinidamente.
+
+---
+
+## `indexOf()`
+
+Descobre a posição de um item dentro de um Array.
+
+```javascript
+const frutas = ["maçã", "banana", "uva"]
+
+frutas.indexOf("banana")
+```
+
+Resultado:
+
+```text
+1
+```
+
+No slider:
+
+```javascript
+const i = lista.indexOf(atual) + 1
+```
+
+descobre onde está o atual e tenta pegar o seguinte.
+
+---
+
+## `getProximo()`
+
+```javascript
+function getProximo(lista, atual) {
+  const i = lista.indexOf(atual) + 1
+
+  return i < lista.length
+    ? lista[i]
+    : lista[0]
+}
+```
+
+Lógica:
+
+```text
+acha posição do atual
+↓
++ 1
+↓
+posição existe?
+↓
+SIM → próximo
+NÃO → volta ao primeiro
+```
+
+---
+
+## `exibirSlide()`
+
+Responsável por coordenar o ciclo do slider.
+
+```javascript
+function exibirSlide(slides, slide) {
+  slide.style.display = "block"
+
+  const inicio = window.innerWidth
+  const fim = -slide.clientWidth
+
+  slide.style.left = `${inicio}px`
+
+  mover(slide, inicio, fim, 5, () => {
+    slide.style.display = "none"
+
+    const proximo = getProximo(slides, slide)
+
+    exibirSlide(slides, proximo)
+  })
+}
+```
+
+### Responsabilidades
+
+```text
+mostrar slide
+↓
+calcular início
+↓
+calcular fim
+↓
+mover
+↓
+terminou
+↓
+esconder atual
+↓
+descobrir próximo
+↓
+exibir próximo
+```
+
+---
+
+## Slider — resumo mental ⭐⭐⭐
+
+```text
+mover()
+→ anima
+
+getProximo()
+→ escolhe o próximo
+
+exibirSlide()
+→ coordena tudo
+```
+
+---
+
+# HTML — VÍDEO
+
+## `<video>`
+
+```html
+<video
+  id="meuVideo"
+  width="800"
+  height="450"
+  controls
+>
+  <source src="video.mp4" type="video/mp4" />
+</video>
+```
+
+```text
+video    → elemento de vídeo
+source   → arquivo de vídeo
+controls → controles nativos
+```
+
+---
+
+## `controls`
+
+```html
+<video controls>
+```
+
+Mostra controles nativos:
+
+```text
+play
+pause
+volume
+barra de progresso
+tela cheia
+```
+
+---
+
+## `controlsList="nodownload"`
+
+```html
+<video controls controlsList="nodownload">
+```
+
+Pede ao navegador para não mostrar a opção padrão de download nos controles.
+
+⚠️ Isso não é uma proteção absoluta contra baixar o arquivo.
+
+---
+
+# CONTROLAR VÍDEO COM JAVASCRIPT
+
+## `video.play()`
+
+Inicia/reproduz:
+
+```javascript
+video.play()
+```
+
+---
+
+## `video.pause()`
+
+Pausa:
+
+```javascript
+video.pause()
+```
+
+---
+
+## `play` x `play()`
+
+```javascript
+video.play   // referência à função
+
+video.play() // EXECUTA a função
+```
+
+O mesmo vale para:
+
+```javascript
+video.pause()
+```
+
+---
+
+## `onclick`
+
+```javascript
+botao.onclick = () => video.play()
+```
+
+⚠️ Não fazer:
+
+```javascript
+botao.onclick = video.play()
+```
+
+porque isso executa imediatamente.
+
+---
+
+# ATRIBUTOS PERSONALIZADOS NO VÍDEO
+
+HTML:
+
+```html
+<button wm-play="meuVideo">Play</button>
+<button wm-pause="meuVideo">Pause</button>
+```
+
+Selecionar pelo valor:
+
+```javascript
+const id = "meuVideo"
+
+document.querySelector(
+  `[wm-play="${id}"]`
+)
+```
+
+---
+
+## Seletor de atributo com valor ⭐
+
+HTML:
+
+```html
+<button wm-play="meuVideo">
+```
+
+JavaScript:
+
+```javascript
+document.querySelector('[wm-play="meuVideo"]')
+```
+
+Com template string:
+
+```javascript
+document.querySelector(`[wm-play="${id}"]`)
+```
+
+⚠️ Não confundir:
+
+```javascript
+[wm-play${id}]
+```
+
+Isso geraria algo como:
+
+```text
+[wm-playmeuVideo]
+```
+
+e procuraria um atributo com esse nome.
+
+---
+
+# BARRA DE PROGRESSO DO VÍDEO
+
+HTML:
+
+```html
+<div wm-progresso="meuVideo" class="progresso">
+  <div></div>
+</div>
+```
+
+Selecionar a barra interna:
+
+```javascript
+const barra =
+  document.querySelector(
+    `[wm-progresso="${id}"] > div`
+  )
+```
+
+---
+
+## `currentTime`
+
+Tempo atual do vídeo em segundos.
+
+```javascript
+video.currentTime
+```
+
+---
+
+## `duration`
+
+Duração total do vídeo em segundos.
+
+```javascript
+video.duration
+```
+
+⚠️ Não existe:
+
+```javascript
+video.durationTime
+```
+
+Use:
+
+```javascript
+video.duration
+```
+
+---
+
+## Calcular porcentagem
+
+```javascript
+const percentual =
+  (video.currentTime / video.duration) * 100
+```
+
+Exemplo:
+
+```text
+tempo atual = 25
+duração = 100
+
+25 / 100 * 100 = 25%
+```
+
+---
+
+## Atualizar largura
+
+```javascript
+barra.style.width = `${percentual}%`
+```
+
+Assim:
+
+```text
+0%   → barra vazia
+50%  → metade
+100% → cheia
+```
+
+---
+
+## `ontimeupdate`
+
+Evento disparado conforme o tempo do vídeo muda.
+
+```javascript
+video.ontimeupdate = () => {
+  const percentual =
+    (video.currentTime / video.duration) * 100
+
+  barra.style.width = `${percentual}%`
+}
+```
+
+---
+
+## `setInterval()` no vídeo
+
+Outra forma usada no curso:
+
+```javascript
+setInterval(() => {
+  const percentual =
+    (video.currentTime / video.duration) * 100
+}, 500)
+```
+
+Executa a atualização a cada:
+
+```text
+500ms = meio segundo
+```
+
+---
+
+## Mostrar porcentagem
+
+Com uma casa decimal:
+
+```javascript
+barra.textContent =
+  `${percentual.toFixed(1)}%`
+```
+
+Exemplo:
+
+```text
+56.5%
+91.2%
+```
+
+---
+
+## `Math.round()`
+
+Arredonda para o inteiro mais próximo:
+
+```javascript
+Math.round(56.6)
+```
+
+Resultado:
+
+```text
+57
+```
+
+Uso:
+
+```javascript
+barra.textContent =
+  `${Math.round(percentual)}%`
+```
+
+---
+
+## `Math.floor()`
+
+Sempre arredonda para baixo:
+
+```javascript
+Math.floor(99.9)
+```
+
+Resultado:
+
+```text
+99
+```
+
+Pode ser útil para não mostrar `100%` antes do fim real.
+
+```javascript
+barra.textContent =
+  `${Math.floor(percentual)}%`
+```
+
+---
+
+## `toFixed()`
+
+Controla casas decimais:
+
+```javascript
+percentual.toFixed(1)
+```
+
+Exemplo:
+
+```text
+91.2345
+↓
+91.2
+```
+
+⚠️ `toFixed()` devolve uma string.
+
+---
+
+# CONFIGURAR VÍDEO — MODELO COMPLETO
+
+```javascript
+function configurarVideo(id) {
+  const video = document.getElementById(id)
+
+  video.oncontextmenu = () => false
+
+  document.querySelector(
+    `[wm-play="${id}"]`
+  ).onclick = () => video.play()
+
+  document.querySelector(
+    `[wm-pause="${id}"]`
+  ).onclick = () => video.pause()
+
+  const barra =
+    document.querySelector(
+      `[wm-progresso="${id}"] > div`
+    )
+
+  video.ontimeupdate = () => {
+    const percentual =
+      (video.currentTime / video.duration) * 100
+
+    barra.style.width = `${percentual}%`
+
+    barra.textContent =
+      `${Math.floor(percentual)}%`
+  }
+}
+
+configurarVideo("meuVideo")
+```
+
+---
+
+# EXPRESS — SERVIDOR BÁSICO
+
+## `require("express")`
+
+Importa Express:
+
+```javascript
+const express = require("express")
+```
+
+---
+
+## `express()`
+
+Cria a aplicação:
+
+```javascript
+const app = express()
+```
+
+Fluxo básico:
+
+```text
+require express
+↓
+cria app
+↓
+configura
+↓
+cria rotas
+↓
+listen
+```
+
+---
+
+## `express.urlencoded()`
+
+Permite receber dados enviados por formulário.
+
+```javascript
+app.use(
+  express.urlencoded({ extended: true })
+)
+```
+
+Muito usado quando temos:
+
+```html
+<form method="post">
+```
+
+---
+
+## `express.json()`
+
+Permite interpretar JSON recebido:
+
+```javascript
+app.use(express.json())
+```
+
+---
+
+## `app.get()`
+
+Rota GET:
+
+```javascript
+app.get("/usuarios", (req, res) => {
+  res.send("Usuários")
+})
+```
+
+---
+
+## `app.post()`
+
+Rota POST:
+
+```javascript
+app.post("/usuarios", (req, res) => {
+  console.log(req.body)
+
+  res.send("Usuário recebido")
+})
+```
+
+```text
+app.post → responde a POST
+req      → requisição
+res      → resposta
+```
+
+---
+
+## `req.body`
+
+Dados enviados no corpo:
+
+```javascript
+console.log(req.body)
+```
+
+Exemplo:
+
+```text
+formulário POST
+↓
+req.body
+```
+
+---
+
+## `req.params`
+
+Parâmetros da rota.
+
+Exemplo:
+
+```javascript
+app.post("/usuarios/:id", (req, res) => {
+  console.log(req.params.id)
+})
+```
+
+Se acessar:
+
+```text
+/usuarios/3
+```
+
+então:
+
+```javascript
+req.params.id
+```
+
+vale:
+
+```text
+3
+```
+
+---
+
+## `res.send()`
+
+Envia resposta:
+
+```javascript
+res.send("Funcionou")
+```
+
+---
+
+## `app.listen()`
+
+Inicia o servidor:
+
+```javascript
+app.listen(3003)
+```
+
+Servidor:
+
+```text
+http://localhost:3003
+```
+
+---
+
+## Express — modelo curto para Ctrl + F ⭐⭐⭐
+
+```javascript
+const express = require("express")
+
+const app = express()
+
+app.use(
+  express.urlencoded({ extended: true })
+)
+
+app.use(express.json())
+
+app.get("/rota", (req, res) => {
+  res.send("GET")
+})
+
+app.post("/rota", (req, res) => {
+  console.log(req.body)
+
+  res.send("POST")
+})
+
+app.listen(3003)
+```
+
+Pense:
+
+```text
+require
+↓
+express()
+↓
+app.use
+↓
+app.get / app.post
+↓
+req / res
+↓
+app.listen
+```
+
+---
+
+# ERROS COMUNS — NOVOS ⭐⭐⭐
+
+## `innerWidth`
+
+```text
+innerWidth ✅
+inerrwidht ❌
+```
+
+---
+
+## `clientWidth`
+
+```text
+clientWidth ✅
+clientwidht ❌
+```
+
+---
+
+## `length`
+
+```text
+length ✅
+lenght ❌
+```
+
+---
+
+## `duration`
+
+```text
+video.duration ✅
+video.durationTime ❌
+```
+
+---
+
+## Chamar função
+
+```javascript
+video.play() // executa
+video.play   // só referencia
+```
+
+---
+
+## Seletor de atributo com valor
+
+```javascript
+`[wm-play="${id}"]` ✅
+
+`[wm-play${id}]`    ❌
+```
+
+---
+
+## Variável precisa existir
+
+Errado:
+
+```javascript
+document.getElementById(id)
+```
+
+sem ter criado:
+
+```javascript
+const id = "meuVideo"
+```
+
+Correto:
+
+```javascript
+const id = "meuVideo"
+
+const video =
+  document.getElementById(id)
+```
+
+---
+
+# RESUMO — QUANDO USAR ⭐⭐⭐
+
+```text
+quero encontrar 1 elemento
+→ querySelector
+
+quero encontrar vários
+→ querySelectorAll
+
+quero transformar NodeList em Array
+→ Array.from
+
+quero descobrir posição em Array
+→ indexOf
+
+quero fazer algo depois de terminar
+→ callback
+
+quero executar depois de um tempo
+→ setTimeout
+
+quero executar repetidamente
+→ setInterval
+
+quero largura da janela
+→ window.innerWidth
+
+quero largura do elemento
+→ elemento.clientWidth
+
+quero tocar vídeo
+→ video.play()
+
+quero pausar vídeo
+→ video.pause()
+
+quero saber tempo atual
+→ video.currentTime
+
+quero saber duração
+→ video.duration
+
+quero porcentagem
+→ atual / total * 100
+
+quero arredondar normalmente
+→ Math.round
+
+quero arredondar para baixo
+→ Math.floor
+
+quero definir casas decimais
+→ toFixed
+```
