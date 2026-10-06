@@ -1,87 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>CSS Selectors</title>
-    <link rel="stylesheet" href="css/tag.css">
+    <link rel="stylesheet" href="css/tag.css" />
     <style>
-        /* Seletor universal */
-        /* * */
+      /* Seletor universal */
+      /* * */
 
-        /* Seletor de classe */
-        /* .tag */
+      /* Seletor de classe */
+      /* .tag */
 
-        /* Seletor de id */
-        /* #aprovados */
+      /* Seletor de id */
+      /* #aprovados */
 
-        /* Seletor '>': seleciona os filhos direto do primeiro elemento  */
-        /* #aninhado > div */
+      /* Seletor '>': seleciona os filhos direto do primeiro elemento  */
+      /* #aninhado > div */
 
-        /* Qualquer descendente */
-        /* #aninhado section */
+      /* Qualquer descendente */
+      /* #aninhado section */
 
-        /* Irmão adjacente (em seguida) */
-        /* p + ul */
+      /* Irmão adjacente (em seguida) */
+      /* p + ul */
 
-        /* 'General siblings' */
-        /* p ~ ol */
+      /* 'General siblings' */
+      /* p ~ ol */
 
-        /* Seletor propriedade */
-        /* [feira]  */
+      /* Seletor propriedade */
+      /* [feira]  */
 
-        /* Atributo + valor */
-        /* [feira=casa] */
-        /* [feira~=escritorio] */
-        /* [feira*=sa]  */
+      /* Atributo + valor */
+      /* [feira=casa] */
+      /* [feira~=escritorio] */
+      /* [feira*=sa]  */
 
-        /* primeiro filho */
-        /* span:nth-child(1) */
-        
-        /* filhos ímpares */
-        /* section > :nth-child(odd){ */
+      /* primeiro filho */
+      /* span:nth-child(1) */
 
-        /* selecionar vários elementos */
-        /* section > :nth-child(odd), ul */
+      /* filhos ímpares */
+      /* section > :nth-child(odd){ */
 
-        /*  segundo elemento do tipo span dentro de uma section */
-        section > span:nth-of-type(2){
-            color: #ff0;
-            background-color: #f77;
-        }
+      /* selecionar vários elementos */
+      /* section > :nth-child(odd), ul */
 
+      /*  segundo elemento do tipo span dentro de uma section */
+      section > span:nth-of-type(2) {
+        color: #ff0;
+        background-color: #f77;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class='tag'>
-        <div class='tag'>
-            <p class='tag'>1</p>
-            <ul class='tag' feira='casa'>
-                <li>Arroz</li>
-                <li>Feijão</li>
-            </ul>
-            <ul class='tag' feira='escritorio empresa'>
-                <li>Café</li>
-                <li>Água</li>
-            </ul>
-            <ol id='aprovados' class='tag'>
-                <li>Maria</li>
-                <li>Pedro</li>
-                <li>Ana</li>
-            </ol>
-            <div id='aninhado' class='tag'>
-                <div class="tag">
-                    <section class='tag nolabel'>
-                        <span class='tag'>1</span>
-                        <p class='tag'>2</p>
-                        <span class='tag'>3</span>
-                    </section>
-                </div>
-            </div>
+  <body>
+    <div class="tag">
+      <div class="tag">
+        <p class="tag">1</p>
+        <ul class="tag" feira="casa">
+          <li>Arroz</li>
+          <li>Feijão</li>
+        </ul>
+        <ul class="tag" feira="escritorio empresa">
+          <li>Café</li>
+          <li>Água</li>
+        </ul>
+        <ol id="aprovados" class="tag">
+          <li>Maria</li>
+          <li>Pedro</li>
+          <li>Ana</li>
+        </ol>
+        <div id="aninhado" class="tag">
+          <div class="tag">
+            <section class="tag nolabel">
+              <span class="tag">1</span>
+              <p class="tag">2</p>
+              <span class="tag">3</span>
+            </section>
+          </div>
         </div>
+      </div>
     </div>
-    <script src="js/tag.js"></script>
-</body>
+    <p class="produto">Mouse</p>
 
+    <p class="produto" promocao>Teclado</p>
+
+    <p id="especial">Monitor</p>
+    <script src="js/tag.js"></script>
+  </body>
 </html>

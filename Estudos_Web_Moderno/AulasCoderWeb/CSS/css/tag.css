@@ -2,7 +2,8 @@ body {
     font-size: 40px;
 }
 
-ul, ol {
+ul,
+ol {
     padding: 0;
 }
 
@@ -21,4 +22,26 @@ li {
     vertical-align: top;
     margin-right: 10px;
     padding: 0px 5px 5px 3px;
+}
+
+.caixa {
+    border: 3px solid black;
+    margin: 10px;
+    padding: 5px;
+}
+
+p {
+    font-size: 25;
+}
+
+.produto {
+    border: solid black;
+}
+
+#especial {
+    color: red;
+}
+
+[promocao] {
+    background-color: yellow;
 }

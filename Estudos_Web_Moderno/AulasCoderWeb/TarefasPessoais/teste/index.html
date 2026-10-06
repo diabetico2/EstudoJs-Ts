@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="infoBtn">Clique aqui</button>
+  </body>
+</html>
+<script>
+  const infoBtn = document.querySelector("#infoBtn");
+
+  let info = 0;
+
+  infoBtn.onclick = function () {
+    if (info === 0) {
+      document.body.style.backgroundColor = "black";
+      info = 1;
+    } else {
+      document.body.style.backgroundColor = "white";
+      info = 0;
+    }
+  };
+</script>
