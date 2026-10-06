@@ -1,0 +1,15 @@
+COLA — WEB MODERNO
+
+Abra index.html com dois cliques no navegador. Não precisa instalar nada, iniciar servidor ou ter internet.
+
+Clique em um assunto para filtrar. A busca consulta títulos, explicações e exemplos do assunto selecionado; selecione Todos para pesquisar a biblioteca inteira. Palavras separadas por espaço precisam aparecer no mesmo tópico. A busca ignora acentos e maiúsculas. Limpar apaga a busca; Esc também limpa quando o campo está em foco.
+
+Clique no título de um tópico para abrir. Durante uma busca, os resultados se abrem automaticamente. Expandir resultados abre todos os tópicos visíveis; Recolher fecha. O símbolo # no rodapé de cada tópico cria um endereço direto para ele.
+
+Arquivos da página: index.html (todo o conteúdo), estilo.css (aparência) e busca.js (filtros). Não há dependências externas. Edite o conteúdo diretamente em index.html para atualizar a consulta. As cópias .md/.txt são referências e não atualizam a página automaticamente.
+
+Fontes preservadas nesta pasta: cola-base.md, cola-js-anterior.txt e cola-pessoal-anterior.md são cópias exatas dos três originais. css-resumo.md contém a revisão acrescentada. Os originais fora de Cola não foram alterados.
+
+A cola atualizada foi incorporada integralmente, organizada em tópicos. As seções 1–59 de TarefasPessoais/cola já eram idênticas às da base, então só seu complemento foi acrescentado. Javascript/cola foi incluída em cinco tópicos complementares. Na apresentação do guia antigo, o total do exemplo de estoque foi corrigido para 6750 e comentários sobre break, const, this e freeze foram esclarecidos. A cópia de referência continua idêntica ao original.
+
+CSS inclui seletores/especificidade, herança, box model, margin/padding, box-sizing, display, overflow, cores, unidades, texto, position, media query, Flexbox e Grid, com exemplos baseados nas aulas locais e na conversa Estudos.
