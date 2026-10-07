@@ -20,12 +20,12 @@
         <p class="nav-label">SUA BIBLIOTECA</p>
         <nav aria-label="Assuntos">
           <a href="#todos" data-category="todos" aria-current="page"
-            >Todos <span>217</span></a
+            >Todos <span>231</span></a
           ><a href="#guia" data-category="guia">Guia e revisão <span>5</span></a
           ><a href="#html" data-category="html">HTML <span>49</span></a
           ><a href="#javascript" data-category="javascript"
             >JavaScript <span>73</span></a
-          ><a href="#dom" data-category="dom">DOM <span>48</span></a
+          ><a href="#dom" data-category="dom">DOM <span>62</span></a
           ><a href="#node" data-category="node">Node <span>8</span></a
           ><a href="#express" data-category="express">Express <span>12</span></a
           ><a href="#css" data-category="css">CSS <span>22</span></a>
@@ -60,7 +60,7 @@
         </section>
         <div class="results-bar">
           <p id="status" role="status" aria-live="polite">
-            217 tópicos disponíveis
+            231 tópicos disponíveis
           </p>
           <div>
             <button id="expandir" type="button">Expandir resultados</button
@@ -90,6 +90,7 @@
                 Atualizada até <strong>HTML — Formulário #03</strong> do Curso
                 Web Moderno (Cod3r).
               </blockquote>
+              <blockquote>Complemento: DOM estudado agora e próximos recursos em <strong>futuro / referência</strong>.</blockquote>
               <blockquote>
                 Feita para consulta rápida. Use <strong>Ctrl + F</strong> e
                 pesquise o nome exato do recurso.
@@ -194,6 +195,10 @@
                 <code>textContent</code> · <code>getAttribute</code> ·
                 <code>wm-folder</code> · <code>wm-nav</code>
               </p>
+<h3>DOM — estudado agora</h3>
+<p><code>querySelector</code> · <code>onclick</code> · <code>input.value</code> · <code>campo vazio</code> · <code>trim()</code> · <code>==</code> · <code>===</code> · <code>textContent</code> · <code>document.body.style</code> · <code>contador</code> · <code>estado simples</code> · <code>%</code> · <code>par/ímpar</code></p>
+<h3>DOM — futuro / referência</h3>
+<p><code>addEventListener</code> · <code>classList.add</code> · <code>classList.remove</code> · <code>classList.toggle</code> · <code>classList.contains</code> · <code>getAttribute</code> · <code>setAttribute</code> · <code>createElement</code> · <code>append</code> · <code>appendChild</code> · <code>remove</code> · <code>removeChild</code> · <code>children</code> · <code>parentElement</code> · <code>firstElementChild</code> · <code>nextElementSibling</code> · <code>value</code> · <code>checked</code> · <code>dataset</code> · <code>style</code> · <code>innerHTML</code> · <code>textContent</code> · <code>input</code> · <code>change</code> · <code>submit</code> · <code>preventDefault</code> · <code>formulários</code> · <code>DOMContentLoaded</code> · <code>delegação de eventos</code></p>
               <h3>HTML</h3>
               <p>
                 <code>h1</code> · <code>p</code> · <code>br</code> ·
@@ -1945,6 +1950,372 @@ set.size</code></pre>
                   aria-label="Link para este tópico"
                   >#</a
                 >
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-218" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · estudado agora</span>
+              <h2>querySelector, onclick e textContent — estudado agora</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p>Este complemento reúne a prática recente: selecionar → reagir ao clique → ler o campo → validar → atualizar a página. Os exemplos são independentes; use o HTML e o JavaScript do mesmo tópico. Coloque o script depois do HTML, antes de fechar <code>&lt;/body&gt;</code>, ou use um arquivo externo com <code>&lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;</code>.</p>
+<p><code>document.querySelector()</code> usa um seletor CSS e devolve o primeiro elemento correspondente. <code>#botao</code> procura um id; <code>.aviso</code> procura uma classe. Se não encontrar, retorna <code>null</code>: confira o seletor e se o HTML já foi carregado.</p>
+<pre><code class="language-html">&lt;button id=&quot;botao&quot; type=&quot;button&quot;&gt;Mostrar&lt;/button&gt;
+&lt;p id=&quot;resultado&quot;&gt;&lt;/p&gt;</code></pre>
+<pre><code class="language-javascript">const infoBtn = document.querySelector(&quot;#botao&quot;);
+const resul = document.querySelector(&quot;#resultado&quot;);
+
+infoBtn.onclick = function () {
+  resul.textContent = &quot;Você clicou!&quot;;
+};</code></pre>
+<p><code>onclick</code> recebe a função que será executada a cada clique. Atribuir outra função ao mesmo <code>onclick</code> substitui a anterior. Use <code>botao.onclick = mostrar</code>, sem <code>()</code>, se a função já existir; <code>mostrar()</code> executaria imediatamente.</p>
+<p><code>textContent</code> lê ou substitui o texto do elemento. Ao atribuir, substitui também seus filhos; tags dentro da string aparecem como texto. É a escolha para mostrar uma mensagem ou um nome digitado.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-218" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-219" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · estudado agora</span>
+              <h2>input.value, campo vazio e trim() — estudado agora</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>input.value</code> pega o valor atual do campo como string. Leia dentro do evento para pegar o que foi digitado até o momento do clique. <code>input.textContent</code> não pega o texto digitado.</p>
+<pre><code class="language-html">&lt;input id=&quot;nome&quot; type=&quot;text&quot; placeholder=&quot;Digite seu nome&quot;&gt;
+&lt;button id=&quot;botao&quot; type=&quot;button&quot;&gt;Mostrar&lt;/button&gt;
+&lt;p id=&quot;resultado&quot;&gt;&lt;/p&gt;</code></pre>
+<pre><code class="language-javascript">const infoBtn = document.querySelector(&quot;#botao&quot;);
+const mensagem = document.querySelector(&quot;#nome&quot;);
+const resul = document.querySelector(&quot;#resultado&quot;);
+
+infoBtn.onclick = function () {
+  const nome = mensagem.value.trim();
+
+  if (nome === &quot;&quot;) {
+    resul.textContent = &quot;Digite um nome primeiro.&quot;;
+  } else {
+    resul.textContent = `Olá, ${nome}!`;
+  }
+};</code></pre>
+<p><code>trim()</code> devolve uma nova string sem espaços em branco nas pontas. Não remove espaços entre palavras e não altera o campo sozinho. Tanto <code>&quot;&quot;</code> quanto <code>&quot;   &quot;</code> ficam vazios depois de <code>trim()</code>.</p>
+<pre><code class="language-javascript">&quot;  Allan  &quot;.trim();      // &quot;Allan&quot;
+&quot;  Ana Maria  &quot;.trim();  // &quot;Ana Maria&quot;
+&quot;   &quot;.trim() === &quot;&quot;;    // true</code></pre>
+<p>Teste: campo vazio → aviso; só espaços → aviso; <code>  Allan  </code> → <code>Olá, Allan!</code>. Para limpar o campo por código, use <code>mensagem.value = &quot;&quot;</code>.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-219" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-220" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · estudado agora</span>
+              <h2>== e === na prática com value — estudado agora</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>=</code> atribui. <code>==</code> compara com conversão de tipos quando necessário. <code>===</code> compara sem essa conversão: tipos diferentes resultam em <code>false</code>. Prefira <code>===</code> para deixar a intenção clara.</p>
+<pre><code class="language-javascript">&quot;18&quot; == 18;     // true: há conversão
+&quot;18&quot; === 18;    // false: string e number
+&quot;18&quot; === &quot;18&quot;;  // true
+&quot;&quot; == 0;        // true: pode surpreender
+&quot;&quot; === 0;       // false</code></pre>
+<p>Para campo vazio, compare a string tratada com <code>&quot;&quot;</code>: <code>input.value.trim() === &quot;&quot;</code>. Nesse caso, trocar <code>==</code> por <code>===</code> não resolve sozinho os espaços; quem resolve isso é <code>trim()</code>.</p>
+<p>Mesmo em <code>&lt;input type=&quot;number&quot;&gt;</code>, <code>.value</code> é string. Se precisar calcular, valide o vazio primeiro e converta explicitamente com <code>Number(input.value)</code>. <code>Number(&quot;&quot;)</code> e <code>Number(&quot;   &quot;)</code> dão <code>0</code>, por isso a ordem importa.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-220" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-221" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · estudado agora</span>
+              <h2>document.body.style — estudado agora</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>document.body</code> representa o corpo da página. <code>.style</code> permite escrever estilos inline. Em JavaScript, <code>background-color</code> vira <code>backgroundColor</code>; valores CSS são strings, como <code>&quot;24px&quot;</code>.</p>
+<pre><code class="language-html">&lt;button id=&quot;cor&quot; type=&quot;button&quot;&gt;Mudar fundo&lt;/button&gt;</code></pre>
+<pre><code class="language-javascript">const botaoCor = document.querySelector(&quot;#cor&quot;);
+
+botaoCor.onclick = function () {
+  document.body.style.backgroundColor = &quot;lightblue&quot;;
+  document.body.style.color = &quot;#222&quot;;
+};</code></pre>
+<p><code>document.body.style.backgroundColor = &quot;&quot;</code> remove essa declaração inline e deixa as regras CSS aplicáveis definirem o fundo. Para alternar conjuntos de estilos, veja <code>classList</code> em futuro / referência.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-221" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-222" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · estudado agora</span>
+              <h2>Contadores, estado simples e % para par/ímpar — estudado agora</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p>Estado é o valor que a página guarda entre interações. Use <code>let</code> para um contador que muda e declare-o fora da função de clique; dentro dela, <code>let contador = 0</code> reiniciaria a contagem a cada clique.</p>
+<pre><code class="language-html">&lt;button id=&quot;contar&quot; type=&quot;button&quot;&gt;Contar&lt;/button&gt;
+&lt;button id=&quot;zerar&quot; type=&quot;button&quot;&gt;Zerar&lt;/button&gt;
+&lt;p id=&quot;contagem&quot;&gt;Cliques: 0 — par&lt;/p&gt;</code></pre>
+<pre><code class="language-javascript">const contar = document.querySelector(&quot;#contar&quot;);
+const zerar = document.querySelector(&quot;#zerar&quot;);
+const contagem = document.querySelector(&quot;#contagem&quot;);
+let contador = 0;
+
+contar.onclick = function () {
+  contador++;
+
+  if (contador % 2 === 0) {
+    contagem.textContent = `Cliques: ${contador} — par`;
+  } else {
+    contagem.textContent = `Cliques: ${contador} — ímpar`;
+  }
+};
+
+zerar.onclick = function () {
+  contador = 0;
+  contagem.textContent = &quot;Cliques: 0 — par&quot;;
+};</code></pre>
+<p><code>contador++</code> soma 1. <code>%</code> calcula o resto da divisão, não uma porcentagem: <code>4 % 2</code> dá <code>0</code>; <code>5 % 2</code> dá <code>1</code>. Para números inteiros, <code>numero % 2 === 0</code> identifica par; caso contrário, ímpar. Zero é par. O contador deste exemplo volta ao início ao recarregar a página.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-222" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-223" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>addEventListener e eventos input/change — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+<h3>Próximos recursos de DOM que provavelmente aparecerão no curso — futuro / referência</h3>
+<p>Consulta antecipada de recursos comuns. Não significa que já foram estudados nem garante a ordem ou o conteúdo das próximas aulas. Alguns nomes também aparecem nas anotações antigas; aqui ficam reunidos como referência futura, separados da prática recente. Cada exemplo é independente e pressupõe os elementos indicados no texto.</p>
+<p><code>addEventListener(&quot;click&quot;, funcao)</code> registra um ouvinte e permite vários ouvintes no mesmo elemento. Diferentemente de atribuir outra função a <code>onclick</code>, adicionar um ouvinte diferente não substitui os anteriores. O nome do evento vai sem <code>on</code>.</p>
+<pre><code class="language-javascript">// HTML necessário: um input com id=&quot;nome&quot; e um p com id=&quot;resultado&quot;.
+const campo = document.querySelector(&quot;#nome&quot;);
+const resultado = document.querySelector(&quot;#resultado&quot;);
+
+campo.addEventListener(&quot;input&quot;, function (event) {
+  resultado.textContent = event.target.value;
+});
+
+campo.addEventListener(&quot;change&quot;, function () {
+  console.log(&quot;Valor confirmado:&quot;, campo.value);
+});</code></pre>
+<p><code>input</code> acompanha edições do usuário enquanto ele digita. <code>change</code> acontece quando a alteração é confirmada: em um campo de texto, normalmente ao sair dele após editar; em um select ou checkbox, ao mudar a seleção. Atribuir <code>.value</code> por JavaScript não dispara esses eventos automaticamente.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-223" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-224" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>classList.add/remove/toggle/contains — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>classList</code> manipula as classes CSS de um elemento. Passe o nome sem ponto: <code>&quot;ativo&quot;</code>, não <code>&quot;.ativo&quot;</code>. As regras visuais dessas classes precisam existir no CSS.</p>
+<pre><code class="language-javascript">// HTML necessário: um elemento com id=&quot;painel&quot;.
+const painel = document.querySelector(&quot;#painel&quot;);
+painel.classList.add(&quot;ativo&quot;);        // adiciona
+painel.classList.remove(&quot;ativo&quot;);     // remove
+painel.classList.toggle(&quot;ativo&quot;);     // alterna: coloca ou tira
+const ativo = painel.classList.contains(&quot;ativo&quot;); // true ou false</code></pre>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-224" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-225" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>getAttribute/setAttribute e dataset — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>getAttribute()</code> lê um atributo (string ou <code>null</code> se ausente). <code>setAttribute()</code> define um atributo. <code>dataset</code> acessa atributos personalizados <code>data-*</code>, úteis para guardar uma identificação ou ação no HTML.</p>
+<pre><code class="language-html">&lt;a id=&quot;atalho&quot; href=&quot;#inicio&quot; data-acao=&quot;abrir&quot; data-item-id=&quot;7&quot;&gt;Ir&lt;/a&gt;</code></pre>
+<pre><code class="language-javascript">const atalho = document.querySelector(&quot;#atalho&quot;);
+const destino = atalho.getAttribute(&quot;href&quot;); // &quot;#inicio&quot;
+atalho.setAttribute(&quot;href&quot;, &quot;#contato&quot;);
+console.log(atalho.dataset.acao);   // &quot;abrir&quot;
+console.log(atalho.dataset.itemId); // &quot;7&quot;: data-item-id vira itemId
+atalho.dataset.acao = &quot;fechar&quot;;</code></pre>
+<p>Os valores de <code>dataset</code> são strings. Para ler o conteúdo atual digitado em um campo, use <code>.value</code>; <code>getAttribute(&quot;value&quot;)</code> lê o atributo do HTML, que pode diferir do valor atual.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-225" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-226" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>createElement, append/appendChild e remove/removeChild — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>createElement()</code> cria um elemento em memória. Ele só aparece na página depois de inserido. <code>append()</code> aceita vários nós ou strings; <code>appendChild()</code> recebe um único nó e devolve esse nó.</p>
+<pre><code class="language-html">&lt;ul id=&quot;lista&quot;&gt;&lt;/ul&gt;</code></pre>
+<pre><code class="language-javascript">const lista = document.querySelector(&quot;#lista&quot;);
+const item = document.createElement(&quot;li&quot;);
+item.textContent = &quot;Estudar DOM&quot;;
+lista.appendChild(item);
+
+const outro = document.createElement(&quot;li&quot;);
+outro.append(&quot;Praticar &quot;, document.createElement(&quot;strong&quot;));
+lista.append(outro);
+
+item.remove();             // o próprio elemento se remove
+lista.removeChild(outro);  // o pai remove um filho direto</code></pre>
+<p><code>removeChild()</code> exige que o nó seja filho direto desse pai no momento da chamada. Inserir um nó que já existe move o mesmo nó; não cria uma cópia.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-226" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-227" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>children/parentElement e firstElementChild/nextElementSibling — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p>Essas propriedades ajudam a percorrer a árvore do DOM pelos elementos, sem contar espaços e quebras de linha como filhos de texto.</p>
+<pre><code class="language-html">&lt;ul id=&quot;tarefas&quot;&gt;
+  &lt;li&gt;Revisar&lt;/li&gt;
+  &lt;li&gt;Praticar&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<pre><code class="language-javascript">const tarefas = document.querySelector(&quot;#tarefas&quot;);
+const filhos = tarefas.children;               // coleção de filhos diretos
+const primeiro = tarefas.firstElementChild;   // primeiro li
+const proximo = primeiro.nextElementSibling;  // segundo li
+const pai = primeiro.parentElement;           // ul
+console.log(filhos.length);                   // 2</code></pre>
+<p><code>children</code> é uma coleção viva: acompanha mudanças nos filhos. <code>firstElementChild</code>, <code>nextElementSibling</code> e <code>parentElement</code> podem retornar <code>null</code> se não existir o elemento procurado; verifique antes de encadear acessos em HTML variável.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-227" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-228" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>Formulários: value, checked, submit e preventDefault — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>value</code> lê ou altera o valor atual de input, textarea e select. <code>checked</code> informa se um checkbox ou radio está marcado (<code>true</code> ou <code>false</code>). O <code>.value</code> de um checkbox não indica se ele foi marcado.</p>
+<pre><code class="language-html">&lt;form id=&quot;cadastro&quot;&gt;
+  &lt;input name=&quot;nome&quot; type=&quot;text&quot; placeholder=&quot;Nome&quot; required&gt;
+  &lt;label&gt;&lt;input name=&quot;avisos&quot; type=&quot;checkbox&quot;&gt; Receber avisos&lt;/label&gt;
+  &lt;button type=&quot;submit&quot;&gt;Salvar&lt;/button&gt;
+&lt;/form&gt;
+&lt;p id=&quot;retorno&quot;&gt;&lt;/p&gt;</code></pre>
+<pre><code class="language-javascript">const form = document.querySelector(&quot;#cadastro&quot;);
+const retorno = document.querySelector(&quot;#retorno&quot;);
+
+form.addEventListener(&quot;submit&quot;, function (event) {
+  event.preventDefault();
+  const nome = form.elements.namedItem(&quot;nome&quot;).value.trim();
+  const avisos = form.elements.namedItem(&quot;avisos&quot;).checked;
+
+  if (nome === &quot;&quot;) {
+    retorno.textContent = &quot;Digite um nome primeiro.&quot;;
+    return;
+  }
+
+  retorno.textContent = `Nome: ${nome}. Receber avisos: ${avisos}.`;
+  form.reset();
+});</code></pre>
+<p>Ouça <code>submit</code> no formulário para tratar o envio pelo botão ou por Enter. <code>preventDefault()</code> cancela a ação padrão desse envio, evitando a navegação/recarregamento; não interrompe a propagação do evento. Este exemplo apenas exibe dados localmente, sem salvá-los em servidor.</p>
+<p><code>required</code> faz a validação nativa antes do evento <code>submit</code>, mas um campo de texto com só espaços ainda precisa de <code>trim()</code>. <code>form.reset()</code> restaura os valores iniciais do HTML. <code>form.elements</code> permite acessar os campos pelo <code>name</code>.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-228" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-229" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>style e innerHTML vs textContent — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>.style</code> lê e escreve declarações inline: <code>elemento.style.color = &quot;red&quot;</code>. Uma leitura como <code>elemento.style.color</code> pode devolver <code>&quot;&quot;</code> mesmo que a folha CSS defina uma cor; ela não representa necessariamente o estilo final calculado. Para várias mudanças visuais relacionadas, use classes com <code>classList</code>.</p>
+<pre><code class="language-javascript">// HTML necessário: um elemento com id=&quot;aviso&quot;.
+const aviso = document.querySelector(&quot;#aviso&quot;);
+aviso.style.fontSize = &quot;20px&quot;;
+aviso.textContent = &quot;&lt;strong&gt;Olá&lt;/strong&gt;&quot;; // mostra as tags como texto
+aviso.innerHTML = &quot;&lt;strong&gt;Olá&lt;/strong&gt;&quot;;   // cria um strong no elemento</code></pre>
+<p><code>innerHTML</code> interpreta HTML e substitui os filhos existentes. Use apenas com HTML confiável; para nomes e textos digitados pelo usuário, prefira <code>textContent</code> para não interpretar a entrada como marcação. Essas atribuições são alternativas: no exemplo, a última substitui a anterior.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-229" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-230" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>DOMContentLoaded — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p><code>DOMContentLoaded</code> sinaliza que o HTML foi analisado e o DOM está pronto; não espera todas as imagens. Um script no head sem <code>defer</code> pode tentar selecionar um elemento que ainda não existe.</p>
+<pre><code class="language-javascript">// Exemplo para um script carregado antes de o DOM estar pronto.
+document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+  const botao = document.querySelector(&quot;#botao&quot;);
+  botao.onclick = function () {
+    console.log(&quot;DOM pronto e botão clicado&quot;);
+  };
+});</code></pre>
+<p>Outra opção para arquivo externo é <code>&lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;</code>, que executa depois de analisar o HTML. Ou coloque o script ao final do body, depois dos elementos. Nesses casos simples, não é necessário combinar todas as opções. Um ouvinte registrado depois de <code>DOMContentLoaded</code> não recebe o evento que já passou.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-230" class="permalink" aria-label="Link para este tópico">#</a>
+              </footer>
+            </div>
+          </details>
+          <details class="topic" id="topico-231" data-category="dom">
+            <summary>
+              <span class="tag dom">DOM · futuro / referência</span>
+              <h2>Delegação de eventos — futuro / referência</h2>
+              <span class="chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="body">
+
+<p>É ouvir o evento em um elemento pai para tratar ações dos filhos. Eventos como <code>click</code> normalmente sobem pela árvore (propagação), permitindo tratar inclusive filhos inseridos depois.</p>
+<pre><code class="language-html">&lt;ul id=&quot;pendencias&quot;&gt;
+  &lt;li&gt;Revisar &lt;button type=&quot;button&quot; data-acao=&quot;remover&quot;&gt;Remover&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<pre><code class="language-javascript">const pendencias = document.querySelector(&quot;#pendencias&quot;);
+
+pendencias.addEventListener(&quot;click&quot;, function (event) {
+  const botao = event.target.closest(&#x27;button[data-acao=&quot;remover&quot;]&#x27;);
+  if (!botao || !pendencias.contains(botao)) return;
+  botao.closest(&quot;li&quot;).remove();
+});</code></pre>
+<p><code>event.target</code> é onde o evento começou; <code>event.currentTarget</code> é onde o ouvinte está registrado (a lista neste exemplo). <code>closest()</code> procura no próprio elemento e nos ancestrais; assim, clicar em um ícone dentro do botão também funciona. O exemplo pressupõe um botão dentro de um li, como no HTML acima. Nem todo evento propaga dessa forma.</p>
+              <footer>Origem: cola-base.md · complemento DOM
+                <a href="#topico-231" class="permalink" aria-label="Link para este tópico">#</a>
               </footer>
             </div>
           </details>
@@ -7057,7 +7428,7 @@ pre { overflow-x: auto; }</code></pre>
           </details>
         </section>
         <footer class="page-footer">
-          Base: cola_atualizada.md + colas anteriores · CSS revisado até Grid ·
+          Base: cola_atualizada.md + colas anteriores · CSS revisado até Grid · DOM: prática recente e futuro / referência ·
           <a href="LEIA-ME.txt">Sobre esta cola</a
           ><a href="#conteudo">Voltar ao topo ↑</a>
         </footer>

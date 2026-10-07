@@ -1,6 +1,7 @@
 # COLA DE PROGRAMAÇÃO — JavaScript, Node, ESNext e HTML
 
 > Atualizada até **HTML — Formulário #03** do Curso Web Moderno (Cod3r).
+> Complemento: DOM estudado agora e próximos recursos em **futuro / referência**.
 > Feita para consulta rápida. Use **Ctrl + F** e pesquise o nome exato do recurso.
 
 ## COMO USAR ESTA COLA
@@ -20,6 +21,13 @@
 
 ### DOM / HTML + JS
 `querySelector` · `querySelectorAll` · `getElementById` · `onclick` · `preventDefault` · `nextElementSibling` · `style.display` · `innerHTML` · `textContent` · `getAttribute` · `wm-folder` · `wm-nav`
+
+
+### DOM — estudado agora
+`querySelector` · `onclick` · `input.value` · `campo vazio` · `trim()` · `==` · `===` · `textContent` · `document.body.style` · `contador` · `estado simples` · `%` · `par/ímpar`
+
+### DOM — futuro / referência
+`addEventListener` · `classList.add` · `classList.remove` · `classList.toggle` · `classList.contains` · `getAttribute` · `setAttribute` · `createElement` · `append` · `appendChild` · `remove` · `removeChild` · `children` · `parentElement` · `firstElementChild` · `nextElementSibling` · `value` · `checked` · `dataset` · `style` · `innerHTML` · `textContent` · `input` · `change` · `submit` · `preventDefault` · `formulários` · `DOMContentLoaded` · `delegação de eventos`
 
 ### HTML
 `h1` · `p` · `br` · `hr` · `strong` · `em` · `blockquote` · `q` · `abbr` · `cite` · `dfn` · `address` · `del` · `ins` · `s` · `ul` · `ol` · `li` · `dl` · `dt` · `dd` · `a href` · `mailto` · `target="_blank"` · `table` · `caption` · `thead` · `tbody` · `tfoot` · `tr` · `th` · `td` · `colspan` · `rowspan` · `form` · `action` · `method` · `GET` · `POST` · `input` · `name` · `value` · `placeholder` · `password` · `hidden` · `radio` · `checkbox` · `textarea` · `select` · `option` · `multiple` · `formaction`
@@ -4434,3 +4442,326 @@ quero arredondar para baixo
 quero definir casas decimais
 → toFixed
 ```
+
+---
+
+# DOM — estudado agora
+
+Este complemento reúne a prática recente: selecionar → reagir ao clique → ler o campo → validar → atualizar a página. Os exemplos são independentes; use o HTML e o JavaScript do mesmo tópico. Coloque o script depois do HTML, antes de fechar `</body>`, ou use um arquivo externo com `<script src="app.js" defer></script>`.
+
+## querySelector, onclick e textContent — estudado agora
+
+`document.querySelector()` usa um seletor CSS e devolve o primeiro elemento correspondente. `#botao` procura um id; `.aviso` procura uma classe. Se não encontrar, retorna `null`: confira o seletor e se o HTML já foi carregado.
+
+```html
+<button id="botao" type="button">Mostrar</button>
+<p id="resultado"></p>
+```
+
+```javascript
+const infoBtn = document.querySelector("#botao");
+const resul = document.querySelector("#resultado");
+
+infoBtn.onclick = function () {
+  resul.textContent = "Você clicou!";
+};
+```
+
+`onclick` recebe a função que será executada a cada clique. Atribuir outra função ao mesmo `onclick` substitui a anterior. Use `botao.onclick = mostrar`, sem `()`, se a função já existir; `mostrar()` executaria imediatamente.
+
+`textContent` lê ou substitui o texto do elemento. Ao atribuir, substitui também seus filhos; tags dentro da string aparecem como texto. É a escolha para mostrar uma mensagem ou um nome digitado.
+
+## input.value, campo vazio e trim() — estudado agora
+
+`input.value` pega o valor atual do campo como string. Leia dentro do evento para pegar o que foi digitado até o momento do clique. `input.textContent` não pega o texto digitado.
+
+```html
+<input id="nome" type="text" placeholder="Digite seu nome">
+<button id="botao" type="button">Mostrar</button>
+<p id="resultado"></p>
+```
+
+```javascript
+const infoBtn = document.querySelector("#botao");
+const mensagem = document.querySelector("#nome");
+const resul = document.querySelector("#resultado");
+
+infoBtn.onclick = function () {
+  const nome = mensagem.value.trim();
+
+  if (nome === "") {
+    resul.textContent = "Digite um nome primeiro.";
+  } else {
+    resul.textContent = `Olá, ${nome}!`;
+  }
+};
+```
+
+`trim()` devolve uma nova string sem espaços em branco nas pontas. Não remove espaços entre palavras e não altera o campo sozinho. Tanto `""` quanto `"   "` ficam vazios depois de `trim()`.
+
+```javascript
+"  Allan  ".trim();      // "Allan"
+"  Ana Maria  ".trim();  // "Ana Maria"
+"   ".trim() === "";    // true
+```
+
+Teste: campo vazio → aviso; só espaços → aviso; `  Allan  ` → `Olá, Allan!`. Para limpar o campo por código, use `mensagem.value = ""`.
+
+## == e === na prática com value — estudado agora
+
+`=` atribui. `==` compara com conversão de tipos quando necessário. `===` compara sem essa conversão: tipos diferentes resultam em `false`. Prefira `===` para deixar a intenção clara.
+
+```javascript
+"18" == 18;     // true: há conversão
+"18" === 18;    // false: string e number
+"18" === "18";  // true
+"" == 0;        // true: pode surpreender
+"" === 0;       // false
+```
+
+Para campo vazio, compare a string tratada com `""`: `input.value.trim() === ""`. Nesse caso, trocar `==` por `===` não resolve sozinho os espaços; quem resolve isso é `trim()`.
+
+Mesmo em `<input type="number">`, `.value` é string. Se precisar calcular, valide o vazio primeiro e converta explicitamente com `Number(input.value)`. `Number("")` e `Number("   ")` dão `0`, por isso a ordem importa.
+
+## document.body.style — estudado agora
+
+`document.body` representa o corpo da página. `.style` permite escrever estilos inline. Em JavaScript, `background-color` vira `backgroundColor`; valores CSS são strings, como `"24px"`.
+
+```html
+<button id="cor" type="button">Mudar fundo</button>
+```
+
+```javascript
+const botaoCor = document.querySelector("#cor");
+
+botaoCor.onclick = function () {
+  document.body.style.backgroundColor = "lightblue";
+  document.body.style.color = "#222";
+};
+```
+
+`document.body.style.backgroundColor = ""` remove essa declaração inline e deixa as regras CSS aplicáveis definirem o fundo. Para alternar conjuntos de estilos, veja `classList` em futuro / referência.
+
+## Contadores, estado simples e % para par/ímpar — estudado agora
+
+Estado é o valor que a página guarda entre interações. Use `let` para um contador que muda e declare-o fora da função de clique; dentro dela, `let contador = 0` reiniciaria a contagem a cada clique.
+
+```html
+<button id="contar" type="button">Contar</button>
+<button id="zerar" type="button">Zerar</button>
+<p id="contagem">Cliques: 0 — par</p>
+```
+
+```javascript
+const contar = document.querySelector("#contar");
+const zerar = document.querySelector("#zerar");
+const contagem = document.querySelector("#contagem");
+let contador = 0;
+
+contar.onclick = function () {
+  contador++;
+
+  if (contador % 2 === 0) {
+    contagem.textContent = `Cliques: ${contador} — par`;
+  } else {
+    contagem.textContent = `Cliques: ${contador} — ímpar`;
+  }
+};
+
+zerar.onclick = function () {
+  contador = 0;
+  contagem.textContent = "Cliques: 0 — par";
+};
+```
+
+`contador++` soma 1. `%` calcula o resto da divisão, não uma porcentagem: `4 % 2` dá `0`; `5 % 2` dá `1`. Para números inteiros, `numero % 2 === 0` identifica par; caso contrário, ímpar. Zero é par. O contador deste exemplo volta ao início ao recarregar a página.
+
+# Próximos recursos de DOM que provavelmente aparecerão no curso — futuro / referência
+
+Consulta antecipada de recursos comuns. Não significa que já foram estudados nem garante a ordem ou o conteúdo das próximas aulas. Alguns nomes também aparecem nas anotações antigas; aqui ficam reunidos como referência futura, separados da prática recente. Cada exemplo é independente e pressupõe os elementos indicados no texto.
+
+## addEventListener e eventos input/change — futuro / referência
+
+`addEventListener("click", funcao)` registra um ouvinte e permite vários ouvintes no mesmo elemento. Diferentemente de atribuir outra função a `onclick`, adicionar um ouvinte diferente não substitui os anteriores. O nome do evento vai sem `on`.
+
+```javascript
+// HTML necessário: um input com id="nome" e um p com id="resultado".
+const campo = document.querySelector("#nome");
+const resultado = document.querySelector("#resultado");
+
+campo.addEventListener("input", function (event) {
+  resultado.textContent = event.target.value;
+});
+
+campo.addEventListener("change", function () {
+  console.log("Valor confirmado:", campo.value);
+});
+```
+
+`input` acompanha edições do usuário enquanto ele digita. `change` acontece quando a alteração é confirmada: em um campo de texto, normalmente ao sair dele após editar; em um select ou checkbox, ao mudar a seleção. Atribuir `.value` por JavaScript não dispara esses eventos automaticamente.
+
+## classList.add/remove/toggle/contains — futuro / referência
+
+`classList` manipula as classes CSS de um elemento. Passe o nome sem ponto: `"ativo"`, não `".ativo"`. As regras visuais dessas classes precisam existir no CSS.
+
+```javascript
+// HTML necessário: um elemento com id="painel".
+const painel = document.querySelector("#painel");
+painel.classList.add("ativo");        // adiciona
+painel.classList.remove("ativo");     // remove
+painel.classList.toggle("ativo");     // alterna: coloca ou tira
+const ativo = painel.classList.contains("ativo"); // true ou false
+```
+
+## getAttribute/setAttribute e dataset — futuro / referência
+
+`getAttribute()` lê um atributo (string ou `null` se ausente). `setAttribute()` define um atributo. `dataset` acessa atributos personalizados `data-*`, úteis para guardar uma identificação ou ação no HTML.
+
+```html
+<a id="atalho" href="#inicio" data-acao="abrir" data-item-id="7">Ir</a>
+```
+
+```javascript
+const atalho = document.querySelector("#atalho");
+const destino = atalho.getAttribute("href"); // "#inicio"
+atalho.setAttribute("href", "#contato");
+console.log(atalho.dataset.acao);   // "abrir"
+console.log(atalho.dataset.itemId); // "7": data-item-id vira itemId
+atalho.dataset.acao = "fechar";
+```
+
+Os valores de `dataset` são strings. Para ler o conteúdo atual digitado em um campo, use `.value`; `getAttribute("value")` lê o atributo do HTML, que pode diferir do valor atual.
+
+## createElement, append/appendChild e remove/removeChild — futuro / referência
+
+`createElement()` cria um elemento em memória. Ele só aparece na página depois de inserido. `append()` aceita vários nós ou strings; `appendChild()` recebe um único nó e devolve esse nó.
+
+```html
+<ul id="lista"></ul>
+```
+
+```javascript
+const lista = document.querySelector("#lista");
+const item = document.createElement("li");
+item.textContent = "Estudar DOM";
+lista.appendChild(item);
+
+const outro = document.createElement("li");
+outro.append("Praticar ", document.createElement("strong"));
+lista.append(outro);
+
+item.remove();             // o próprio elemento se remove
+lista.removeChild(outro);  // o pai remove um filho direto
+```
+
+`removeChild()` exige que o nó seja filho direto desse pai no momento da chamada. Inserir um nó que já existe move o mesmo nó; não cria uma cópia.
+
+## children/parentElement e firstElementChild/nextElementSibling — futuro / referência
+
+Essas propriedades ajudam a percorrer a árvore do DOM pelos elementos, sem contar espaços e quebras de linha como filhos de texto.
+
+```html
+<ul id="tarefas">
+  <li>Revisar</li>
+  <li>Praticar</li>
+</ul>
+```
+
+```javascript
+const tarefas = document.querySelector("#tarefas");
+const filhos = tarefas.children;               // coleção de filhos diretos
+const primeiro = tarefas.firstElementChild;   // primeiro li
+const proximo = primeiro.nextElementSibling;  // segundo li
+const pai = primeiro.parentElement;           // ul
+console.log(filhos.length);                   // 2
+```
+
+`children` é uma coleção viva: acompanha mudanças nos filhos. `firstElementChild`, `nextElementSibling` e `parentElement` podem retornar `null` se não existir o elemento procurado; verifique antes de encadear acessos em HTML variável.
+
+## Formulários: value, checked, submit e preventDefault — futuro / referência
+
+`value` lê ou altera o valor atual de input, textarea e select. `checked` informa se um checkbox ou radio está marcado (`true` ou `false`). O `.value` de um checkbox não indica se ele foi marcado.
+
+```html
+<form id="cadastro">
+  <input name="nome" type="text" placeholder="Nome" required>
+  <label><input name="avisos" type="checkbox"> Receber avisos</label>
+  <button type="submit">Salvar</button>
+</form>
+<p id="retorno"></p>
+```
+
+```javascript
+const form = document.querySelector("#cadastro");
+const retorno = document.querySelector("#retorno");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const nome = form.elements.namedItem("nome").value.trim();
+  const avisos = form.elements.namedItem("avisos").checked;
+
+  if (nome === "") {
+    retorno.textContent = "Digite um nome primeiro.";
+    return;
+  }
+
+  retorno.textContent = `Nome: ${nome}. Receber avisos: ${avisos}.`;
+  form.reset();
+});
+```
+
+Ouça `submit` no formulário para tratar o envio pelo botão ou por Enter. `preventDefault()` cancela a ação padrão desse envio, evitando a navegação/recarregamento; não interrompe a propagação do evento. Este exemplo apenas exibe dados localmente, sem salvá-los em servidor.
+
+`required` faz a validação nativa antes do evento `submit`, mas um campo de texto com só espaços ainda precisa de `trim()`. `form.reset()` restaura os valores iniciais do HTML. `form.elements` permite acessar os campos pelo `name`.
+
+## style e innerHTML vs textContent — futuro / referência
+
+`.style` lê e escreve declarações inline: `elemento.style.color = "red"`. Uma leitura como `elemento.style.color` pode devolver `""` mesmo que a folha CSS defina uma cor; ela não representa necessariamente o estilo final calculado. Para várias mudanças visuais relacionadas, use classes com `classList`.
+
+```javascript
+// HTML necessário: um elemento com id="aviso".
+const aviso = document.querySelector("#aviso");
+aviso.style.fontSize = "20px";
+aviso.textContent = "<strong>Olá</strong>"; // mostra as tags como texto
+aviso.innerHTML = "<strong>Olá</strong>";   // cria um strong no elemento
+```
+
+`innerHTML` interpreta HTML e substitui os filhos existentes. Use apenas com HTML confiável; para nomes e textos digitados pelo usuário, prefira `textContent` para não interpretar a entrada como marcação. Essas atribuições são alternativas: no exemplo, a última substitui a anterior.
+
+## DOMContentLoaded — futuro / referência
+
+`DOMContentLoaded` sinaliza que o HTML foi analisado e o DOM está pronto; não espera todas as imagens. Um script no head sem `defer` pode tentar selecionar um elemento que ainda não existe.
+
+```javascript
+// Exemplo para um script carregado antes de o DOM estar pronto.
+document.addEventListener("DOMContentLoaded", function () {
+  const botao = document.querySelector("#botao");
+  botao.onclick = function () {
+    console.log("DOM pronto e botão clicado");
+  };
+});
+```
+
+Outra opção para arquivo externo é `<script src="app.js" defer></script>`, que executa depois de analisar o HTML. Ou coloque o script ao final do body, depois dos elementos. Nesses casos simples, não é necessário combinar todas as opções. Um ouvinte registrado depois de `DOMContentLoaded` não recebe o evento que já passou.
+
+## Delegação de eventos — futuro / referência
+
+É ouvir o evento em um elemento pai para tratar ações dos filhos. Eventos como `click` normalmente sobem pela árvore (propagação), permitindo tratar inclusive filhos inseridos depois.
+
+```html
+<ul id="pendencias">
+  <li>Revisar <button type="button" data-acao="remover">Remover</button></li>
+</ul>
+```
+
+```javascript
+const pendencias = document.querySelector("#pendencias");
+
+pendencias.addEventListener("click", function (event) {
+  const botao = event.target.closest('button[data-acao="remover"]');
+  if (!botao || !pendencias.contains(botao)) return;
+  botao.closest("li").remove();
+});
+```
+
+`event.target` é onde o evento começou; `event.currentTarget` é onde o ouvinte está registrado (a lista neste exemplo). `closest()` procura no próprio elemento e nos ancestrais; assim, clicar em um ícone dentro do botão também funciona. O exemplo pressupõe um botão dentro de um li, como no HTML acima. Nem todo evento propaga dessa forma.

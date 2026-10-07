@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    span {
+      display: block;
+    }
+
+    li {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .concluido {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+  </style>
+
+  <body>
+    <h1>Treino de DOM</h1>
+
+    <p id="contador">Total: 0 | Concluídas: 0</p>
+
+    <input id="tarefa" type="text" placeholder="Digite uma tarefa" />
+
+    <button id="adicionar">Adicionar</button>
+    <button id="limparConcluidas">Limpar concluídas</button>
+
+    <ul id="lista"></ul>
+  </body>
+
+  <script src="Js/index.js"></script>
+</html>
